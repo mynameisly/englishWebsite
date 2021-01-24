@@ -7,7 +7,7 @@
     <div class="Login">
         <div class="header">
             <div class="logo_bg">
-                <img class="logo_img" src="@/assets/images/img-logo.png" alt="logo" />
+                <!-- <img class="logo_img" src="@/assets/images/img-logo.png" alt="logo" /> -->
                 <span class="logo_txt">百事娱乐</span>
             </div>
         </div>
