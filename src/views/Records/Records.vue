@@ -1,37 +1,55 @@
-<!--
- * @Description: 我的主页
- * @FilePath: \wb_litoob\src\views\homePage\HomePage.vue
- * @LastEditTime: 2020-07-05 12:53:23
---> 
 <template>
   <div class="Records">
-    <van-nav-bar
-      title="Records"
-      left-text
-      right-text
-      fixed
-    />
+    <div class="recordBox">
+      <div class="harder">
+        <p class="harder-title">Order Records</p>
+      </div>
+      <div class="recordCont">
+        <van-tabs v-model="activeName" @change="changeItem">
+          <van-tab title="Pending" name="a">No More Records</van-tab>
+          <van-tab title="Completed" name="b">No More Records</van-tab>
+          <van-tab title="Frozen" name="c">No More Records</van-tab>
+        </van-tabs>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Config from "@/utils/config.js";
 export default {
   name: "Records",
   data() {
-    return{
-
-    }
+    return {
+      activeName: "a",
+    };
   },
-  created() {
-    
-  },
+  created() {},
   methods: {
-    
-  }
+    changeItem() {},
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
+.Records {
+  .recordBox {
+    background: url("../../static/img/jl_bg.0296292.png") no-repeat top;
+    background-size: 100%;
+    min-height: 100vh;
+    .harder-title {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 40px 20px 5px;
+    }
+    .recordCont {
+      padding-bottom: 70px;
+      text-align: center;
+      color: #969799;
+      font-size: 14px;
+      line-height: 50px;
+      text-align: center;
+    }
+  }
+}
 </style>

@@ -29,6 +29,24 @@ export default {
 .jc-sa {
   justify-content: space-around;
 }
+.jc-sb {
+  justify-content: space-between;
+}
+.f18 {
+  font-size: 18px;
+}
+.f14 {
+  font-size: 14px;
+}
+.fw7 {
+  font-weight: 700;
+}
+.hl20 {
+  line-height: 20px;
+}
+.hl20 {
+  line-height: 20px;
+}
 .mt-5 {
   margin-top: 5px;
   height: 15px;

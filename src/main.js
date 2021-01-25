@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 import 'amfe-flexible'
 import '@/utils/filter';
-import config from '@/utils/config.js';
 
 import Vant from 'vant'
 import 'vant/lib/index.css'
@@ -18,7 +17,6 @@ Vue.prototype.moment = moment;
 Vue.prototype.fetchget = getRequest;
 Vue.prototype.fetchpost = postRequest;
 Vue.prototype.formDataObject = formDataObject;
-Vue.prototype.$config = config;
 
 Vue.use(Vant);
 Vue.config.productionTip = false

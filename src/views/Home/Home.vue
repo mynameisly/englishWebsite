@@ -252,7 +252,6 @@
 </template>
 
 <script>
-import Config from "@/utils/config.js";
 export default {
   name: "Home",
   data() {

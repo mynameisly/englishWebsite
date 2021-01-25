@@ -1,7 +1,6 @@
 <template>
   <div class="Service">
     <div class="top-bg"><p>Customer Service Center</p></div>
-
     <div class="pt-45">
       <div class="OnlineService">
         <div class="OnlineService-left">
@@ -48,7 +47,6 @@
 </template>
 
 <script>
-import Config from "@/utils/config.js";
 export default {
   name: "Service",
   data() {
@@ -148,7 +146,7 @@ export default {
       .but {
         color: #fff!important;
         border-radius: 50px;
-        padding: 8px 0;
+        padding: 5px 0;
         width: 82px;
         font-size: 14px;
         text-align: center;
@@ -163,6 +161,8 @@ export default {
       > div {
         color: #8c8c8d;
         width: 94%;
+        border-bottom-right-radius: 17px;
+        border-bottom-left-radius: 17px;
         p:first-child {
           color: #666;
           font-size: 15px;

@@ -1,51 +1,23 @@
 <template>
   <ul class="footer flex jc-sa w100pc fixed bott0 bg-fff aic footer">
-    <!-- <li class="item" v-for="(item, index) in footerList" :key="index" @click="toggleIem(item)">
+    <li
+      class="item"
+      v-for="(item, index) in footerList"
+      :key="index"
+      @click="toggleIem(index)"
+      :class="{item1:index == 2}"
+    >
       <router-link
         :to="item.path"
         aria-current="page"
-        class="flex2 aic f20 yellow router-link-exact-active active"
-        >
-        <img :src="item.src" alt="" class="imgg" />
-        <p class="mt-5 f12 text">{{item.name}}</p>
-        </router-link>
-    </li> -->
-    <li class="item">
-      <router-link
-        to="/index/Home"
-        aria-current="page"
-        class="flex2 aic f20 yellow router-link-exact-active active"
-        >
-        <img src="../static/img/Home-active.png" alt="" class="imgg" />
-        <p class="mt-5 f12 text">Home</p>
-        </router-link>
-    </li>
-    <li class="item">
-      <router-link to="/index/Service" class="flex2 aic f20 text">
-        <img src="../static/img/Servive.png" alt="" class="imgg" />
-        <p class="mt-5 text f12">Service</p></router-link
+        class="flex2 aic f20 yellow"
+        :class="{active:index == current}"
       >
-      <div id="tbox"></div>
+        <img :src="index == current?item.activeSrc:item.src" alt="" class="imgg" :class="{imgg1:index == 2}" />
+        <p class="mt-5 f12 text">{{ item.name }}</p>
+      </router-link>
     </li>
-    <li class="item item1">
-      <router-link to="/index/Orders" class="flex2 aic f20 text">
-        <img src="../static/img/Orders.png" alt="" class="imgg imgg1" />
-        <p class="mt-5 text f12">Orders</p></router-link
-      >
-      <div id="tbox"></div>
-    </li>
-    <li class="item">
-      <router-link to="/index/Records" class="flex2 aic f20 text">
-        <img src="../static/img/Records.png" alt="" class="imgg" />
-        <p class="mt-5 text f12">Records</p></router-link
-      >
-    </li>
-    <li class="item">
-      <router-link to="/index/Account" class="flex2 aic f20 text">
-        <img src="../static/img/Account.png" alt="" class="imgg" />
-        <p class="mt-5 text f12">Account</p></router-link
-      >
-    </li>
+    <!--  router-link-exact-active active -->
   </ul>
 </template>
 <script>
@@ -54,20 +26,46 @@ export default {
   data() {
     return {
       footNav: "Home",
-    //   footerList: [
-    //       {
-    //           path: '/index/Home',
-    //           src: '../static/img/Home-active.png',
-    //           name: 'Home'
-    //       }
-    //   ]
+      current: 0,
+      footerList: [
+        {
+          path: "/index/Home",
+          src: require("../static/img/Home.png"),
+          activeSrc: require("../static/img/Home-active.png"),
+          name: "Home",
+        },
+        {
+          path: "/index/Service",
+          src: require("../static/img/Service.png"),
+          activeSrc: require("../static/img/Service-active.png"),
+          name: "Service",
+        },
+        {
+          path: "/index/Orders",
+          src: require("../static/img/Orders.png"),
+          activeSrc: require("../static/img/Orders.png"),
+          name: "Orders",
+        },
+        {
+          path: "/index/Records",
+          src: require("../static/img/Records.png"),
+          activeSrc: require("../static/img/Records-active.png"),
+          name: "Records",
+        },
+        {
+          path: "/index/Account",
+          src: require("../static/img/Account.png"),
+          activeSrc: require("../static/img/Account-active.png"),
+          name: "Account",
+        },
+      ],
     };
   },
   methods: {
-      toggleIem(item){
-          
-      }
-  }
+    toggleIem(index) {
+      this.current = index;
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -95,6 +93,7 @@ export default {
   }
   .active .text {
     color: #ff5200;
+    text-decoration: none;
   }
   .text {
     color: #797d82;
