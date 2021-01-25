@@ -56,7 +56,7 @@
 
       <!-- 列表项 -->
       <van-cell-group class="one-block">
-        <van-cell is-link to="index">
+        <van-cell is-link to="/Personal">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Personal.png" />
@@ -64,7 +64,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/Direct">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Direct.png" />
@@ -72,7 +72,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/index/Records">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Order.png" />
@@ -80,7 +80,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/Invite">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Invite.png" />
@@ -88,7 +88,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/Activity">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Activity.png" />
@@ -96,7 +96,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/System">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/System.png" />
@@ -107,7 +107,7 @@
       </van-cell-group>
 
       <van-cell-group class="two-block">
-        <van-cell is-link to="index">
+        <van-cell is-link to="/Safety">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Safety.png" />

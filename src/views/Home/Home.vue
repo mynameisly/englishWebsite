@@ -29,28 +29,28 @@
           <img src="../../static/img/chongzhi.96189b6.png" alt />
           <p>Recharge</p>
         </van-grid-item>
-        <van-grid-item class="menu-wrapper">
+        <van-grid-item class="menu-wrapper" @click="goWithdrawal">
           <img src="../../static/img/Withdrawal.png" alt />
           <p>Withdrawal</p>
         </van-grid-item>
-        <van-grid-item class="menu-wrapper">
+        <van-grid-item class="menu-wrapper" @click="goInvite">
           <img src="../../static/img/Invite.png" alt />
           <p>Invite Friends</p>
         </van-grid-item>
-        <van-grid-item class="menu-wrapper">
+        <van-grid-item class="menu-wrapper" @click="goRules">
           <img src="../../static/img/Rules.png" alt style="margin-top: -10px" />
           <p>Rules</p>
         </van-grid-item>
-        <van-grid-item class="menu-wrapper">
+        <van-grid-item class="menu-wrapper" @click="goCooperative">
           <img src="../../static/img/Cooperative.png" alt />
           <p>Cooperative Agent</p>
         </van-grid-item>
-        <van-grid-item class="menu-wrapper">
+        <van-grid-item class="menu-wrapper" @click="goPlatform">
           <img src="../../static/img/Platform.png" alt />
           <p>Platform Introduction</p>
         </van-grid-item>
 
-        <van-grid-item class="menu-wrapper">
+        <van-grid-item class="menu-wrapper" @click="goVideo">
           <img src="../../static/img/Video.png" alt />
           <p>Video Guide</p>
         </van-grid-item>
@@ -326,7 +326,26 @@ export default {
     goRecharge() {
       this.$router.push({path: '/Recharge'})
     },
-    
+    goWithdrawal() {
+      alert(1)
+      this.$router.push({path: '/Link'})
+    },
+    goInvite() {
+      this.$router.push({path: '/Invite'})
+    },
+    goRules() {
+      this.$router.push({path: '/Rules'})
+    },
+    goCooperative() {
+      this.$router.push({path: '/Cooperative'})
+    },
+    goPlatform() {
+      this.$router.push({path: '/Platform'})
+    },
+    goVideo() {
+      alert(1)
+      this.$router.push({path: '/Video'})
+    }
   },
 };
 </script>

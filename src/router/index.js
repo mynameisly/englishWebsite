@@ -12,6 +12,11 @@ const Shoppers = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/H
 const ShoppingAssistant = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/ShoppingAssistant');
 const Recharge = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Recharge');
 const Link = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Link');
+const Invite = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Invite');
+const Rules = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Rules');
+const Cooperative = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Cooperative');
+const Platform = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Platform');
+const Video = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Video');
 
 // Service
 const Service = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Service/Service');
@@ -24,7 +29,13 @@ const Records = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Re
 
 // Account
 const Account = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Account');
-
+const Personal = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Personal');
+const Direct = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Direct');
+const Activity = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Activity');
+const System = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/System');
+const Safety = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Safety');
+const ChangePwd = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/ChangePwd');
+const SetWithdrawalPwd = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/SetWithdrawalPwd');
 
 
 
@@ -73,12 +84,6 @@ const routes = [{
 		explain: 'Account',
 		component: Account
 	},
-	{
-		path: 'Link',
-		name: 'Link',
-		explain: 'Link a Bank Account',
-		component: Link
-	},
 	]
 },
 // 登录页面
@@ -115,6 +120,87 @@ const routes = [{
 	explain: 'Recharge',
 	component: Recharge
 },
+{
+	path: '/Link',
+	name: 'Link',
+	explain: 'Link a Bank Account',
+	component: Link
+},
+{
+	path: '/Invite',
+	name: 'Invite',
+	explain: 'Invite Friends',
+	component: Invite
+},
+{
+	path: '/Rules',
+	name: 'Rules',
+	explain: 'Platform Rules',
+	component: Rules
+},
+{
+	path: '/Cooperative',
+	name: 'Cooperative',
+	explain: 'Cooperative Agent',
+	component: Cooperative
+},
+{
+	path: '/Platform',
+	name: 'Platform',
+	explain: 'Platform Introduction',
+	component: Platform
+},
+{
+	path: '/Video',
+	name: 'Video',
+	explain: 'Video Guide',
+	component: Video
+},
+//#endregion
+
+//#region Account
+{
+	path: '/Personal',
+	name: 'Personal',
+	explain: 'Personal Info',
+	component: Personal
+}, 
+{
+	path: '/Direct',
+	name: 'Direct',
+	explain: 'Direct Subordinate',
+	component: Direct
+},
+{
+	path: '/Activity',
+	name: 'Activity',
+	explain: 'Activity Center',
+	component: Activity
+},
+{
+	path: '/System',
+	name: 'System',
+	explain: 'System Message',
+	component: System
+}, 
+{
+	path: '/Safety',
+	name: 'Safety',
+	explain: 'Safety Management',
+	component: Safety
+}, 
+{
+	path: '/ChangePwd',
+	name: 'ChangePwd',
+	explain: 'Change Login Password',
+	component: ChangePwd
+}, 
+{
+	path: '/SetWithdrawalPwd',
+	name: 'SetWithdrawalPwd',
+	explain: 'Set Withdrawal Password',
+	component: SetWithdrawalPwd
+}, 
 //#endregion
 
 

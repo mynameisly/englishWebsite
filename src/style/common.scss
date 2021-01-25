@@ -11,7 +11,7 @@
 }
 .van-tab {
     font-size: 14px;
-    // color: #fff;
+    color: #fff;
 }
 .van-tabs--line .van-tabs__wrap{
     border-bottom: 1px solid #FFA979;
@@ -37,9 +37,25 @@
     font-weight: 700;
 }
 .van-cell{
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 .van-cell__title{
     display: flex;
     align-items: center;
+}
+.van-field__label{
+    width: 70px;
+}
+.van-dialog__header{
+    background-image: linear-gradient(180deg,#ff792c,#ff5201);
+    color: #fff;
+    padding: 10px 0;
+    font-size: 16px;
+}
+.van-dialog__confirm{
+    color: #ee0a24;
+}
+.van-dialog__message--has-title{
+    padding-top: 24px;
 }

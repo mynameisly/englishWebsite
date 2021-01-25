@@ -1,33 +1,52 @@
 <template>
-  <div class="Link">
-    <van-nav-bar title="Link" left-arrow @click-left="onClickLeft" />
-    <div class="commonbox pd10">
-      <p class="f12 chui">
-        <span class="orange f14">Tip:</span>
-        Please enter the correct personal information
-      </p>
-    </div>
+  <div class="ChangePwd">
+    <!-- header -->
+    <van-nav-bar
+      title="ChangePwd Messages"
+      left-arrow
+      @click-left="onClickLeft"
+    />
 
     <div class="commonbox personaldatamain">
       <div class="item" style="padding-top: 0">
-        <van-field v-model="form.tel" type="tel" label="+91" placeholder="Enter Mobile Number."/>
-      </div>
-      <div class="item">
-        <van-field v-model="form.accountName" label="Account Name" placeholder="Enter Account Name" />
-      </div>
-      <div class="item">
         <van-field
-          v-model="form.accountNumber"
-          type="digit"
-          label="Account Number"
-          placeholder="Enter Account Number"
+          v-model="form.mobile"
+          type="tel"
+          label="+91"
+          placeholder="Enter Mobile Number."
         />
       </div>
       <div class="item">
-        <van-field v-model="form.backName" label="Bank Name" placeholder="Enter Bank Name"/>
+        <van-field
+        type="password"
+          v-model="form.oldPwd"
+          label="Old Password"
+          placeholder="Enter Old Password"
+        />
       </div>
       <div class="item">
-        <van-field v-model="form.ifscCode" label="IFSC Code" placeholder="Enter IFSC Code"/>
+        <van-field
+          v-model="form.withdrawalPwd"
+          type="password"
+          label="Enter Withdrawal Password"
+          placeholder="Enter Withdrawal Password"
+        />
+      </div>
+      <div class="item">
+        <van-field
+        type="password"
+          v-model="form.newPwd"
+          label="New Password"
+          placeholder="Set New Password"
+        />
+      </div>
+      <div class="item">
+        <van-field
+        type="password"
+          v-model="form.confirmPwd"
+          label="Confirm Password"
+          placeholder="Confirm Password"
+        />
       </div>
     </div>
 
@@ -36,17 +55,18 @@
 </template>
 
 <script>
+import { Dialog } from "vant";
 export default {
-  name: "Link",
+  name: "ChangePwd",
   data() {
     return {
-      form: {
-        tel: "",
-        accountName: "",
-        accountNumber: "",
-        backName: "",
-        ifscCode: "",
-      },
+      form:{
+        mobile: "",
+        oldPwd: "",
+        withdrawalPwd: "",
+        newPwd: "",
+        confirmPwd: ""
+      }
     };
   },
   created() {},
@@ -59,9 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Link {
-  height: 100vh;
-  background: #f3f3f3;
+.ChangePwd {
   .commonbox {
     margin: 10px;
     background-color: #fff;
@@ -82,7 +100,6 @@ export default {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
-
   .confirm {
     font-size: 16px;
     width: 90%;
