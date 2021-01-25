@@ -8,6 +8,10 @@ const Register = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/R
 const HomePage = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/HomePage');
 // Home
 const Home = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Home');
+const Shoppers = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Shoppers');
+const ShoppingAssistant = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/ShoppingAssistant');
+const Recharge = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Recharge');
+const Link = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Link');
 
 // Service
 const Service = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Service/Service');
@@ -69,6 +73,12 @@ const routes = [{
 		explain: 'Account',
 		component: Account
 	},
+	{
+		path: 'Link',
+		name: 'Link',
+		explain: 'Link a Bank Account',
+		component: Link
+	},
 	]
 },
 // 登录页面
@@ -86,13 +96,25 @@ const routes = [{
 	component: Register
 },
 
-//#region 主页
-// {
-// 	path: '/EditLottery',
-// 	name: 'EditLottery',
-// 	explain: '编辑彩票',
-// 	component: EditLottery
-// },
+//#region Home
+{
+	path: '/Shoppers',
+	name: 'Shoppers',
+	explain: 'The Shoppers',
+	component: Shoppers
+},
+{
+	path: '/ShoppingAssistant',
+	name: 'ShoppingAssistant',
+	explain: 'Shopping Assistant',
+	component: ShoppingAssistant
+},
+{
+	path: '/Recharge',
+	name: 'Recharge',
+	explain: 'Recharge',
+	component: Recharge
+},
 //#endregion
 
 

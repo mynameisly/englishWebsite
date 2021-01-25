@@ -48,10 +48,6 @@ export default {
     }
   }
 
-  .personaldatamain{
-    
-  }
-
   .confirm {
     font-size: 16px;
     width: 90%;
@@ -65,8 +61,6 @@ export default {
       from(#ff7a2d),
       to(#ff5201)
     );
-    margin: 0 auto;
-    text-align: center;
     background-image: linear-gradient(180deg, #ff7a2d, #ff5201);
     border-radius: 0.13333rem;
   }

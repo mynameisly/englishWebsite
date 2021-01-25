@@ -8,7 +8,7 @@
     <div class="banners">
       <van-swipe class="imgWrapper" :autoplay="3000">
         <van-swipe-item v-for="(item, index) in imagesArr" :key="index">
-          <a>
+          <a @click="toShoppers">
             <img :src="item.homePicLinkUrl" />
           </a>
         </van-swipe-item>
@@ -17,7 +17,7 @@
     <!-- 选项组 -->
     <div class="home-menu">
       <van-grid :column-num="4">
-        <van-grid-item class="menu-wrapper" @click="a">
+        <van-grid-item class="menu-wrapper" @click="goShoppingAssistant">
           <img
             src="../../static/img/licai.808f4ef.png"
             alt
@@ -25,7 +25,7 @@
           />
           <p>Shopping Assistant</p>
         </van-grid-item>
-        <van-grid-item class="menu-wrapper">
+        <van-grid-item class="menu-wrapper" @click="goRecharge">
           <img src="../../static/img/chongzhi.96189b6.png" alt />
           <p>Recharge</p>
         </van-grid-item>
@@ -259,8 +259,7 @@ export default {
       username: "2345678",
       imagesArr: [
         {
-          homePicLinkUrl:
-            "https://api.theshoppers.app/files/admin/971be1df13d3d2979cb2e77a.jpg",
+          homePicLinkUrl:"https://api.theshoppers.app/files/admin/971be1df13d3d2979cb2e77a.jpg",
         },
       ],
     };
@@ -318,7 +317,16 @@ export default {
         }
       });
     },
-    a() {},
+    toShoppers() {
+      this.$router.push({path: '/Shoppers'})
+    },
+    goShoppingAssistant() {
+      this.$router.push({path: '/ShoppingAssistant'})
+    },
+    goRecharge() {
+      this.$router.push({path: '/Recharge'})
+    },
+    
   },
 };
 </script>

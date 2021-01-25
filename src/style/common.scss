@@ -11,7 +11,7 @@
 }
 .van-tab {
     font-size: 14px;
-    color: #fff;
+    // color: #fff;
 }
 .van-tabs--line .van-tabs__wrap{
     border-bottom: 1px solid #FFA979;
@@ -23,4 +23,23 @@
 }
 .van-tab__pane{
     font-size: 14px;
+}
+
+.van-nav-bar .van-icon {
+    color: #333;
+}
+.van-nav-bar__title {
+    font-weight: 700;
+}
+.van-nav-bar__text {
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+}
+.van-cell{
+    padding: 0;
+}
+.van-cell__title{
+    display: flex;
+    align-items: center;
 }

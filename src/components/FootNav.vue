@@ -17,7 +17,6 @@
         <p class="mt-5 f12 text">{{ item.name }}</p>
       </router-link>
     </li>
-    <!--  router-link-exact-active active -->
   </ul>
 </template>
 <script>
