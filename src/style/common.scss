@@ -62,3 +62,24 @@
 .van-cell-group{
     padding: 0 20px;
 }
+.van-field__control{
+    font-size: 18px;
+}
+.van-icon-envelop-o,
+.van-icon-user-o,
+.van-icon-bag-o,
+.van-icon-coupon-o,
+.van-icon-lock{
+    color: #fff;
+    font-size: 22px!important;
+    margin-right: 10px;
+}
+.van-field__label>span{
+    font-size: 15px!important;
+}
+.van-popup {
+    // overflow-y: hidden;
+}
+.van-notice-bar{
+    background: transparent;
+}

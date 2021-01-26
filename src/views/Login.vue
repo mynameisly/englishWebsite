@@ -1,102 +1,130 @@
 <template>
-    <div class="Login">
-        <div class="header">
-            <div class="logo_bg">
-                <span class="logo_txt">englishWebsite</span>
-            </div>
+  <div class="Login">
+    <div class="login">
+      <p class="login-img">
+        <img src="../static/img/login.6154068.png" alt="" />
+      </p><br /><br /><br />
+      <div class="loginbox">
+        <van-field
+          v-model="form.mobile"
+          label="+91"
+          placeholder="Enter Mobile Number"
+          :rules="[{ required: true, message: 'Mobile Number不能为空' }]"
+        />
+        <van-field
+        left-icon="lock"
+          type="password"
+          v-model="form.password"
+          placeholder="Enter Your Password"
+          :rules="[{ required: true, message: 'Password不能为空' }]"
+        />
+      </div>
+
+      <div class="confirm" @click="login">Log In</div>
+      <div class="bottom">
+        <div class="regbox">
+          <div @click="$router.push({path: '/SignUp'})">Sign Up</div>
+          <div class="chui" @click="$router.push({path: '/ForgottenPwd'})">Forgotten Password</div>
         </div>
-        <div class="content">
-            <van-form class="login_box" @submit="loginEvent">
-                <van-field
-                    v-model="params.username"
-                    label="用户名"
-                    size="large"
-                    placeholder="请输入登陆账号"
-                    :rules="[{required: true, message: '用户名不能为空'}]"
-                />
-                <van-field
-                    v-model="params.password"
-                    label="密码"
-                    size="large"
-                    type="password"
-                    placeholder="请输入密码"
-                    :rules="[{required: true, message: '密码不能为空'}]"
-                />
-                <div class="login_btn">
-                    <van-button type="info" native-type="submit" block>立即登录</van-button>
-                </div>
-            </van-form>
-        </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import { setlocalStorage, removelocalStorageKey } from "@uit/comtool";
 export default {
-    name: "Login",
-    data() {
-        return {
-            params: {
-                username: "test11",
-                password: "Aa123456"
-            }
-        };
-    },
+  name: "Login",
+  data() {
+    return {
+      form: {
+        mobile: "",
+        password: ""
+      },
+    };
+  },
 
-    methods: {
-        // 登录事件
-        loginEvent() {
-            // 表单转化
-            // let formData = this.formDataObject(this.params);
-            // this.fetchpost("/api/login", formData).then(res => {
-            //     this.$toast(res.msg);
-            //     if (res.code === 500) {
-            //     } else {
-            //         setlocalStorage("AUTH_PARAM", res.token);
-            //         this.$router.push("/index");
-            //     }
-            // });
-        }
+  methods: {
+    // 登录事件
+    login() {
+      // 表单转化
+      // let formData = this.formDataObject(this.form);
+      // this.fetchpost("/api/login", formData).then(res => {
+      //     this.$toast(res.msg);
+      //     if (res.code === 500) {
+      //     } else {
+      //         setlocalStorage("AUTH_PARAM", res.token);
+      //         this.$router.push("/index");
+      //     }
+      // });
+      this.$router.push("/index/Home");
     },
-    mounted() {
-        // 清除本地 token  userinfo 数据
-        removelocalStorageKey("AUTH_PARAM", "AUTH_INFO");
-    }
+  },
+  mounted() {
+    // 清除本地 token  userinfo 数据
+    removelocalStorageKey("AUTH_PARAM", "AUTH_INFO");
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.header {
-    width: 100%;
-    background-color: #0468a5;
-    padding: 15px 0;
-    text-align: center;
-    box-sizing: border-box;
-    .logo_bg {
-        display: inline-block;
-        .logo_img {
-            display: inline-block;
-            width: 30px;
-            vertical-align: middle;
-        }
-        .logo_txt {
-            margin-left: 10px;
-            font-size: 22px;
-            color: #ffffff;
-        }
+.Login {
+    .van-cell{
+        background: transparent;
     }
-}
-.content {
-    width: 100%;
-    .login_box {
-        width: 90%;
-        margin-top: 80px;
-        margin-left: 5%;
+    .van-field{
+        border-bottom: 1px solid #eee;
     }
-    .login_btn {
+    
+  .login {
+    width: 100vw;
+    height: 100vh;
+    background: url("../static/img/bj.545f1af.png") no-repeat top #fa6d1c;
+    background-size: cover;
+    overflow: hidden;
+    padding: 1rem 0.5rem 0;
+    .login-img {
+      height: 92px;
+      margin-top: 90px;
+      text-align: center;
+      img {
+        width: 92px;
+        height: 100%;
+        margin: 0 auto;
+      }
+    }
+    .loginbox {
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+    .confirm {
+      font-size: 16px;
+      width: 90%;
+      line-height: 1rem;
+      border: none;
+      color: #ff5e07;
+      text-align: center;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 0.13333rem;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+      .regbox {
+        display: flex;
+        justify-content: space-between;
         width: 100%;
-        margin-top: 20px;
-        padding: 0 5px;
-        box-sizing: border-box;
+        color: #fff;
+        font-size: 15px;
+        padding: 0 0.5rem;
+        div{
+            font-size: 15px;
+        }
+      }
     }
+  }
 }
 </style>

@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const Login = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Login');
+const SignUp = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/SignUp');
+const ForgottenPwd = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/ForgottenPwd');
 const HomePage = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/HomePage');
 
 // Home
@@ -51,7 +53,7 @@ const AccountHis = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie
 
 const routes = [{
 	path: '/',
-	redirect: '/index',
+	redirect: '/Login',
 },
 // 主页面
 {
@@ -96,8 +98,20 @@ const routes = [{
 {
 	path: '/login',
 	name: 'Login',
-	explain: '登录页面',
+	explain: 'Login',
 	component: Login
+},
+{
+	path: '/ForgottenPwd',
+	name: 'ForgottenPwd',
+	explain: 'Forgotten Password',
+	component: ForgottenPwd
+},
+{
+	path: '/SignUp',
+	name: 'SignUp',
+	explain: 'SignUp',
+	component: SignUp
 },
 
 //#region Home

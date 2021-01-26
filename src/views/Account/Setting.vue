@@ -41,6 +41,7 @@ export default {
       })
         .then(() => {
           // on confirm
+          this.$router.push({path: '/Login'})
         })
         .catch(() => {
           // on cancel

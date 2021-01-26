@@ -248,6 +248,36 @@
         </li>
       </ul>
     </div>
+
+    <!-- 弹出框 -->
+    <van-popup v-model="showPop" style="width: 80%">
+      <div class="h5-bj" style="border:1px solid red;width:100%;height:800px">
+        <div class="h5-popup">
+          <div class="ld"></div>
+          <p>
+            January 26th is our 72nd anniversary of Republic Day. <br />
+            To appreciate our members long time support and as per Myntra/Paytm
+            Mall request, the minimum amount to unlock respective rooms have
+            been reduced from 10000Rs to 5000Rs (Myntra) and from 50000Rs to
+            20000Rs (Paytm Mall). <br />
+            This is to enable more members to enjoy 3% &amp; 3.5% commission.<br /><br />
+            Event registration period: 26Jan - 30Jan<br /><br />
+             1. Invite 1 friend with First time recharge 5000Rs and above(unlock
+            Myntra), inviter will be rewarded 571Rs<br /><br />
+            2. Invite 1 friend with First time recharge 20000Rs and above(unlock
+            Paytm Mall), inviter will be rewarded 1771Rs
+            <br />
+            <br />
+            We wish all our valued members a Happy Republic Day and thank you
+            for the long time supports.
+            <br />
+            <br />
+            Event Registration WhatsApp Number: +91 89660 48523
+          </p>
+        </div>
+        <van-button round class="popBtn" @click="confirmTip">OK</van-button> 
+      </div>
+    </van-popup>
   </div>
 </template>
 
@@ -256,10 +286,12 @@ export default {
   name: "Home",
   data() {
     return {
+      showPop: true,
       username: "2345678",
       imagesArr: [
         {
-          homePicLinkUrl:"https://api.theshoppers.app/files/admin/971be1df13d3d2979cb2e77a.jpg",
+          homePicLinkUrl:
+            "https://api.theshoppers.app/files/admin/971be1df13d3d2979cb2e77a.jpg",
         },
       ],
     };
@@ -317,34 +349,37 @@ export default {
         }
       });
     },
+    confirmTip() {
+      this.showPop = false
+    },
     toShoppers() {
-      this.$router.push({path: '/Shoppers'})
+      this.$router.push({ path: "/Shoppers" });
     },
     goShoppingAssistant() {
-      this.$router.push({path: '/ShoppingAssistant'})
+      this.$router.push({ path: "/ShoppingAssistant" });
     },
     goRecharge() {
-      this.$router.push({path: '/Recharge'})
+      this.$router.push({ path: "/Recharge" });
     },
     goWithdrawal() {
-      this.$router.push({path: '/Withdrawal'})
+      this.$router.push({ path: "/Withdrawal" });
     },
     goInvite() {
-      this.$router.push({path: '/Invite'})
+      this.$router.push({ path: "/Invite" });
     },
     goRules() {
-      this.$router.push({path: '/Rules'})
+      this.$router.push({ path: "/Rules" });
     },
     goCooperative() {
-      this.$router.push({path: '/Cooperative'})
+      this.$router.push({ path: "/Cooperative" });
     },
     goPlatform() {
-      this.$router.push({path: '/Platform'})
+      this.$router.push({ path: "/Platform" });
     },
     goVideo() {
-      alert(1)
-      this.$router.push({path: '/Video'})
-    }
+      alert(1);
+      this.$router.push({ path: "/Video" });
+    },
   },
 };
 </script>
@@ -517,6 +552,50 @@ export default {
           border-radius: 7px 0 0 0;
         }
       }
+    }
+  }
+  .h5-bj {
+    background: url("../../static/img/popupBg.55e3044.png") no-repeat 0 0
+      #fcfcfc;
+    background-size: 100%;
+    height: auto;
+    overflow: hidden;
+    .h5-popup {
+      border-radius: 6px;
+      width: 252px;
+      height: auto;
+      background: #fff;
+      margin: 81px auto 0;
+      box-shadow: 3px 7px 17px #eee;
+      padding: 115px 20px 20px;
+      position: relative;
+      text-align: center;
+      .ld {
+        height: 118px;
+        width: 118px;
+        background: url("../../static/img/ld.70110f6.png") no-repeat top;
+        background-size: 100%;
+        position: absolute;
+        left: 50%;
+        top: -30px;
+        margin-left: -59px;
+      }
+      p {
+        color: #666;
+        font-size: 13px;
+        line-height: 24px;
+        margin-top: -20px;
+      }
+    }
+    .popBtn {
+      width: 252px;
+      display: flex;
+      justify-content: center;
+      margin: 26px auto 20px !important;
+      background-color: #ff5b0a;
+      border: 1px solid #ff5b0a;
+      color: #fff;
+      font-size: 20px;
     }
   }
 }
