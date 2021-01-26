@@ -11,15 +11,15 @@
       <div class="accountDetails">
         <div class="Available">
           <p>Available Balance</p>
-          <p>0</p>
+          <p>{{balance}}</p>
         </div>
         <div class="Shopping">
           <p>Shopping Assistant</p>
-          <p>0</p>
+          <p>{{shoping}}</p>
         </div>
         <div class="Available">
           <p>Total Income</p>
-          <p>0</p>
+          <p>{{total}}</p>
         </div>
       </div>
 
@@ -79,10 +79,28 @@
 export default {
   name: "ShoppingAssistant",
   data() {
-    return {};
+    return {
+      balance: "",
+      shoping: "",
+      total: ""
+    };
   },
-  created() {},
+  mounted() {
+    this.getShoppingData()
+  },
   methods: {
+    getShoppingData() {
+      // 发送请求
+      // let params = this.form;
+      // this.fetchget("/api/linkBackAccount", params).then((res) => {
+      //   if (res.code == 200) {
+          
+      //   }
+      // });
+      this.balance = 0;
+      this.shoping = 0;
+      this.total = 0
+    },
     onClickLeft() {
       this.$router.go(-1);
     },

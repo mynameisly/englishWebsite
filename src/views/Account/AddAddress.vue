@@ -1,63 +1,33 @@
 <template>
-  <div class="SetWithdrawalPwd">
-    <!-- header -->
-    <van-nav-bar
-      title="SetWithdrawalPwd Messages"
-      left-arrow
-      @click-left="onClickLeft"
-    />
+  <div class="AddAddress">
+    <van-nav-bar title="AddAddress" left-arrow @click-left="onClickLeft" />
 
     <div class="commonbox personaldatamain">
       <div class="item" style="padding-top: 0">
-        <van-field
-          v-model="form.mobile"
-          type="tel"
-          label="Mobile Number"
-          readonly
-          placeholder="Enter Mobile Number."
-        />
+        <van-field v-model="form.tel" type="tel" label="+91" placeholder="Mobile Number"/>
       </div>
       <div class="item">
-        <van-field
-        type="password"
-          v-model="form.oldPwd"
-          label="Old Password"
-          placeholder="Enter Old Password"
-        />
+        <van-field v-model="form.name" label="Name" placeholder="Name" />
       </div>
       <div class="item">
-        <van-field
-        type="password"
-          v-model="form.newPwd"
-          label="New Password"
-          placeholder="Set New Password"
-        />
-      </div>
-      <div class="item">
-        <van-field
-        type="password"
-          v-model="form.confirmPwd"
-          label="Confirm Password"
-          placeholder="Confirm Password"
-        />
+        <van-field v-model="form.address" label="Address" placeholder="Address"/>
       </div>
     </div>
 
-    <div class="confirm" @click="setWithdrawalPwd">OK</div>
+    <div class="confirm" @click="addAddress">Save</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "SetWithdrawalPwd",
+  name: "AddAddress",
   data() {
     return {
-      form:{
-        mobile: "+91234****5678",
-        oldPwd: "",
-        newPwd: "",
-        confirmPwd: ""
-      }
+      form: {
+        tel: "",
+        name: "",
+        address: "",
+      },
     };
   },
   created() {},
@@ -65,10 +35,10 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
-    setWithdrawalPwd() {
+    addAddress() {
       // 发送请求
       // let params = this.form;
-      // this.fetchget("/api/setWithdrawalPwd", params).then((res) => {
+      // this.fetchget("/api/addAddress", params).then((res) => {
       //   if (res.code == 200) {
           
       //   }
@@ -79,7 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.SetWithdrawalPwd {
+.AddAddress {
+  height: 100vh;
+  background: #f3f3f3;
   .commonbox {
     margin: 10px;
     background-color: #fff;
@@ -100,6 +72,7 @@ export default {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
+
   .confirm {
     font-size: 16px;
     width: 90%;

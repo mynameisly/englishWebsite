@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="confirm">OK</div>
+    <div class="confirm" @click="linkBackAccount">OK</div>
   </div>
 </template>
 
@@ -54,6 +54,15 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
+    linkBackAccount() {
+      // 发送请求
+      // let params = this.form;
+      // this.fetchget("/api/linkBackAccount", params).then((res) => {
+      //   if (res.code == 200) {
+          
+      //   }
+      // });
+    }
   },
 };
 </script>

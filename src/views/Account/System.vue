@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import {Dialog} from 'vant'
+import { Dialog } from "vant";
 export default {
   name: "System",
   data() {
@@ -84,8 +84,8 @@ export default {
       Dialog.confirm({
         title: "Tip",
         message: "Marked as read with one click？",
-        confirmButtonText: 'OK',
-        cancelButtonText: 'Cancel'
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel",
       })
         .then(() => {
           // on confirm

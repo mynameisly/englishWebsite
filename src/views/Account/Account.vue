@@ -19,38 +19,47 @@
             </div>
           </div>
           <div class="signin">
-            <p class="p1">Check-In</p>
+            <p class="p1" @click="$router.push({ path: '/CheckIn' })">
+              Check-In
+            </p>
           </div>
         </div>
         <div class="flex jc-sb yaoqin">
           <div class="code">
             My Invitation Code：
-            <span>00639Q</span>
+            <span ref="code">{{ inviteCode }}</span>
           </div>
-          <div class="capybut">Copy</div>
+          <button
+            class="capybut"
+            :data-clipboard-text="inviteCode"
+            @click="copyInviteCode"
+          >
+            Copy
+          </button>
         </div>
       </div>
+
       <!-- icons -->
       <div class="flex myicon">
-        <div>
+        <div @click="$router.push({path: '/Balance'})">
           <img src="../../static/img/Account/Balance.png" alt="" />
           <p>Balance</p>
-          <span> 0 </span>
+          <span> {{balance}} </span>
         </div>
-        <div>
+        <div @click="$router.push({path: '/AccountHis'})">
           <img src="../../static/img/Account/History.png" alt="" />
           <p>History</p>
-          <span>-- --</span>
+          <span> {{history}} </span>
         </div>
-        <div>
+        <div @click="$router.push({path: '/ShoppingAssistant'})">
           <img src="../../static/img/Account/Shopping.png" alt="" />
           <p>Shopping Assistant</p>
-          <span>0</span>
+          <span> {{shopping}} </span>
         </div>
         <div>
           <img src="../../static/img/Account/In.png" alt="" />
           <p>In Review</p>
-          <span class="creds"> 0 </span>
+          <span class="creds"> {{inReview}} </span>
         </div>
       </div>
 
@@ -115,7 +124,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/BankCard">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Bank.png" />
@@ -123,7 +132,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/Address">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Address.png" />
@@ -131,7 +140,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/index/Service">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Customer.png" />
@@ -139,7 +148,7 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="index">
+        <van-cell is-link to="/Setting">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Setting.png" />
@@ -153,22 +162,50 @@
 </template>
 
 <script>
+import Clipboard from "clipboard";
 import { Toast } from "vant";
 export default {
   name: "Account",
   data() {
-    return {};
+    return {
+      inviteCode: "", //邀请码
+      balance: "0",
+      history: "-- --",
+      shopping: "0",
+      inReview: "0",
+    };
   },
-  created() {
-    // this.init();
+  mounted() {
+    this.init();
   },
   methods: {
     init() {
-      this.getUserCenterInfo();
+      this.getAccountData();
     },
-    /** 退出登录 */
-    logout() {
-      console.log("logout......");
+    getAccountData() {
+      // 发送请求获取邀请码
+      // let params = {};
+      // this.fetchget("/api/getAccountData", params).then((res) => {
+      //   if (res.code == 200) {
+      //   }
+      // });
+      this.inviteCode = "00639Q";
+      this.balance = "0";
+      this.history = "-- --";
+      this.shopping =  "0";
+      this.inReview =  "0";
+    },
+    copyInviteCode() {
+      // 复制邀请码
+      var clipboard = new Clipboard(".capybut");
+      clipboard.on("success", (e) => {
+        Toast("Copied successfully");
+        clipboard.destroy(); // 释放内存
+      });
+      clipboard.on("error", (e) => {
+        Toast("该浏览器不支持自动复制");
+        clipboard.destroy(); // 释放内存
+      });
     },
   },
 };
@@ -265,7 +302,8 @@ export default {
           }
         }
         .capybut {
-          padding: 8px 12px;
+          padding: 6px 12px;
+          border: none;
           font-size: 12px;
           background: #302821;
           color: #e8c38c;

@@ -8,11 +8,12 @@
     />
 
     <div class="commonbox personaldatamain">
-      <div class="item" style="padding-top: 0">
+      <div class="item" style="padding-top: 0;">
         <van-field
           v-model="form.mobile"
           type="tel"
-          label="+91"
+          label="Mobile Number"
+          readonly
           placeholder="Enter Mobile Number."
         />
       </div>
@@ -50,18 +51,17 @@
       </div>
     </div>
 
-    <div class="confirm">OK</div>
+    <div class="confirm" @click="changePwd">OK</div>
   </div>
 </template>
 
 <script>
-import { Dialog } from "vant";
 export default {
   name: "ChangePwd",
   data() {
     return {
       form:{
-        mobile: "",
+        mobile: "+91234****5678",
         oldPwd: "",
         withdrawalPwd: "",
         newPwd: "",
@@ -74,6 +74,15 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
+    changePwd() {
+      // 发送请求
+      // let params = this.form;
+      // this.fetchget("/api/changePwd", params).then((res) => {
+      //   if (res.code == 200) {
+          
+      //   }
+      // });
+    }
   },
 };
 </script>

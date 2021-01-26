@@ -39,6 +39,7 @@
 .van-cell{
     padding-left: 0;
     padding-right: 0;
+    align-items: center;
 }
 .van-cell__title{
     display: flex;
@@ -58,4 +59,7 @@
 }
 .van-dialog__message--has-title{
     padding-top: 24px;
+}
+.van-cell-group{
+    padding: 0 20px;
 }

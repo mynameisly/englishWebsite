@@ -74,4 +74,7 @@ export default {
 .f12 {
   font-size: 12px;
 }
+.fff {
+    color: #fff;
+}
 </style>

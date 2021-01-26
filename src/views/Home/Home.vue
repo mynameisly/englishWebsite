@@ -327,8 +327,7 @@ export default {
       this.$router.push({path: '/Recharge'})
     },
     goWithdrawal() {
-      alert(1)
-      this.$router.push({path: '/Link'})
+      this.$router.push({path: '/Withdrawal'})
     },
     goInvite() {
       this.$router.push({path: '/Invite'})

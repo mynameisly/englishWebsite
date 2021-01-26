@@ -4,14 +4,15 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const Login = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Login');
-const Register = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Register');
 const HomePage = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/HomePage');
+
 // Home
 const Home = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Home');
 const Shoppers = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Shoppers');
 const ShoppingAssistant = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/ShoppingAssistant');
 const Recharge = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Recharge');
 const Link = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Link');
+const Withdrawal = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Withdrawal');
 const Invite = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Invite');
 const Rules = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Rules');
 const Cooperative = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Cooperative');
@@ -20,6 +21,7 @@ const Video = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home
 
 // Service
 const Service = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Service/Service');
+const Common = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Service/Common');
 
 // Orders
 const Orders = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Orders/Orders');
@@ -36,6 +38,14 @@ const System = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Acc
 const Safety = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Safety');
 const ChangePwd = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/ChangePwd');
 const SetWithdrawalPwd = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/SetWithdrawalPwd');
+const BankCard = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/BankCard');
+const Address = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Address');
+const AddAddress = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/AddAddress');
+const Setting = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Setting');
+const Language = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Language');
+const CheckIn = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/CheckIn');
+const Balance = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/Balance');
+const AccountHis = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Account/AccountHis');
 
 
 
@@ -93,13 +103,6 @@ const routes = [{
 	explain: '登录页面',
 	component: Login
 },
-// 注册页面
-{
-	path: '/register',
-	name: 'Register',
-	explain: '注册页面',
-	component: Register
-},
 
 //#region Home
 {
@@ -119,6 +122,12 @@ const routes = [{
 	name: 'Recharge',
 	explain: 'Recharge',
 	component: Recharge
+},
+{
+	path: '/Withdrawal',
+	name: 'Withdrawal',
+	explain: 'Withdrawal',
+	component: Withdrawal
 },
 {
 	path: '/Link',
@@ -155,6 +164,16 @@ const routes = [{
 	name: 'Video',
 	explain: 'Video Guide',
 	component: Video
+},
+//#endregion
+
+
+//#region Service
+{
+	path: '/Common',
+	name: 'Common',
+	explain: 'Common Problem',
+	component: Common
 },
 //#endregion
 
@@ -200,7 +219,55 @@ const routes = [{
 	name: 'SetWithdrawalPwd',
 	explain: 'Set Withdrawal Password',
 	component: SetWithdrawalPwd
-}, 
+},
+{
+	path: '/BankCard',
+	name: 'BankCard',
+	explain: 'Bank Card Management',
+	component: BankCard
+},
+{
+	path: '/Address',
+	name: 'Address',
+	explain: 'Address Management',
+	component: Address
+},
+{
+	path: '/AddAddress',
+	name: 'AddAddress',
+	explain: 'Add The Address',
+	component: AddAddress
+},
+{
+	path: '/Setting',
+	name: 'Setting',
+	explain: 'Setting',
+	component: Setting
+},
+{
+	path: '/Language',
+	name: 'Language',
+	explain: 'Language',
+	component: Language
+},
+{
+	path: '/CheckIn',
+	name: 'CheckIn',
+	explain: 'Daily Check-In',
+	component: CheckIn
+},
+{
+	path: '/Balance',
+	name: 'Balance',
+	explain: 'Balance',
+	component: Balance
+},
+{
+	path: '/AccountHis',
+	name: 'Account History',
+	explain: 'Balance',
+	component: AccountHis
+},
 //#endregion
 
 

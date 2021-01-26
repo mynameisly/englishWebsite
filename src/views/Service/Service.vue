@@ -19,7 +19,7 @@
             <b style="color: rgb(0, 0, 0);font-size:18px">Common Problem</b>
           </div>
         </div>
-        <i class="van-icon van-icon-arrow"></i>
+        <i class="van-icon van-icon-arrow" @click="$router.push({path: '/Common'})"></i>
       </div>
       <br />
       <div class="serviceboxs">
@@ -27,19 +27,31 @@
           <div>
             <div class="wbox">
               <p>Recharge Customer Service</p>
-              <p>WhatsApp：+91 735 470 9554</p>
+              <p>{{recharge}}</p>
             </div>
           </div>
-          <p class="but">Copy</p>
+          <button
+            class="but but1"
+            :data-clipboard-text="recharge"
+            @click="copyRecharge"
+          >
+            Copy
+          </button>
         </div>
         <div class="servicebox bg4">
           <div>
             <div class="wbox">
               <p>Activity Welfare Customer Service</p>
-              <p>WhatsApp：+91 896 604 8523</p>
+              <p>{{activity}}</p>
             </div>
           </div>
-          <p class="but">Copy</p>
+          <button
+            class="but but2"
+            :data-clipboard-text="activity"
+            @click="copyActivity"
+          >
+            Copy
+          </button>
         </div>
       </div>
     </div>
@@ -47,13 +59,59 @@
 </template>
 
 <script>
+import Clipboard from 'clipboard'
+import {Toast} from 'vant'
 export default {
   name: "Service",
   data() {
-    return {};
+    return {
+      recharge: '',
+      activity: ''
+    };
   },
-  created() {},
-  methods: {},
+  mounted() {
+    this.init()
+  },
+  methods: {
+    init() {
+      this.getServiceData();
+    },
+    getServiceData() {
+      // 发送请求
+      // let params = {};
+      // this.fetchget("/api/getServiceData", params).then((res) => {
+      //   if (res.code == 200) {
+          
+      //   }
+      // });
+      this.recharge = 'WhatsApp：+91 735 470 9554';
+      this.activity = 'WhatsApp：+91 896 604 8523';
+    },
+    copyRecharge() {
+       // 复制邀请码
+      var clipboard = new Clipboard(".but1");
+      clipboard.on("success", (e) => {
+        Toast("Copied successfully");
+        clipboard.destroy(); // 释放内存
+      });
+      clipboard.on("error", (e) => {
+        Toast("该浏览器不支持自动复制");
+        clipboard.destroy(); // 释放内存
+      });
+    },
+    copyActivity() {
+       // 复制邀请码
+      var clipboard = new Clipboard(".but2");
+      clipboard.on("success", (e) => {
+        Toast("Copied successfully");
+        clipboard.destroy(); // 释放内存
+      });
+      clipboard.on("error", (e) => {
+        Toast("该浏览器不支持自动复制");
+        clipboard.destroy(); // 释放内存
+      });
+    }
+  },
 };
 </script>
 
@@ -144,6 +202,7 @@ export default {
         }
       }
       .but {
+        border: none;
         color: #fff!important;
         border-radius: 50px;
         padding: 5px 0;
