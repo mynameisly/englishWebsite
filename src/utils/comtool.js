@@ -1,8 +1,3 @@
-/*
- * @Description: 工具箱
- * @FilePath: \wb_litoob\src\utils\comtool.js
- * @LastEditTime: 2020-07-06 11:36:55
- */
 
 /**
  * @description: locatStorageParse value

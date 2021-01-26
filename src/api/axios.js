@@ -1,8 +1,3 @@
-/*
- * @Description: 封装配置
- * @FilePath: \wb_litoob\src\api\axios.js
- * @LastEditTime: 2020-11-04 22:07:41
- */
 import axios from 'axios'
 import router from '@/router'
 import {

@@ -49,10 +49,6 @@ const AccountHis = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie
 
 
 
-
-// 测试页
-const Test = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Test');
-
 const routes = [{
 	path: '/',
 	redirect: '/index',
@@ -270,15 +266,6 @@ const routes = [{
 },
 //#endregion
 
-
-
-// 测试页（例如框架控件不生效测试等）
-{
-	path: '/Test',
-	name: 'Test',
-	explain: '本文件仅供测试',
-	component: Test
-}
 ]
 
 const router = new VueRouter({

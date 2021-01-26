@@ -1,8 +1,3 @@
-/*
- * @Description: 请求封装
- * @FilePath: \wb_litoob\src\api\index.js
- * @LastEditTime: 2020-07-06 10:58:37
- */
 import instance from './axios'
 import {
     Toast

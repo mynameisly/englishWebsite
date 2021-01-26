@@ -1,8 +1,3 @@
-/*
- * @Description: Vuex Store 仓库
- * @FilePath: \MyList_WaiBao\src\store\index.js
- * @LastEditTime: 2020-06-04 20:24:14
- */
 import Vue from 'vue'
 import Vuex from 'vuex'
 

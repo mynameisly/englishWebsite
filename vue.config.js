@@ -1,8 +1,3 @@
-/*
- * @Description: webpack config setting
- * @FilePath: \wb_litoob\vue.config.js
- * @LastEditTime: 2020-07-04 11:35:51
- */
 const path = require('path');
 const resolve = (dir) => path.join(__dirname, dir)
 
@@ -22,10 +17,7 @@ module.exports = {
                         propList: ['*'],
                     }),
                 ]
-            },
-            scss: {
-                prependData: `@import "~@style/colors.scss";`
-            },
+            }
         },
     },
 

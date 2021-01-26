@@ -1,8 +1,3 @@
-/*
- * @Description: 
- * @FilePath: \wb_litoob\src\utils\filter.js
- * @LastEditTime: 2020-07-03 20:22:21
- */ 
 import Vue from 'vue';
 
 Vue.filter('formatDate', function(value, fmt='yyyy-MM-dd HH:mm:ss') {
