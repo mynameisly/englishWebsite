@@ -1,37 +1,37 @@
 <template>
   <div class="Link">
-    <van-nav-bar title="Link" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Link.title')" left-arrow @click-left="onClickLeft" />
     <div class="commonbox pd10">
       <p class="f12 chui">
-        <span class="orange f14">Tip:</span>
-        Please enter the correct personal information
+        <span class="orange f14">{{ $t('Link.tip') }}</span>
+        {{ $t('Link.tipVal') }}
       </p>
     </div>
 
     <div class="commonbox personaldatamain">
       <div class="item" style="padding-top: 0">
-        <van-field v-model="form.tel" type="tel" label="+91" placeholder="Enter Mobile Number."/>
+        <van-field v-model="form.tel" type="tel" label="+91" :placeholder="$t('Link.mobilePlace')"/>
       </div>
       <div class="item">
-        <van-field v-model="form.accountName" label="Account Name" placeholder="Enter Account Name" />
+        <van-field v-model="form.accountName" :label="$t('Link.accountNameLabel')" :placeholder="$t('Link.accountNamePlace')" />
       </div>
       <div class="item">
         <van-field
           v-model="form.accountNumber"
           type="digit"
-          label="Account Number"
-          placeholder="Enter Account Number"
+          :label="$t('Link.accountNumberLabel')"
+          :placeholder="$t('Link.accountNumberPlace')"
         />
       </div>
       <div class="item">
-        <van-field v-model="form.backName" label="Bank Name" placeholder="Enter Bank Name"/>
+        <van-field v-model="form.backName" :label="$t('Link.bankNameLabel')" :placeholder="$t('Link.bankNamePlace')"/>
       </div>
       <div class="item">
-        <van-field v-model="form.ifscCode" label="IFSC Code" placeholder="Enter IFSC Code"/>
+        <van-field v-model="form.ifscCode" label="IFSC Code" :placeholder="$t('Link.ifscPlace')"/>
       </div>
     </div>
 
-    <div class="confirm" @click="linkBackAccount">OK</div>
+    <div class="confirm" @click="linkBackAccount">{{ $t('Link.btn') }}</div>
   </div>
 </template>
 

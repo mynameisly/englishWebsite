@@ -107,34 +107,16 @@
       <div class="h5-bj">
         <div class="h5-popup">
           <div class="ld"></div>
-          <p>
-            January 26th is our 72nd anniversary of Republic Day. <br />
-            To appreciate our members long time support and as per Myntra/Paytm
-            Mall request, the minimum amount to unlock respective rooms have
-            been reduced from 10000Rs to 5000Rs (Myntra) and from 50000Rs to
-            20000Rs (Paytm Mall). <br />
-            This is to enable more members to enjoy 3% &amp; 3.5% commission.<br /><br />
-            Event registration period: 26Jan - 30Jan<br /><br />
-             1. Invite 1 friend with First time recharge 5000Rs and above(unlock
-            Myntra), inviter will be rewarded 571Rs<br /><br />
-            2. Invite 1 friend with First time recharge 20000Rs and above(unlock
-            Paytm Mall), inviter will be rewarded 1771Rs
-            <br />
-            <br />
-            We wish all our valued members a Happy Republic Day and thank you
-            for the long time supports.
-            <br />
-            <br />
-            Event Registration WhatsApp Number: +91 89660 48523
-          </p>
+          <p v-html="$t('Home.popup.content')"></p>
         </div>
-        <van-button round class="popBtn" @click="confirmTip">OK</van-button> 
+        <van-button round class="popBtn" @click="confirmTip">{{ $t('Home.popup.btn') }}</van-button> 
       </div>
     </van-popup>
   </div>
 </template>
 
 <script>
+import { getlocalStorage } from "@uit/comtool";
 export default {
   name: "Home",
   data() {
@@ -143,8 +125,7 @@ export default {
       username: "2345678",
       imagesArr: [ // 轮播图片
         {
-          homePicLinkUrl:
-            "https://api.theshoppers.app/files/admin/971be1df13d3d2979cb2e77a.jpg",
+          homePicLinkUrl: "https://api.theshoppers.app/files/admin/971be1df13d3d2979cb2e77a.jpg",
         },
       ],
       taskList: [ // task列表
@@ -205,58 +186,32 @@ export default {
       ]
     };
   },
-  created() {
+  mounted() {
     this.init();
   },
   methods: {
     init() {
-      // this.getSysConfig();
-      // this.getHomePic();
+      // this.username = getlocalStorage('AUTH_INFO').username; //从本地缓存获取用户名
+      this.getImagesArr();
+      this.getTaskList();
     },
-    /** 获取系统配置 */
-    getSysConfig() {
-      let params = {};
-      this.fetchget("/api/getSysConfig", params).then((res) => {
-        if (res.code == 200) {
-          let lotteries = res.data.lotteries;
-          // 我的彩种
-          this.myLotteries = [];
-          for (let i = 0; i < 3; i++) {
-            this.myLotteries.push(lotteries["1"][i]);
-          }
-          // 设置彩票图标
-          this.setIcon(this.myLotteries);
-          // 热门彩种
-          this.hotlotteryList = lotteries[2];
-          // 设置彩票图标
-          this.setIcon(this.hotlotteryList);
-          // 真人体育
-          this.thirdGameList = [];
-          res.data.platforms.forEach((element) => {
-            var tmp = this.allThird.filter((item) => item.name == element.name);
-            if (tmp.length > 0) {
-              this.thirdGameList.push(tmp[0]);
-            }
-          });
-
-          // 提交作为全局数据
-          this.$store.commit("setValue", {
-            lotteries: res.data.lotteries,
-          });
-
-          console.log(this.$store);
-        }
-      });
+    getImagesArr() {
+      // 获取轮播图列表
+      // let params = {};
+      // this.fetchget("/api/getImagesArr", params).then((res) => {
+      //   if (res.code == 200) {
+      //     this.imagesArr = res.data.imagesArr;
+      //   }
+      // })
     },
-    getHomePic() {
-      let params = {
-        picType: 1,
-      };
-      this.fetchget("/api/getHomePicApp", params).then((res) => {
-        if (res.code == 200) {
-          this.imagesArr = res.data.homePics;
-        }
-      });
+    getTaskList() {
+      // 获取task列表
+      // let params = {};
+      // this.fetchget("/api/getTaskList", params).then((res) => {
+      //   if (res.code == 200) {
+      //     this.taskList = res.data.taskList;
+      //   }
+      // });
     },
     confirmTip() {
       this.showPop = false
@@ -286,7 +241,6 @@ export default {
       this.$router.push({ path: "/Platform" });
     },
     goVideo() {
-      alert(1);
       this.$router.push({ path: "/Video" });
     },
   },

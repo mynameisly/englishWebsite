@@ -53,6 +53,7 @@ export default {
       //     if (res.code === 500) {
       //     } else {
       //         setlocalStorage("AUTH_PARAM", res.token);
+      //         setlocalStorage("AUTH_INFO", res.userinfo);
       //         this.$router.push("/index");
       //     }
       // });
