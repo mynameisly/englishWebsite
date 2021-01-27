@@ -1,15 +1,15 @@
 <template>
   <div class="Balance">
-    <van-nav-bar title="Balance" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Balance.title')" left-arrow @click-left="onClickLeft" />
     <div class="balancemain pt-45">
       <div class="balancemsg">
         <div class="pb-20 mt-10 fff">
-          <span>Balance</span>
+          <span>{{$t('Balance.balance')}}</span>
           <p class="mt-10 fw7">{{balance}}</p>
         </div>
         <div class="flex ctbut">
-          <div class="fcc but1" @click="recharge">Recharge</div>
-          <div class="fcc but2" @click="withdrawal">Withdrawal</div>
+          <div class="fcc but1" @click="recharge">{{$t('Balance.recharge')}}</div>
+          <div class="fcc but2" @click="withdrawal">{{$t('Balance.withdrawal')}}</div>
         </div>
       </div>
       <div class="commonbox rechargebut fcc"></div>

@@ -1,7 +1,7 @@
 <template>
   <div class="Address">
     <van-nav-bar
-      title="Address Management"
+      :title="$t('Address.title')"
       left-arrow
       @click-left="onClickLeft"
       @click-right="onClickRight"
@@ -15,7 +15,7 @@
       </template>
     </van-nav-bar>
     <div class="adsContsss">
-      <div class="noAds">You don't have an address yet! Go add one!!</div>
+      <div class="noAds">{{$t('Address.noAds')}}</div>
     </div>
   </div>
 </template>

@@ -171,6 +171,122 @@ module.exports = {
     recharge: 'ग्राहक सेवा का पुनर्भरण',
     activity: 'गतिविधि कल्याण ग्राहक सेवा',
     copy: 'कॉपी'
+  },
+  Account: {
+    title: 'लेखा',
+    checkInBtn: 'साइन इन करें',
+    invitCode: 'मेरा निमंत्रण कोड：',
+    copy: 'कॉपी',
+    balance:'खाते में शेष',
+    history: 'इतिहास',
+    shoppingAss:'खरीदारी सहायक',
+    inReview:'समीक्षा में',
+    personalInfo:'व्यक्तिगत जानकारी',
+    direct:'प्रत्यक्ष अधीनस्थ',
+    orderRecords:'ऑर्डर रिकॉर्ड',
+    inviteFriends:'मित्रों को आमंत्रित करें',
+    activity:'गतिविधि केंद्र',
+    system:'सिस्टम संदेश',
+    safety:'सुरक्षा प्रबंधन',
+    bankCard:'बैंक कार्ड प्रबंधन',
+    address:'पता प्रबंधन',
+    customer:'ग्राहक सेवा केन्द्र',
+    setting:'स्थापना',
+  },
+  // TODO
+  AccountHis: {
+    title: 'खाता विवरण',
+    wallet: 'बटुआ प्रवाह',
+    recharge: 'रिचार्ज रिकॉर्ड',
+    withdrawal: 'निकासी',
+    shopping: 'खरीदारी सहायक',
+    order: 'आदेश',
+    noData: '-अब और नहीं -'
+  },
+  Activity:{
+    title:'गतिविधि केंद्र',
+  },
+  Address:{
+    title:'पता प्रबंधन',
+    noAds:'आपके पास अभी तक कोई पता नहीं है! आगे बढ़ो और एक जोड़ो!',
+  },
+  AddAddress: {
+    title: 'पता जोड़ें',
+    mobileNumPlace: 'मोबाइल फोन नंबर',
+    name: 'नाम',
+    address: 'पता',
+    btn: 'सहेजें'
+  },
+  Balance:{
+    title:'खाते में शेष',
+    balance:'शेष',
+    recharge:'रिचार्ज',
+    withdrawal:'वापस लेने',
+  },
+  BankCard: {
+    title: 'बैंक कार्ड प्रबंधन',
+    btn: 'बैंक कार्ड जोड़ें',
+  },
+  ChangePwd: {
+    title: 'लॉगिन पासवर्ड बदलें',
+    mobileLabel: 'फ़ोन नंबर',
+    oldPwdLabel: 'पुराना पासवर्ड',
+    oldPwdPlace: 'कृपया पुराना पासवर्ड दर्ज करें',
+    withdrawalPwdLabel: 'निकासी पासवर्ड दर्ज करें',
+    withdrawalPwdPlace: 'निकासी पासवर्ड दर्ज करें',
+    newPwdLabel: 'कृपया नया पासवर्ड दर्ज करें',
+    newPwdPlace: 'कृपया नया पासवर्ड दर्ज करें',
+    confirmPwdLabel: 'पासवर्ड की पुष्टि कीजिये',
+    confirmPwdPlace: 'पासवर्ड की पुष्टि कीजिये',
+    btn: 'परिवर्तनों की पुष्टि करें'
+  },
+  CheckIn:{
+    title:'दैनिक चेक-इन',
+    check:'साइन इन करें',
+    checked:'लगातार 0  दिनों तक जांच की गई',
+    checkinRules:'साइन-इन नियम',
+    text:'हस्ताक्षर जितना लंबा होगा उतना बड़ा इनाम होगा। आपको केवल साइन इन इनाम प्राप्त करने के लिए हर दिन एक मित्र को आमंत्रित करने की आवश्यकता',
+    btn:'अब साइन इन करो',
+  },
+  // TODO
+  Direct:{
+    title:'प्रत्यक्ष अधीनस्थ',
+    direct:'डायरेक्ट पुश',
+    team:'टीम',
+    rechargeP:'रिचार्ज करने वाला व्यक्ति',
+    recharge:' रिचार्ज',
+    withdrawal:'वापस लेने',
+    team:'टीम आयोग',
+  },
+  Language: {
+    title: 'भाषा सेटिंग'
+  },
+  Personal:{
+    title:'व्यक्तिगत जानकारी',
+    profile:'प्रोफ़ाइल फोटो',
+    nickname:'प्रचलित नाम',
+    mobile:'फ़ोन नंबर',
+  },
+  Safety:{
+    title:'सुरक्षा प्रबंधन',
+    changeL:'लॉगिन पासवर्ड बदलें',
+    setPwd:'वापसी पासवर्ड सेट करें',
+  },
+  Setting: {
+    title: 'स्थापना',
+    lan: 'भाषा सेटिंग',
+    logout: 'लॉग आउट'
+  },
+  SetWithdrawalPwd: {
+    title: 'वापसी पासवर्ड सेट करें',
+    mobile: 'फ़ोन नंबर',
+    oldPwdLabel: 'पुराना पासवर्ड',
+    oldPwdPlace:'कृपया पुराना पासवर्ड दर्ज करें',
+    newPwdLabel: 'कृपया नया पासवर्ड दर्ज करें',
+    newPwdPlace: 'कृपया नया पासवर्ड दर्ज करें',
+    confirmPwdLabel: 'पासवर्ड की पुष्टि कीजिये',
+    confirmPwdPlace: 'पासवर्ड की पुष्टि कीजिये',
+    btn: 'परिवर्तनों की पुष्टि करें',
   }
 }
 

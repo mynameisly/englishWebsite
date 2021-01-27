@@ -1,12 +1,12 @@
 <template>
   <div class="BankCard">
     <van-nav-bar
-      title="Bank Card Management"
+      :title="$t('BankCard.title')"
       left-arrow
       @click-left="onClickLeft"
     />
     <div class="wrapper">
-      <div class="confirm" @click="addBackCard">Add</div>
+      <div class="confirm" @click="addBackCard">{{ $t('BankCard.btn') }}</div>
     </div>
   </div>
 </template>

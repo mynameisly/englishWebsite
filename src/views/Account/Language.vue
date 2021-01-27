@@ -1,7 +1,7 @@
 <template>
   <div class="Language">
     <!-- header -->
-    <van-nav-bar title="Language" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Language.title')" left-arrow @click-left="onClickLeft" />
 
     <van-radio-group v-model="radio">
       <van-cell-group>

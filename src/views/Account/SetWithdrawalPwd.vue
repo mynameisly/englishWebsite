@@ -2,7 +2,7 @@
   <div class="SetWithdrawalPwd">
     <!-- header -->
     <van-nav-bar
-      title="SetWithdrawalPwd Messages"
+      :title="$t('SetWithdrawalPwd.title')"
       left-arrow
       @click-left="onClickLeft"
     />
@@ -12,7 +12,7 @@
         <van-field
           v-model="form.mobile"
           type="tel"
-          label="Mobile Number"
+          :label="$t('SetWithdrawalPwd.oldPwdLabel')"
           readonly
           placeholder="Enter Mobile Number."
         />
@@ -21,29 +21,29 @@
         <van-field
         type="password"
           v-model="form.oldPwd"
-          label="Old Password"
-          placeholder="Enter Old Password"
+          :label="$t('SetWithdrawalPwd.oldPwdLabel')"
+          :placeholder="$t('SetWithdrawalPwd.oldPwdPlace')"
         />
       </div>
       <div class="item">
         <van-field
-        type="password"
+          type="password"
           v-model="form.newPwd"
-          label="New Password"
-          placeholder="Set New Password"
+          :label="$t('SetWithdrawalPwd.newPwdLabel')"
+          :placeholder="$t('SetWithdrawalPwd.newPwdPlace')"
         />
       </div>
       <div class="item">
         <van-field
-        type="password"
+          type="password"
           v-model="form.confirmPwd"
-          label="Confirm Password"
-          placeholder="Confirm Password"
+          :label="$t('SetWithdrawalPwd.confirmPwdLabel')"
+          :placeholder="$t('SetWithdrawalPwd.confirmPwdPlace')"
         />
       </div>
     </div>
 
-    <div class="confirm" @click="setWithdrawalPwd">OK</div>
+    <div class="confirm" @click="setWithdrawalPwd">{{ $t('SetWithdrawalPwd.btn') }}</div>
   </div>
 </template>
 

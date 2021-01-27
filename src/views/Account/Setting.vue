@@ -1,17 +1,17 @@
 <template>
   <div class="Setting">
     <!-- header -->
-    <van-nav-bar title="Setting" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Setting.title')" left-arrow @click-left="onClickLeft" />
 
     <div class="commonbox personaldatamsg">
       <div class="flex jc-sb aic touxiangbox van-hairline--bottom">
-        <div class="f14">Language</div>
+        <div class="f14">{{ $t('Setting.lan') }}</div>
         <div class="flex aic" @click="$router.push({path: '/Language'})">
           <i class="van-icon van-icon-arrow"></i>
         </div>
       </div>
       <div class="flex jc-sb aic touxiangbox">
-        <div class="f14">Logout</div>
+        <div class="f14">{{ $t('Setting.logout') }}</div>
         <div class="flex aic" @click="logout">
           <i class="van-icon van-icon-arrow"></i>
         </div>

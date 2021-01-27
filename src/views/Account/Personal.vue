@@ -1,11 +1,11 @@
 <template>
   <div class="Personal">
     <!-- header -->
-    <van-nav-bar title="Personal Info" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Personal.title')" left-arrow @click-left="onClickLeft" />
 
     <div class="commonbox personaldatamsg">
       <div class="flex jc-sb aic touxiangbox van-hairline--bottom">
-        <div class="f14 chui">Profile Picture</div>
+        <div class="f14 chui">{{$t('Personal.profile')}}</div>
         <div class="van-uploader">
           <div class="van-uploader__wrapper">
             <div class="van-uploader__input-wrapper">
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="flex jc-sb aic touxiangbox van-hairline--bottom">
-        <div class="f14 chui">Nickname</div>
+        <div class="f14 chui">{{$t('Personal.nickname')}}</div>
 
         <div class="flex aic chui">
           <div class="chuiName">234****5678</div>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="flex jc-sb aic touxiangbox">
-        <div class="f14 chui">Mobile Number</div>
+        <div class="f14 chui">{{$t('Personal.mobile')}}</div>
 
         <div class="flex aic chui">
           <div class="chuiName">234****5678</div>

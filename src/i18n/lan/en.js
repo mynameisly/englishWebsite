@@ -168,5 +168,120 @@ module.exports = {
     recharge: 'Recharge Customer Service',
     activity: 'Activity Welfare Customer Service',
     copy: 'Copy'
+  },
+  Account: {
+    title: 'Account',
+    checkInBtn: 'Check-in',
+    invitCode: 'My Invitation Code：',
+    copy: 'Copy',
+    balance:'Balance',
+    history: 'History',
+    shoppingAss:'Shopping Assistant',
+    inReview:'In Review',
+    personalInfo:'Personal Info',
+    direct:'Direct Subordinate',
+    orderRecords:'Order Records',
+    inviteFriends:'Invite Friends',
+    activity:'Activity Center',
+    system:'System Messages',
+    safety:'Safety Management',
+    bankCard:'Bank Card Management',
+    address:'Address Management',
+    customer:'Customer Service Center',
+    setting:'Setting',
+  },
+  AccountHis: {
+    title: 'Account History',
+    wallet: 'Wallet Details',
+    recharge: 'Recharge Details',
+    withdrawal: 'Withdrawal',
+    shopping: 'Shopping Assistant Details',
+    order: 'Order Receiving',
+    noData: '-No more -'
+  },
+  Activity:{
+    title:'Activity Center',
+  },
+  Address:{
+    title:'Address Management',
+    noAds:'You don\'t have an address yet! Go add one!!',
+  },
+  AddAddress: {
+    title: 'AddAddress',
+    mobileNumPlace: 'Mobile Number',
+    name: 'Name',
+    address: 'Address',
+    btn: 'Save'
+  },
+  Balance:{
+    title:'Balance',
+    balance:'Balance',
+    recharge:'Recharge',
+    withdrawal:'Withdrawal',
+  },
+  BankCard: {
+    title: 'Bank Card Management',
+    btn: 'Add',
+  },
+  ChangePwd: {
+    title: 'ChangePwd Messages',
+    mobileLabel: 'Mobile Number',
+    oldPwdLabel: 'Old Password',
+    oldPwdPlace: 'Enter Old Password.',
+    withdrawalPwdLabel: 'Withdrawal Password',
+    withdrawalPwdPlace: 'Enter Withdrawal Password',
+    newPwdLabel: 'New Password',
+    newPwdPlace: 'Set New Password',
+    confirmPwdLabel: 'Confirm Password',
+    confirmPwdPlace: 'Enter Confirm Password',
+    btn: 'OK'
+  },
+  CheckIn:{
+    title:'Daily Check-In',
+    check:'Check-In',
+    checked:'Checked In For 0 Consecutive Days',
+    checkinRules:'Check-In Rules',
+    text:'The longer the Check-in period is, the higher the bonus is. The user can earn the Check-in bonus through inviting one friend per day',
+    btn:'Check-In Now',
+  },
+  Direct:{
+    title:'Direct Subordinate',
+    direct:'Direct Push',
+    team:'Team',
+    rechargeP:'Recharge Person',
+    recharge:' Recharge',
+    withdrawal:'Withdrawal',
+    team:'Team Commission',
+    noData:'No More Records',
+  },
+  Language: {
+    title: 'Language'
+  },
+  Personal:{
+    title:'Personal Info',
+    profile:'Profile Picture',
+    nickname:'Nickname',
+    mobile:'Mobile Number',
+  },
+  Safety:{
+    title:'Safety Messages',
+    changeL:'Change Login Password',
+    setPwd:'Set Withdrawal Password',
+  },
+  Setting: {
+    title: 'Setting',
+    lan: 'Language',
+    logout: 'Logout'
+  },
+  SetWithdrawalPwd: {
+    title: 'SetWithdrawalPwd Messages',
+    mobile: 'Mobile Number',
+    oldPwdLabel: 'Old Password',
+    oldPwdPlace:'Enter Old Password',
+    newPwdLabel: 'New Password',
+    newPwdPlace: 'Set New Password',
+    confirmPwdLabel: 'Confirm Password',
+    confirmPwdPlace: 'Confirm Password',
+    btn: 'OK',
   }
 }

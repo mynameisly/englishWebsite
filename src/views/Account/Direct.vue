@@ -2,7 +2,7 @@
   <div class="Direct">
     <!-- header -->
     <van-nav-bar
-      title="Direct Subordinate"
+      :title="$t('Direct.title')"
       left-arrow
       @click-left="onClickLeft"
     />
@@ -15,29 +15,29 @@
       <div class="commonbox subordinatemsg">
         <div class="flex aic subordinatemsgitem">
           <div>
-            <span> Direct Push</span>
+            <span> {{$t('Direct.direct')}}</span>
             <p>0</p>
           </div>
           <div>
-            <span> Team</span>
+            <span> {{$t('Direct.team')}}</span>
             <p>0</p>
           </div>
           <div>
-            <span> Recharge Person</span>
+            <span>{{$t('Direct.rechargeP')}}</span>
             <p>0</p>
           </div>
         </div>
         <div class="flex aic subordinatemsgitem">
           <div>
-            <span> Recharge</span>
+            <span> {{$t('Direct.recharge')}}</span>
             <p>0</p>
           </div>
           <div>
-            <span> Withdrawal</span>
+            <span> {{$t('Direct.withdrawal')}}</span>
             <p>0</p>
           </div>
           <div>
-            <span> Team Commission</span>
+            <span> {{$t('Direct.team')}}</span>
             <p>0</p>
           </div>
         </div>
@@ -46,7 +46,7 @@
         <van-list
           v-model="loading"
           :finished="finished"
-          finished-text="No More Records"
+          :finished-text="$t('Direct.noData')"
           @load="onLoad"
         >
           <van-cell v-for="item in list" :key="item" :title="item" />

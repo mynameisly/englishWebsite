@@ -1,6 +1,6 @@
 <template>
   <div class="AccountHis">
-    <van-nav-bar title="Account History" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('AccountHis.title')" left-arrow @click-left="onClickLeft" />
 
     <ul class="list">
       <li

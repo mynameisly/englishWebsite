@@ -3,7 +3,7 @@
     <!-- header -->
     <div class="header">
       <van-icon name="arrow-left" size="20" @click="onClickLeft" />
-      <span class="title">Daily Check-In</span>
+      <span class="title">{{$t('CheckIn.title')}}</span>
       <span></span>
     </div>
 
@@ -11,23 +11,22 @@
       <div class="fff">
         <p class="p1">
           <img src="../../static/img/Account/checkin.png" alt="" />
-          &nbsp; Check-In
+          &nbsp; {{$t('CheckIn.check')}}
         </p>
-        <span> Checked In For 0 Consecutive Days</span>
+        <span> {{$t('CheckIn.checked')}}</span>
       </div>
     </div>
 
     <div class="content">
       <div class="wrapper">
-        <div class="title"></div>
+        <div class="title">{{$t('CheckIn.checkinRules')}}</div>
         <div class="text">
-          The longer the Check-in period is, the higher the bonus is. The user
-          can earn the Check-in bonus through inviting one friend per day
+          {{$t('CheckIn.text')}}
         </div>
       </div>
     </div>
 
-    <div class="confirm" @click="checkin">Check-In Now</div>
+    <div class="confirm" @click="checkin">{{$t('CheckIn.btn')}}</div>
   </div>
 </template>
 

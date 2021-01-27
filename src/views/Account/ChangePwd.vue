@@ -2,7 +2,7 @@
   <div class="ChangePwd">
     <!-- header -->
     <van-nav-bar
-      title="ChangePwd Messages"
+      :title="$t('ChangePwd.title')"
       left-arrow
       @click-left="onClickLeft"
     />
@@ -12,46 +12,46 @@
         <van-field
           v-model="form.mobile"
           type="tel"
-          label="Mobile Number"
+          :label="$t('ChangePwd.mobileLabel')"
           readonly
-          placeholder="Enter Mobile Number."
+          placeholder="91234****5678"
         />
       </div>
       <div class="item">
         <van-field
-        type="password"
+          type="password"
           v-model="form.oldPwd"
-          label="Old Password"
-          placeholder="Enter Old Password"
+          :label="$t('ChangePwd.oldPwdLabel')"
+          :placeholder="$t('ChangePwd.oldPwdPlace')"
         />
       </div>
       <div class="item">
         <van-field
           v-model="form.withdrawalPwd"
           type="password"
-          label="Enter Withdrawal Password"
-          placeholder="Enter Withdrawal Password"
+          :label="$t('ChangePwd.withdrawalPwdLabel')"
+          :placeholder="$t('ChangePwd.withdrawalPwdPlace')"
         />
       </div>
       <div class="item">
         <van-field
-        type="password"
+          type="password"
           v-model="form.newPwd"
-          label="New Password"
-          placeholder="Set New Password"
+          :label="$t('ChangePwd.newPwdLabel')"
+          :placeholder="$t('ChangePwd.newPwdPlace')"
         />
       </div>
       <div class="item">
         <van-field
-        type="password"
+          type="password"
           v-model="form.confirmPwd"
-          label="Confirm Password"
-          placeholder="Confirm Password"
+          :label="$t('ChangePwd.confirmPwdLabel')"
+          :placeholder="$t('ChangePwd.confirmPwdPlace')"
         />
       </div>
     </div>
 
-    <div class="confirm" @click="changePwd">OK</div>
+    <div class="confirm" @click="changePwd">{{ $t('ChangePwd.btn') }}</div>
   </div>
 </template>
 

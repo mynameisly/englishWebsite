@@ -1,20 +1,20 @@
 <template>
   <div class="AddAddress">
-    <van-nav-bar title="AddAddress" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('AddAddress.title')" left-arrow @click-left="onClickLeft" />
 
     <div class="commonbox personaldatamain">
       <div class="item" style="padding-top: 0">
-        <van-field v-model="form.tel" type="tel" label="+91" placeholder="Mobile Number"/>
+        <van-field v-model="form.tel" type="tel" label="+91" placeholder="$t('AddAddress.mobileNumPlace')" />
       </div>
       <div class="item">
-        <van-field v-model="form.name" label="Name" placeholder="Name" />
+        <van-field v-model="form.name" :label="$t('AddAddress.name')" placeholder="$t('AddAddress.name')" />
       </div>
       <div class="item">
-        <van-field v-model="form.address" label="Address" placeholder="Address"/>
+        <van-field v-model="form.address" :label="$t('AddAddress.address')" :placeholder="$t('AddAddress.address')" />
       </div>
     </div>
 
-    <div class="confirm" @click="addAddress">Save</div>
+    <div class="confirm" @click="addAddress">{{ $t('AddAddress.btn') }}</div>
   </div>
 </template>
 

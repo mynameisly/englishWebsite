@@ -1,7 +1,7 @@
 <template>
   <div class="Account">
     <!-- header -->
-    <div class="header">Account</div>
+    <div class="header">{{ $t('Account.title') }}</div>
 
     <div class="mymain pt-45">
       <!-- info -->
@@ -20,13 +20,13 @@
           </div>
           <div class="signin">
             <p class="p1" @click="$router.push({ path: '/CheckIn' })">
-              Check-In
+              {{ $t('Account.checkInBtn') }}
             </p>
           </div>
         </div>
         <div class="flex jc-sb yaoqin">
           <div class="code">
-            My Invitation Code：
+            {{ $t('Account.invitCode') }}
             <span ref="code">{{ inviteCode }}</span>
           </div>
           <button
@@ -34,7 +34,7 @@
             :data-clipboard-text="inviteCode"
             @click="copyInviteCode"
           >
-            Copy
+            {{ $t('Account.copy') }}
           </button>
         </div>
       </div>
@@ -43,22 +43,22 @@
       <div class="flex myicon">
         <div @click="$router.push({path: '/Balance'})">
           <img src="../../static/img/Account/Balance.png" alt="" />
-          <p>Balance</p>
+          <p>{{ $t('Account.balance') }}</p>
           <span> {{balance}} </span>
         </div>
         <div @click="$router.push({path: '/AccountHis'})">
           <img src="../../static/img/Account/History.png" alt="" />
-          <p>History</p>
+          <p>{{ $t('Account.history') }}</p>
           <span> {{history}} </span>
         </div>
         <div @click="$router.push({path: '/ShoppingAssistant'})">
           <img src="../../static/img/Account/Shopping.png" alt="" />
-          <p>Shopping Assistant</p>
+          <p>{{ $t('Account.shoppingAss') }}</p>
           <span> {{shopping}} </span>
         </div>
         <div>
           <img src="../../static/img/Account/In.png" alt="" />
-          <p>In Review</p>
+          <p>{{ $t('Account.inReview') }}</p>
           <span class="creds"> {{inReview}} </span>
         </div>
       </div>
@@ -69,7 +69,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Personal.png" />
-              <span class="item-text">Personal Info</span>
+              <span class="item-text">{{$t('Account.personalInfo')}}</span>
             </div>
           </template>
         </van-cell>
@@ -77,7 +77,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Direct.png" />
-              <span class="item-text">Direct Subordinate</span>
+              <span class="item-text">{{$t('Account.direct')}}</span>
             </div>
           </template>
         </van-cell>
@@ -85,7 +85,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Order.png" />
-              <span class="item-text">Order Records</span>
+              <span class="item-text">{{$t('Account.orderRecords')}}</span>
             </div>
           </template>
         </van-cell>
@@ -93,7 +93,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Invite.png" />
-              <span class="item-text">Invite Friends</span>
+              <span class="item-text">{{$t('Account.inviteFriends')}}</span>
             </div>
           </template>
         </van-cell>
@@ -101,7 +101,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Activity.png" />
-              <span class="item-text">Activity Center</span>
+              <span class="item-text">{{$t('Account.activity')}}</span>
             </div>
           </template>
         </van-cell>
@@ -109,7 +109,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/System.png" />
-              <span class="item-text">System Messages</span>
+              <span class="item-text">{{$t('Account.system')}}</span>
             </div>
           </template>
         </van-cell>
@@ -120,7 +120,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Safety.png" />
-              <span class="item-text">Safety Management</span>
+              <span class="item-text">{{$t('Account.safety')}}</span>
             </div>
           </template>
         </van-cell>
@@ -128,7 +128,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Bank.png" />
-              <span class="item-text">Bank Card Management</span>
+              <span class="item-text">{{$t('Account.bankCard')}}</span>
             </div>
           </template>
         </van-cell>
@@ -136,7 +136,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Address.png" />
-              <span class="item-text">Address Management</span>
+              <span class="item-text">{{$t('Account.address')}}</span>
             </div>
           </template>
         </van-cell>
@@ -144,7 +144,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Customer.png" />
-              <span class="item-text">Customer Service Center</span>
+              <span class="item-text">{{$t('Account.customer')}}</span>
             </div>
           </template>
         </van-cell>
@@ -152,7 +152,7 @@
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Setting.png" />
-              <span class="item-text">Setting</span>
+              <span class="item-text">{{$t('Account.setting')}}</span>
             </div>
           </template>
         </van-cell>

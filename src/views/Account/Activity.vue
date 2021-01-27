@@ -1,7 +1,7 @@
 <template>
   <div class="Activity">
     <!-- header -->
-    <van-nav-bar title="Activity Center" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Activity.title')" left-arrow @click-left="onClickLeft" />
 
 
   </div>
