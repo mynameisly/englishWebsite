@@ -66,10 +66,10 @@
         <div class="butbox">
           <p @click="stop">STOP</p>
         </div>
-        <div class="butbox">
+        <div class="butbox" :style="{'display': (isStart ? 'none' : 'block')}">
           <p @click="start">START</p>
         </div>
-        <div class="butbox" style="display: none">
+        <div class="butbox" style="display: none" :style="{'display': (isStart ? 'block' : 'none')}">
           <p>In line...</p>
         </div>
         <div class="butbox" style="display: none">
@@ -96,15 +96,29 @@
 export default {
   name: "Orders",
   data() {
-    return {};
+    return {
+      isStart: false,
+    };
   },
   created() {},
   methods: {
     start() {
       // 开始
+      this.isStart = true;
+      // let params = {};
+      // this.fetchget("/api/start", params).then((res) => {
+      //   if (res.code == 200) {
+      //      this.isStart = false;
+      //   }
+      // });
     },
     stop() {
       // 停止
+      // let params = {};
+      // this.fetchget("/api/start", params).then((res) => {
+      //   if (res.code == 200) {
+      //   }
+      // });
     }
   },
 };
@@ -235,9 +249,11 @@ export default {
         color: #fff;
         font-size: 20px;
         padding: 10px 15px;
+        text-align: center;
         background: linear-gradient(#ffa867, #ff824c);
         border-radius: 8px;
         box-shadow: 0 5px 3px 0 #fd5a22;
+        font-size: 12px;
       }
     }
     .explain {

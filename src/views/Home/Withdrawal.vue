@@ -19,6 +19,7 @@
           placeholder="Enter the withdrawal amount"
           maxlength="9"
           type="number"
+          :value="amountVal"
           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')};"
           class="commoninput"
         />
@@ -51,6 +52,7 @@ export default {
   data() {
     return {
       isBackCard: false, //是否绑定了银行卡
+      amountVal: ''
     };
   },
   mounted() {
@@ -84,8 +86,8 @@ export default {
     },
     Withdraw() {
       // 发送请求
-      // let params = this.form;
-      // this.fetchget("/api/Withdraw", params).then((res) => {
+      // let params = {};
+      // this.fetchpost("/api/Withdraw", params).then((res) => {
       //   if (res.code == 200) {
       //   }
       // });

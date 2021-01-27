@@ -23,6 +23,7 @@
         <input
           maxlength="9"
           type="number"
+          :value="amountVal"
           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')};"
           placeholder="Enter a Recharge Amount"
           class="commoninput"
@@ -30,12 +31,7 @@
       </div>
       <p class="f12 mt-10 chui">Minimum：₹250.00</p>
       <ul class="recharge-amount">
-        <li class="">₹5,000.00</li>
-        <li class="">₹10,000.00</li>
-        <li class="">₹50,000.00</li>
-        <li class="">₹100,000.00</li>
-        <li class="">₹500,000.00</li>
-        <li class="">₹3,000,000.00</li>
+        <li class="" v-for="(item,index) in amountList" :key="index" @click="changeAmount(index)">₹{{ item }}</li>
       </ul>
     </div>
 
@@ -55,7 +51,7 @@
     </div>
     <p class="change">Offline Recharge Mode</p>
 
-    <div class="btns">Next</div>
+    <div class="btns" @click="next">Next</div>
   </div>
 </template>
 
@@ -66,6 +62,8 @@ export default {
     return {
       active: 1,
       radio: "",
+      amountVal: "",
+      amountList: ['5,000.00','10,000.00','50,000.00','100,000.00','500,000.00','3,000,000.00']
     };
   },
   created() {},
@@ -73,6 +71,18 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
+    changeAmount(index) {
+      this.amountVal = this.amountList[index].replace(/[^0-9]/g,'').slice(0,-2);
+    },
+    next() {
+      // 下一步发送请求
+      // let params = {}
+      // this.fetchpost("/api/next",params).then(() => {
+      //   if(res.code == 200) {
+
+      //   }
+      // })
+    }
   },
 };
 </script>

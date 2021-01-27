@@ -5,12 +5,7 @@
       <div class="invitationimg">
         <button type="button" @click="copyShareLink">Copy and Share Link</button>
         <div class="qrbox">
-          <canvas
-            id="QRCode"
-            height="148"
-            width="148"
-            style="height: 148px; width: 148px"
-          ></canvas>
+          <img style="height: 148px; width: 148px" :src="qCodeUrl" alt="">
           <div class="tac yaoqcode">
             00639Q
             <p class="f12">My Invitation Code</p>
@@ -25,15 +20,22 @@
 export default {
   name: "Invite",
   data() {
-    return {};
+    return {
+      qCodeUrl: '', //二维码图片地址
+    };
   },
-  created() {
+  mounted() {
     this.getQcode()
   },
   methods: {
     getQcode() {
       // 获取二维码图片
-
+      // let params = {};
+      // this.fetchget("/api/getQcode", params).then((res) => {
+      //   if(res.code == 200) {
+      //     this.qCodeUrl = res.qCodeUrl;
+      //   }
+      // })
     },
     copyShareLink() {
       // 复制分享链接
@@ -88,6 +90,9 @@ export default {
         z-index: 999;
         max-width: 750px;
         background: #fff;
+        img{
+          display: block;
+        }
         .yaoqcode {
           // width: 150px;
           text-align: center;

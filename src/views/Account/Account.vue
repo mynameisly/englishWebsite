@@ -169,10 +169,10 @@ export default {
   data() {
     return {
       inviteCode: "", //邀请码
-      balance: "0",
-      history: "-- --",
-      shopping: "0",
-      inReview: "0",
+      balance: "",
+      history: "",
+      shopping: "",
+      inReview: "",
     };
   },
   mounted() {

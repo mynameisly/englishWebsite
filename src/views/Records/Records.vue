@@ -25,7 +25,9 @@ export default {
   },
   created() {},
   methods: {
-    changeItem() {},
+    changeItem() {
+      
+    },
   },
 };
 </script>

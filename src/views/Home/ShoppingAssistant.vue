@@ -28,7 +28,7 @@
           Transfer Account Balance To Shopping Assistant
         </p>
         <van-cell-group>
-          <van-cell title="单元格" c>
+          <van-cell title="单元格">
             <template #title>
               <div class="wrapper">
                 <span class="custom-title">₹</span>

@@ -34,24 +34,12 @@ export default {
       this.$router.go(-1);
     },
     english() {
-      this.radio = '1'
-      // 发送请求
-      // let params = this.radio;
-      // this.fetchget("/api/english", params).then((res) => {
-      //   if (res.code == 200) {
-          
-      //   }
-      // });
+      this.radio = '1';
+      // this.$i18n.locale = 'en';
     },
     india() {
-      this.radio = '2'
-      // 发送请求
-      // let params = this.radio;
-      // this.fetchget("/api/india", params).then((res) => {
-      //   if (res.code == 200) {
-          
-      //   }
-      // });
+      this.radio = '2';
+      // this.$i18n.locale = 'ind';
     }
   },
 };

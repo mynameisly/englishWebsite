@@ -77,4 +77,22 @@ export default {
 .fff {
     color: #fff;
 }
+
+// 滚动条样式
+.score::-webkit-scrollbar {
+  width: 3px;
+  height: 400px;
+}
+
+.score::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.score::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
 </style>
