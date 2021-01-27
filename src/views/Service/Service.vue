@@ -1,22 +1,22 @@
 <template>
   <div class="Service">
-    <div class="top-bg"><p>Customer Service Center</p></div>
+    <div class="top-bg"><p>{{ $t('Service.title') }}</p></div>
     <div class="pt-45">
       <div class="OnlineService">
         <div class="OnlineService-left">
           <img src="../../static/img/kf_icon.bff9020.png" alt="" />
         </div>
         <div class="OnlineService-right">
-          <p>Online Customer Service</p>
-          <p>Contact Customer Service</p>
-          <a href="https://direct.lc.chat/12296571/">Consult Now</a>
+          <p>{{ $t('Service.online') }}</p>
+          <p>{{ $t('Service.contact') }}</p>
+          <a href="https://direct.lc.chat/12296571/">{{ $t('Service.nowBtn') }}</a>
         </div>
       </div>
       <br />
       <div class="servicebox servicebor">
         <div style="width: 100%">
           <div>
-            <b style="color: rgb(0, 0, 0);font-size:18px">Common Problem</b>
+            <b style="color: rgb(0, 0, 0);font-size:18px">{{ $t('Service.commonP') }}</b>
           </div>
         </div>
         <i class="van-icon van-icon-arrow" @click="$router.push({path: '/Common'})"></i>
@@ -26,7 +26,7 @@
         <div class="servicebox bg4">
           <div>
             <div class="wbox">
-              <p>Recharge Customer Service</p>
+              <p>{{ $t('Service.recharge') }}</p>
               <p>{{recharge}}</p>
             </div>
           </div>
@@ -34,14 +34,12 @@
             class="but but1"
             :data-clipboard-text="recharge"
             @click="copyRecharge"
-          >
-            Copy
-          </button>
+          >{{ $t('Service.copy') }}</button>
         </div>
         <div class="servicebox bg4">
           <div>
             <div class="wbox">
-              <p>Activity Welfare Customer Service</p>
+              <p>{{ $t('Service.activity') }}</p>
               <p>{{activity}}</p>
             </div>
           </div>
@@ -49,9 +47,7 @@
             class="but but2"
             :data-clipboard-text="activity"
             @click="copyActivity"
-          >
-            Copy
-          </button>
+          >{{ $t('Service.copy') }}</button>
         </div>
       </div>
     </div>

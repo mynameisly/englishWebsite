@@ -1,22 +1,19 @@
 <template>
   <div class="Withdrawal">
-    <van-nav-bar title="Withdrawal" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t(Withdrawal.title)" left-arrow @click-left="onClickLeft" />
     <div class="commonbox pd10">
       <p class="f12 chui">
-        <span class="orange f14">Tip:</span>
-        Each account ID customer can be free withdraw in 5 time ,after more than
-        5 times withdraw, Platform will be service charge of 5%.The Platform
-        withdrawals are (T+1) mode. Withdrawals on the same day will arrive by
-        the next day night before 23.59.
+        <span class="orange f14">{{ $t(Withdrawal.tip) }}</span>
+        {{ $t(Withdrawal.tipVal) }}
       </p>
     </div>
 
     <div class="commonbox rechargeinput">
-      <p>Withdrawal Amount</p>
+      <p>{{ $t(Withdrawal.amountTile) }}</p>
       <div class="flex aic f26 mt-20">
         <b>₹</b>
         <input
-          placeholder="Enter the withdrawal amount"
+          :placeholder="$t(Withdrawal.amountPlace)"
           maxlength="9"
           type="number"
           :value="amountVal"
@@ -26,22 +23,22 @@
       </div>
       <div class="flex jc-sb">
         <p class="f12 mt-10 chui">
-          Balance ：
+          {{ $t(Withdrawal.balance) }}
           <span>₹0</span>
         </p>
         <p class="f12 mt-10 chui">
-          Minimum Withdrawal：
+          {{ $t(Withdrawal.min) }}
           <span>₹255.00</span>
         </p>
       </div>
     </div>
 
     <div class="commonbox pd10 f16 flex jc-sb">
-      <p>Select a Bank Card</p>
+      <p>{{ $t(Withdrawal.cardTitle) }}</p>
       <i class="van-icon van-icon-arrow"></i>
     </div>
 
-    <div class="confirm" @click="Withdraw">Withdraw Now</div>
+    <div class="confirm" @click="Withdraw">{{ $t(Withdrawal.btn) }}</div>
   </div>
 </template>
 
@@ -66,10 +63,10 @@ export default {
       // 检测是否绑定了银行卡
       if(!this.isBackCard) {
         Dialog.confirm({
-        title: "Tip",
-        message: "You haven't tied your bank card!！",
-        confirmButtonText: "OK",
-        cancelButtonText: "Cancel",
+        title: this.$t('Withdrawal.dialogTip'),
+        message: this.$t('Withdrawal.dialogContent'),
+        confirmButtonText: this.$t('Withdrawal.dialogConfirmBtn'),
+        cancelButtonText: this.$t('Withdrawal.dialogCancelBtn'),
       })
         .then(() => {
           // on confirm

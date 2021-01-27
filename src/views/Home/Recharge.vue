@@ -1,9 +1,9 @@
 <template>
   <div class="Recharge">
-    <van-nav-bar title="Recharge" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Recharge.title')" left-arrow @click-left="onClickLeft" />
 
     <div class="Available">
-      <p>Available Balance</p>
+      <p>{{ $t('Recharge.availBalance') }}</p>
       <p>
         ₹
         <span class="fw7">0</span>
@@ -11,13 +11,12 @@
     </div>
 
     <div class="commonbox txcss f12 lh20">
-      <span class="txcss1">Recharge Instructions:</span>
-      Please confirm he recharging amount, and follow the procedure displayed
-      for recharging. In this way, you can avoid payment delay
+      <span class="txcss1">{{ $t('Recharge.instr') }}</span>
+      {{ $t('Recharge.instrVal') }}
     </div>
 
     <div class="rechargeinput">
-      <p>Recharge Amount</p>
+      <p>{{ $t('Recharge.amount') }}</p>
       <div class="flex aic f26">
         <b>₹</b>
         <input
@@ -25,17 +24,17 @@
           type="number"
           :value="amountVal"
           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')};"
-          placeholder="Enter a Recharge Amount"
+          :placeholder="$t('Recharge.amoutPlace')"
           class="commoninput"
         />
       </div>
-      <p class="f12 mt-10 chui">Minimum：₹250.00</p>
+      <p class="f12 mt-10 chui">{{ $t('Recharge.min') }} ₹250.00</p>
       <ul class="recharge-amount">
         <li class="" v-for="(item,index) in amountList" :key="index" @click="changeAmount(index)">₹{{ item }}</li>
       </ul>
     </div>
 
-    <p class="change">Online Recharge Mode</p>
+    <p class="change">{{ $t('Recharge.change') }}</p>
     <div class="commonbox rechargeway">
       <div class="line">Channel1</div>
       <van-radio-group v-model="radio">
@@ -43,15 +42,15 @@
           <template #title>
             <img src="../../static/img/radio.png" alt="" />
             <span class="text">JEEPay</span>
-            <span class="value">Recharge Range250.00-500,000.00</span>
+            <span class="value">{{ $t('Recharge.range') }}</span>
             <van-radio name="1"></van-radio>
           </template>
         </van-cell>
       </van-radio-group>
     </div>
-    <p class="change">Offline Recharge Mode</p>
+    <p class="change">{{ $t('Recharge.mode') }}</p>
 
-    <div class="btns" @click="next">Next</div>
+    <div class="btns" @click="next">{{ $t('Recharge.btn') }}</div>
   </div>
 </template>
 

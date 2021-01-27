@@ -74,6 +74,103 @@ module.exports = {
       p6: 'Undeniably, the problems faced by e-commercetoday is not only high prices and low quality, butalso other factors such as credibility, popularity,ranking, attention, word of mouth, and salesvolume.After all, no one wants to care about anunknown or unpopular e-commerce company,there won\'t even be a thought of trading withthem. So what should these e-commercecompanies do? lmprove product sales data,increase product exposure and page views, andcollect a large number of user reviews.Use TheShoppers to match orders!',
       p7: 'The shopper\'s order placement process is actuallysimilar to the online shopping process, includingpurchase and payment.The only difference is thatthe system will automatically refund the order foryou after you complete the payment, and automatically leave a good comment on the e-commerce company, and then return the amountyou paid and the order bonus earned to youraccount in The Shoppers e-wallet.In this way, youcan continue to place orders again and again, andeasily earn rewards from e-commerce companiesevery day.The Shoppers has a three-level agencymechanism, allowing each user to be an agentwith zero investment, and the agent rewards areautomatically credited to the account every day.For detail regarding order bonus earning andagency mechanism rules,please read the (platformrules) and (cooperative agency) of the platform.',
     }
+  },
+  Recharge: {
+    title: 'रिचार्ज',
+    availBalance: 'खाता उपलब्ध शेष राशि',
+    instr: 'रिचार्ज निर्देश:',
+    instrVal: 'कृपया त्वरित चरणों के अनुसार पुनर्भरण राशि और पुनर्भरण की पुष्टि करें, ताकि तुरंत खाता प्राप्त न कर सकें।',
+    amout: 'रिचार्ज राशि',
+    amoutPlace: 'कृपया रिचार्ज राशि दर्ज करें',
+    min: 'न्यूनतम रिचार्ज：',
+    change: 'ऑनलाइन रिचार्ज विधि',
+    range: 'रिचार्ज रेंज250.00-500,000.00',
+    mode: 'ऑफ़लाइन रिचार्ज विधि',
+    btn: 'अगला कदम'
+  },
+  Rules: {
+    title: 'Platform Rules',
+    content: {
+      p1: 'The platform is intelligent cloud automatic order matching system. After clicking (order receiving), the platform will automatically match corresponding orders in corresponding room according to the member account balance for promotion.',
+      p2: '6 order-receiving rooms, in which the goods promotion will bring different commission. If the user needs to enter corresponding room, the user needs to meet the room unlocking requirements. The user can receive orders for 60 times per day per account. That is to say, the user has the opportunity to earn the commission for 60 times. If the user successfully receives the orders for 60 times, the system will automatically set the upper limit. The invitation code will be generated for each user after registration. The user can register as new user through scanning the invitation code shared by the agent, and become the fist-level agent member of the team. The new users registered through scanning the invitation code of the first-level agent will become such user’s second-level agent. In a same fashion, the new users registered through scanning the invitation code of the second-level agent will become the team third-level agent.',
+      p3: 'The platform is established on three-level agent mechanism and grants each user the agent qualification.Refer to the introduction to cooperative agent mechanism of the platform for the details.',
+    }
+  },
+  ShoppersAs: {
+    title: 'खरीदारी सहायक',
+    rgText: 'अभिलेख',
+    balance: "उपलब्ध शेष राशि",
+    shoping: "खरीदारी सहायक",
+    total: "कुल आय",
+    balanceTitle: 'शॉपिंग असिस्टेंट को अकाउंट बैलेंस ट्रांसफर करें',
+    balancePlace: 'कृपया हस्तांतरण राशि दर्ज करें',
+    incomeTitle: 'लाभ मानक',
+    outBtn: 'बाहर स्थानांतरण',
+    inBtn: 'में स्थानांतरण',
+    explainTitle: 'वित्तीय प्रबंधन निर्देश',
+    explainVal: 'शॉपिंग असिस्टेंट एक रोबोट होस्टिंग असिस्टेंट है जो सदस्यों को अपने संतुलन को स्वचालित रूप से प्रबंधित करने में मदद कर सकता है। यह सदस्यों को नेटवर्क खराब होने पर ऑर्डर प्राप्त करने के कार्य को स्वचालित रूप से पूरा करने से रोक सकता है, समय व्यस्त है या वे ऑर्डर लेना भूल जाते हैं। सदस्यों को केवल उस समय सीमा का चयन करने की आवश्यकता है जो उन्हें प्रबंधित करने की आवश्यकता है, और खरीदारी सहायक जमा शेष राशि के अनुरूप कमरे के लिए 60 आदेशों को स्वचालित रूप से पूरा करेगा। अर्जित कमीशन स्वचालित रूप से खाते में जमा होता है, और इसी ब्याज लाभांश को जमा समय की लंबाई के अनुसार प्राप्त किया जा सकता है। भंडारण समय जितना अधिक होगा, ब्याज दर उतनी ही अधिक होगी। नोट: सभी सदस्य खरीदारी सहायक में जमा करते हैं, यह अगले दिन 0:00 बजे प्रभावी होगा, इसी जमा अवधि के चयन के बाद, सदस्य निर्दिष्ट प्रबंधन समय पूरा होने से पहले खरीदारी सहायक में शेष राशि हस्तांतरित नहीं कर सकता है।'
+  },
+  ShopRecords: {
+    title: 'अभिलेख',
+    content: 'अब और नहीं'
+  },
+  Video: {
+    title: 'वीडियो गाइड'
+  },
+  // TODO 英文部门文字取不到
+  Withdrawal: {
+    title: 'वापस लेने',
+    tip: 'Tip:',
+    tipVal: 'Each account ID customer can be free withdraw in 5 time ,after more than 5 times withdraw, Platform will be service charge of 5%.The Platform withdrawals are (T+1) mode. Withdrawals on the same day will arrive by the next day night before 23.59.',
+    amountTitle: 'Withdrawal Amount',
+    amountPlace: 'Enter the withdrawal amount',
+    balance: 'Balance:',
+    min: 'Minimum Withdrawal：',
+    cardTitle: 'Select a Bank Card',
+    btn: 'Withdraw Now',
+    dialogTip: 'प्रेरित करना',
+    dialogContent: 'आपने अभी तक अपना बैंक कार्ड नहीं बांधा है!！',
+    dialogCancelBtn: 'रद्द करना',
+    dialogConfirmBtn: 'ठीक है'
+  },
+  Orders: {
+    title: 'केंद्र प्राप्त करना',
+    Commission: 'आयोग',
+    Received: 'प्राप्त किया',
+    Balance: 'खाते में शेष',
+    OrdersF: 'जमे हुए आदेश',
+    orders: 'सिंगल',
+    explain: 'आदेश निर्देश',
+    content: {
+      p1: '（1）प्रत्येक खाता प्रति दिन 60 ऑर्डर प्राप्त कर सकता है',
+      p2: '（2）आदेश के सदस्यों के लिए Snapdeal आदेश प्राप्त करने वाले सदस्यों की कॉमिसन है 2.5%',
+      p3: '（3） सिस्टम स्वचालित रूप से एलबीएस तकनीक का उपयोग करके क्लाउड पर माल से मेल खाता है'
+    }
+  },
+  Records: {
+    title: 'ऑर्डर रिकॉर्ड',
+    tab1: 'अपूर्ण',
+    tab2: 'पूरा कर लिया है',
+    tab3: 'जमे हुए',
+    noData: 'अब और नहीं'
+  },
+  // TODO
+  Common: {
+    title: 'आम समस्या',
+    content: {
+      p1: '1.Please contact recharging customer service forrecharging problem, withdrawal problem and bankcard information change',
+      p2: '2.To receive benefits and event rewards, pleasecontact the event welfare customer service to learnabout platform activities',
+    }
+  },
+  Service: {
+    title: 'ग्राहक सेवा केन्द्र',
+    online: 'ऑनलाइन ग्राहक सेवा',
+    contact: 'ग्राहक सेवा से सम्पर्क करें',
+    nowBtn: 'अभी परामर्श करें',
+    commonP: 'आम समस्या',
+    recharge: 'ग्राहक सेवा का पुनर्भरण',
+    activity: 'गतिविधि कल्याण ग्राहक सेवा',
+    copy: 'कॉपी'
   }
 }
 

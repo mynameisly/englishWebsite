@@ -1,12 +1,15 @@
 <template>
-  <div class="Shoppers">
-    <van-nav-bar title="The Shoppers" left-arrow @click-left="onClickLeft" />
+  <div class="Records">
+    <van-nav-bar :title="$t('ShopRecords.title')" left-arrow @click-left="onClickLeft" />
+    <div class="wrapper">
+      {{ $t('ShopRecords.content') }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Shoppers",
+  name: "Records",
   data() {
     return {};
   },
@@ -20,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Shoppers {
+.Records {
   height: 100vh;
   background: #fff;
 }

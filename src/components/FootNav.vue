@@ -26,36 +26,37 @@ export default {
     return {
       footNav: "Home",
       current: 0,
+      // TODO name没有国际化
       footerList: [
         {
           path: "/index/Home",
           src: require("../static/img/Home.png"),
           activeSrc: require("../static/img/Home-active.png"),
-          name: "Home",
+          name: this.$t('FootNav.Home'),
         },
         {
           path: "/index/Service",
           src: require("../static/img/Service.png"),
           activeSrc: require("../static/img/Service-active.png"),
-          name: "Service",
+          name: this.$t('FootNav.Service'),
         },
         {
           path: "/index/Orders",
           src: require("../static/img/Orders.png"),
           activeSrc: require("../static/img/Orders.png"),
-          name: "Orders",
+          name: this.$t('FootNav.Orders'),
         },
         {
           path: "/index/Records",
           src: require("../static/img/Records.png"),
           activeSrc: require("../static/img/Records-active.png"),
-          name: "Records",
+          name: this.$t('FootNav.Records'),
         },
         {
           path: "/index/Account",
           src: require("../static/img/Account.png"),
           activeSrc: require("../static/img/Account-active.png"),
-          name: "Account",
+          name: this.$t('FootNav.Account'),
         },
       ],
     };

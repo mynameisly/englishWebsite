@@ -73,5 +73,100 @@ module.exports = {
       p6: 'Undeniably, the problems faced by e-commercetoday is not only high prices and low quality, butalso other factors such as credibility, popularity,ranking, attention, word of mouth, and salesvolume.After all, no one wants to care about anunknown or unpopular e-commerce company,there won\'t even be a thought of trading withthem. So what should these e-commercecompanies do? lmprove product sales data,increase product exposure and page views, andcollect a large number of user reviews.Use TheShoppers to match orders!',
       p7: 'The shopper\'s order placement process is actuallysimilar to the online shopping process, includingpurchase and payment.The only difference is thatthe system will automatically refund the order foryou after you complete the payment, and automatically leave a good comment on the e-commerce company, and then return the amountyou paid and the order bonus earned to youraccount in The Shoppers e-wallet.In this way, youcan continue to place orders again and again, andeasily earn rewards from e-commerce companiesevery day.The Shoppers has a three-level agencymechanism, allowing each user to be an agentwith zero investment, and the agent rewards areautomatically credited to the account every day.For detail regarding order bonus earning andagency mechanism rules,please read the (platformrules) and (cooperative agency) of the platform.',
     }
+  },
+  Recharge: {
+    title: 'Recharge',
+    availBalance: 'Available Balance',
+    instr: 'Recharge Instructions:',
+    instrVal: 'Please confirm he recharging amount, and follow the procedure displayed for recharging. In this way, you can avoid payment delay',
+    amout: 'Recharge Amount',
+    amoutPlace: 'Enter a Recharge Amount',
+    min: 'Minimum：',
+    change: 'Online Recharge Mode',
+    range: 'Recharge Range250.00-500,000.00',
+    mode: 'Offline Recharge Mode',
+    btn: 'Next'
+  },
+  Rules: {
+    title: 'Platform Rules',
+    content: {
+      p1: 'The platform is intelligent cloud automatic order matching system. After clicking (order receiving), the platform will automatically match corresponding orders in corresponding room according to the member account balance for promotion.',
+      p2: '6 order-receiving rooms, in which the goods promotion will bring different commission. If the user needs to enter corresponding room, the user needs to meet the room unlocking requirements. The user can receive orders for 60 times per day per account. That is to say, the user has the opportunity to earn the commission for 60 times. If the user successfully receives the orders for 60 times, the system will automatically set the upper limit. The invitation code will be generated for each user after registration. The user can register as new user through scanning the invitation code shared by the agent, and become the fist-level agent member of the team. The new users registered through scanning the invitation code of the first-level agent will become such user’s second-level agent. In a same fashion, the new users registered through scanning the invitation code of the second-level agent will become the team third-level agent.',
+      p3: 'The platform is established on three-level agent mechanism and grants each user the agent qualification.Refer to the introduction to cooperative agent mechanism of the platform for the details.',
+    }
+  },
+  ShoppersAs: {
+    title: 'Shopping Assistant',
+    rgText: 'Records',
+    balance: "Available Balance",
+    shoping: "Shopping Assistant",
+    total: "Total Income",
+    balanceTitle: 'Transfer Account Balance To Shopping Assistant',
+    balancePlace: 'Enter a Transfer-in Amount',
+    incomeTitle: 'Income Standard',
+    outBtn: 'Transfer Out',
+    inBtn: 'Transfer In',
+    explainTitle: 'Financial Management Description',
+    explainVal: 'Shopping helper is a robot managed helper that automatically manages the balance for the user. It can automatically finish the order-receiving task for the users so as to avoid poor network connection problem, tight schedule or forgetting to receive the orders. The user should solely select the management period, and transfer the account to shopping helper. It will automatically finish the deposit task of the order receiving for 60 times in the rooms corresponding to the balance, automatically accumulate and receive the commission earned, and receive corresponding interest bonus according to the deposit duration. The longer the deposit period is, the higher the interest ratio will be. Note: The processing will come into effect at 00:00 the next day if the user deposits in shopping helper. After selecting corresponding deposit period, the user cannot transfer the shopping helper balance out before the prescribed management period expires.'
+  },
+  ShopRecords: {
+    title: 'Records',
+    content: 'No More Records'
+  },
+  Video: {
+    title: 'Video Guide'
+  },
+  Withdrawal: {
+    title: 'Withdrawal',
+    tip: 'Tip:',
+    tipVal: 'Each account ID customer can be free withdraw in 5 time ,after more than 5 times withdraw, Platform will be service charge of 5%.The Platform withdrawals are (T+1) mode. Withdrawals on the same day will arrive by the next day night before 23.59.',
+    amountTitle: 'Withdrawal Amount',
+    amountPlace: 'Enter the withdrawal amount',
+    balance: 'Balance:',
+    min: 'Minimum Withdrawal：',
+    cardTitle: 'Select a Bank Card',
+    btn: 'Withdraw Now',
+    dialogTip: 'Tip',
+    dialogContent: 'You haven\'t tied your bank card!',
+    dialogCancelBtn: 'Cancel',
+    dialogConfirmBtn: 'OK'
+  },
+  Orders: {
+    title: 'Receiving Center',
+    Commission: 'Commission',
+    Received: 'Received',
+    Balance: 'Balance',
+    OrdersF: 'Orders Frozen',
+    orders: 'orders',
+    explain: 'Order Receiving Instructions',
+    content: {
+      p1: '（1）Each account can receive 60 orders per day',
+      p2: '（2）The commission for Snapdeal order receiving members is 2.5% of the order amount',
+      p3: '（3） The system automatically matches goods on the cloud by using the LBS technology'
+    }
+  },
+  Records: {
+    title: 'Order Records',
+    tab1: 'Pending',
+    tab2: 'Completed',
+    tab3: 'Frozen',
+    noData: 'No More Records'
+  },
+  Common: {
+    title: 'Common Problem',
+    content: {
+      p1: '1.Please contact recharging customer service forrecharging problem, withdrawal problem and bankcard information change',
+      p2: '2.To receive benefits and event rewards, pleasecontact the event welfare customer service to learnabout platform activities',
+    }
+  },
+  Service: {
+    title: 'Customer Service Center',
+    online: 'Online Customer Service',
+    contact: 'Contact Customer Service',
+    nowBtn: 'Consult Now',
+    commonP: 'Common Problem',
+    recharge: 'Recharge Customer Service',
+    activity: 'Activity Welfare Customer Service',
+    copy: 'Copy'
   }
 }

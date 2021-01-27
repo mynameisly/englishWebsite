@@ -10,7 +10,7 @@ const HomePage = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/H
 
 // Home
 const Home = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Home');
-const Shoppers = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Shoppers');
+const ShopRecords = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/ShopRecords');
 const ShoppingAssistant = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/ShoppingAssistant');
 const Recharge = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Recharge');
 const Link = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Link');
@@ -116,10 +116,10 @@ const routes = [{
 
 //#region Home
 {
-	path: '/Shoppers',
-	name: 'Shoppers',
-	explain: 'The Shoppers',
-	component: Shoppers
+	path: '/ShopRecords',
+	name: 'ShopRecords',
+	explain: 'The ShopRecords',
+	component: ShopRecords
 },
 {
 	path: '/ShoppingAssistant',

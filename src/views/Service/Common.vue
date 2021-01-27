@@ -1,16 +1,9 @@
 <template>
   <div class="Common">
-    <van-nav-bar title="Common Problem" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar :title="$t('Common.title')" left-arrow @click-left="onClickLeft" />
     <div class="wrapper">
-      <p>
-        1.Please contact recharging customer service forrecharging problem,
-        withdrawal problem and bankcard information change
-      </p>
-
-      <p>
-        2.To receive benefits and event rewards, pleasecontact the event welfare
-        customer service to learnabout platform activities
-      </p>
+      <p>{{ $t('Common.content.p1') }} </p>
+      <p>{{ $t('Common.content.p2') }} </p>
     </div>
   </div>
 </template>

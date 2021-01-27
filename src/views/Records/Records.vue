@@ -2,13 +2,13 @@
   <div class="Records">
     <div class="recordBox">
       <div class="harder">
-        <p class="harder-title">Order Records</p>
+        <p class="harder-title">{{ $t('Records.title') }}</p>
       </div>
       <div class="recordCont">
         <van-tabs v-model="activeName" @change="changeItem">
-          <van-tab title="Pending" name="a">No More Records</van-tab>
-          <van-tab title="Completed" name="b">No More Records</van-tab>
-          <van-tab title="Frozen" name="c">No More Records</van-tab>
+          <van-tab :title="$t('Records.tab1')" name="a">{{ $t('Records.noData') }}</van-tab>
+          <van-tab :title="$t('Records.tab2')" name="b">{{ $t('Records.noData') }}</van-tab>
+          <van-tab :title="$t('Records.tab3')" name="c">{{ $t('Records.noData') }}</van-tab>
         </van-tabs>
       </div>
     </div>

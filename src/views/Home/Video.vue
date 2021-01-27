@@ -1,7 +1,7 @@
 <template>
   <div class="Video">
     <van-nav-bar
-      title="Video Guide"
+      :title="$t('Video.title')"
       left-arrow
       @click-left="onClickLeft"
     />

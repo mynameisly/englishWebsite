@@ -1,10 +1,10 @@
 <template>
   <div class="Orders">
-    <van-nav-bar title="Receiving Center" />
+    <van-nav-bar :title="$t('Orders.title')" />
     <div class="grabcont">
       <div class="grabings">
         <img
-          src="../../static/img/grabing_en.3563d7b.png"
+          :src="en == 'en' ? require('../../static/img/grabing_en.3563d7b.png') : require('../../static/img/grabing_id.7994844.png')"
           alt=""
           class="grabing"
         />
@@ -13,55 +13,39 @@
       <div class="todayVictory">
         <ul>
           <li>
-            <div class="litit">Commission</div>
-            <p>₹0</p>
+            <div class="litit">{{ $t('Orders.Commission') }}</div>
+            <p>₹{{Commission}}</p>
           </li>
           <li>
-            <div class="litit">Received</div>
-            <p>0 orders</p>
+            <div class="litit">{{ $t('Orders.Received') }}</div>
+            <p>{{Received}} {{ $t('Orders.orders') }}</p>
           </li>
           <li>
-            <div class="litit">Balance</div>
-            <p>₹0</p>
+            <div class="litit">{{ $t('Orders.Balance') }}</div>
+            <p>₹{{Balance}}</p>
           </li>
           <li>
-            <div class="litit">Orders Frozen</div>
-            <p>0 orders</p>
+            <div class="litit">{{ $t('Orders.OrdersF') }}</div>
+            <p>{{OrdersF}} {{ $t('Orders.orders') }}</p>
           </li>
         </ul>
       </div>
       <div class="showTimebox">
-        <div class="order-receiving-list">
+        <div class="order-receiving-list" v-for="(item,index) in receiveList" :key="index">
           <div class="order-receiving-list-left">
             <img
-              src="https://api.theshoppers.app/files/product/32960708538/Illusion-Sexy-Mermaid-Train-font-b-Wedding-b-font-Dress-2020-New-Style-Korean-Lace-Appliques.jpg_220x220xz.jpg"
+              :src="item.imgUrl"
               alt=""
             />
           </div>
           <div class="order-receiving-list-right">
-            <p class="p1">
-              Illusion Sexy Mermaid Train Wedding Dress 2020 New Style Korean
-              Lace Appliques Sequined Fishtail Bride Princess estidos de noiva
-            </p>
-            <p>₹4,663.85</p>
-          </div>
-        </div>
-        <div class="order-receiving-list">
-          <div class="order-receiving-list-left">
-            <img
-              src="https://api.theshoppers.app/files/product/684973891/Unlocked-Original-Sony-Ericsson-C902-Mobile-Phone-3G-5MP-Bluetooh-MP3-MP4-Player-C902-Cellphone-One.jpg_220x220xz.jpg"
-              alt=""
-            />
-          </div>
-          <div class="order-receiving-list-right">
-            <p class="p1">
-              Sony Ericsson C902c 2G 5MP Refurbished Cellphone Unlocked Original
-              3G Bluetooth
-            </p>
-            <p>₹5,615.11</p>
+            <p class="p1">{{item.intro}}</p>
+            <p>₹{{item.money}}</p>
           </div>
         </div>
       </div>
+
+
       <div class="operation">
         <div class="butbox">
           <p @click="stop">STOP</p>
@@ -77,16 +61,10 @@
         </div>
       </div>
       <div class="explain">
-        Order Receiving Instructions
-        <p>（1）Each account can receive 60 orders per day</p>
-        <p>
-          （2）The commission for Snapdeal order receiving members is 2.5% of
-          the order amount
-        </p>
-        <p>
-          （3） The system automatically matches goods on the cloud by using the
-          LBS technology
-        </p>
+        {{ $t('Orders.explain') }}
+        <p>{{ $t('Orders.content.p1') }}</p>
+        <p>{{ $t('Orders.content.p2') }}</p>
+        <p>{{ $t('Orders.content.p3') }}</p>
       </div>
     </div>
   </div>
@@ -98,10 +76,52 @@ export default {
   data() {
     return {
       isStart: false,
+      en: 'en', //是否是英文包en,印度文包ind
+      Commission: '',
+      Received: '',
+      Balance: '',
+      OrdersF: '',
+      receiveList: [
+        {
+          imgUrl: 'https://api.theshoppers.app/files/product/32960708538/Illusion-Sexy-Mermaid-Train-font-b-Wedding-b-font-Dress-2020-New-Style-Korean-Lace-Appliques.jpg_220x220xz.jpg',
+          intro: 'Illusion Sexy Mermaid Train Wedding Dress 2020 New Style Korean Lace Appliques Sequined Fishtail Bride Princess estidos de noiva',
+          money: '4,663.85'
+        },
+        {
+          imgUrl: 'https://api.theshoppers.app/files/product/684973891/Unlocked-Original-Sony-Ericsson-C902-Mobile-Phone-3G-5MP-Bluetooh-MP3-MP4-Player-C902-Cellphone-One.jpg_220x220xz.jpg',
+          intro: 'Sony Ericsson C902c 2G 5MP Refurbished Cellphone Unlocked Original 3G Bluetooth',
+          money: '5,615.11'
+        }
+      ]
     };
   },
-  created() {},
+  mounted() {
+    this.init()
+  },
   methods: {
+    init() {
+      this.getData();
+      this.getReceiveList()
+    },
+    getData() {
+      // let params = {}
+      // this.fetchget('/api/getData', params).then((res) => {
+      //   if(res.code == 200) {
+      //     this.Commission = '0';
+      //     this.Received = '0';
+      //     this.Balance = '0';
+      //     this.OrdersF = '0';
+      //   }
+      // })
+    },
+    getReceiveList() {
+      // let params = {}
+      // this.fetchget('/api/getReceiveList', params).then((res) => {
+      //   if(res.code == 200) {
+      //     this.receiveList = res.data.getReceiveList;
+      //   }
+      // })
+    },
     start() {
       // 开始
       this.isStart = true;

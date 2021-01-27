@@ -1,31 +1,31 @@
 <template>
   <div class="ShoppingAssistant">
     <van-nav-bar
-      title="Shoppers Assistant"
+      :title="$t('ShoppersAs.title')"
       left-arrow
-      right-text="Records"
+      :right-text="$t('ShoppersAs.rgText')"
       @click-left="onClickLeft"
       @click-right="onClickRight"
     />
     <div class="container">
       <div class="accountDetails">
         <div class="Available">
-          <p>Available Balance</p>
+          <p>{{ $t('ShoppersAs.balance') }}</p>
           <p>{{balance}}</p>
         </div>
         <div class="Shopping">
-          <p>Shopping Assistant</p>
+          <p>{{ $t('ShoppersAs.shoping') }}</p>
           <p>{{shoping}}</p>
         </div>
         <div class="Available">
-          <p>Total Income</p>
+          <p>{{ $t('ShoppersAs.total') }}</p>
           <p>{{total}}</p>
         </div>
       </div>
 
       <div class="balanceInto public-bg">
         <p class="balanceInto-title">
-          Transfer Account Balance To Shopping Assistant
+          {{ $t('ShoppersAs.balanceTitle') }}
         </p>
         <van-cell-group>
           <van-cell title="单元格">
@@ -34,42 +34,26 @@
                 <span class="custom-title">₹</span>
                 <input
                   type="text"
-                  placeholder="Enter a Transfer-in Amount"
+                  :placeholder="$t('ShoppersAs.balancePlace')"
                   class="van-field__control"
                 />
               </div>
             </template>
           </van-cell>
         </van-cell-group>
-        <p class="standard">Income Standard</p>
+        <p class="standard">{{ $t('ShoppersAs.incomeTitle') }}</p>
         <ul class="profit"></ul>
         <div class="choice">
-          <button>Transfer Out</button>
-          <button>Transfer In</button>
+          <button>{{ $t('ShoppersAs.outBtn') }}</button>
+          <button>{{ $t('ShoppersAs.inBtn') }}</button>
         </div>
       </div>
 
       <div class="explain public-bg">
         <p class="explain-title">
-          <span>Financial Management Description</span>
+          <span>{{ $t('ShoppersAs.explainTitle') }}</span>
         </p>
-        <p class="explain-center">
-          Shopping helper is a robot managed helper that automatically manages
-          the balance for the user. It can automatically finish the
-          order-receiving task for the users so as to avoid poor network
-          connection problem, tight schedule or forgetting to receive the
-          orders. The user should solely select the management period, and
-          transfer the account to shopping helper. It will automatically finish
-          the deposit task of the order receiving for 60 times in the rooms
-          corresponding to the balance, automatically accumulate and receive the
-          commission earned, and receive corresponding interest bonus according
-          to the deposit duration. The longer the deposit period is, the higher
-          the interest ratio will be. Note: The processing will come into effect
-          at 00:00 the next day if the user deposits in shopping helper. After
-          selecting corresponding deposit period, the user cannot transfer the
-          shopping helper balance out before the prescribed management period
-          expires.
-        </p>
+        <p class="explain-center">{{ $t('ShoppersAs.explainVal') }}</p>
       </div>
     </div>
   </div>
@@ -104,7 +88,9 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
-    onClickRight() {},
+    onClickRight() {
+      this.$router.push({path: '/ShopRecords'});
+    },
   },
 };
 </script>

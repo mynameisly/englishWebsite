@@ -75,7 +75,7 @@
 
     <div class="task">
       <ul>
-        <li v-for="(item,index) in taskList" :key="index">
+        <li v-for="(item,index) in taskList" :key="index" @click="goDetails(item,index)">
           <div class="task-bottom">
             <div>
               <p>{{item.title}}</p>
@@ -215,6 +215,10 @@ export default {
     },
     confirmTip() {
       this.showPop = false
+    },
+    goDetails(item,index) {
+      // 查看详情
+      this.$router.push({name: 'Orders',params: {item,index}})
     },
     toShoppers() {
       this.$router.push({ path: "/Shoppers" });
