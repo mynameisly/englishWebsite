@@ -12,7 +12,7 @@
           :rules="[{ required: true, message: 'Mobile Number不能为空' }]"
         />
         <van-field
-        left-icon="lock"
+          left-icon="lock"
           type="password"
           v-model="form.password"
           placeholder="Enter Your Password"

@@ -13,8 +13,12 @@
           :rules="[{ required: true, message: 'Mobile Number不能为空' }]"
         />
         <div class="otp">
+          <img
+            src="../static/img/SignUp/otp.png"
+            style="width: 17px; height: 17px; display: inline-block;margin-right: 10px;"
+            alt=""
+          />
           <van-field
-            left-icon="envelop-o"
             type="text"
             v-model="form.otp"
             placeholder="Enter OTP"
@@ -22,46 +26,75 @@
           />
           <span class="f14"> OTP </span>
         </div>
-        <van-field
-          left-icon="user-o"
-          type="text"
-          v-model="form.username"
-          placeholder="Please Enter Username"
-          :rules="[{ required: true, message: 'username不能为空' }]"
-        />
-        <van-field
-          left-icon="lock"
-          type="password"
-          v-model="form.password"
-          placeholder="Enter Your Password"
-          :rules="[{ required: true, message: 'Password不能为空' }]"
-        />
-        <div
-          style="
-            color: rgb(255, 51, 4) !important;
-            font-size: 12px;
-            width: 60%;
-            text-align: left;
-            line-height: 24px;
-            margin-top: 8px;
-          "
-        >
-          Only 6-20 letters, numbers and underscores can be entered
+
+        <div class="user">
+          <img
+            src="../static/img/SignUp/user.png"
+            style="width: 17px; height: 17px; display: inline-block;margin-right: 10px;"
+            alt=""
+          />
+          <van-field
+            type="text"
+            v-model="form.username"
+            placeholder="Please Enter Username"
+            :rules="[{ required: true, message: 'username不能为空' }]"
+          />
         </div>
-        <van-field
-          left-icon="bag-o"
-          type="password"
-          v-model="form.password"
-          placeholder="Confirm rPassword"
-          :rules="[{ required: true, message: 'rPassword不能为空' }]"
-        />
-        <van-field
-          left-icon="coupon-o"
-          type="text"
-          v-model="form.invitationCode"
-          placeholder="Please Fill In The Invitation Code"
-          :rules="[{ required: true, message: 'Invitation Code不能为空' }]"
-        />
+
+        <div class="pwd">
+          <img
+            src="../static/img/SignUp/pwd.png"
+            style="width: 17px; height: 17px; display: inline-block;margin-right: 10px;"
+            alt=""
+          />
+          <van-field
+            type="password"
+            v-model="form.password"
+            placeholder="Enter Your Password"
+            :rules="[{ required: true, message: 'Password不能为空' }]"
+          />
+        </div>
+          <div
+            style="
+              color: rgb(255, 51, 4) !important;
+              font-size: 12px;
+              width: 60%;
+              text-align: left;
+              line-height: 24px;
+              margin-top: 8px;
+            "
+          >
+            Only 6-20 letters, numbers and underscores can be entered
+          </div>
+        
+
+        <div class="cpwd">
+          <img
+            src="../static/img/SignUp/cpwd.png"
+            style="width: 17px; height: 17px; display: inline-block;margin-right: 10px;"
+            alt=""
+          />
+          <van-field
+            type="password"
+            v-model="form.password"
+            placeholder="Confirm rPassword"
+            :rules="[{ required: true, message: 'rPassword不能为空' }]"
+          />
+        </div>
+
+        <div class="inviteCode">
+          <img
+            src="../static/img/SignUp/inviteCode.png"
+            style="width: 17px; height: 17px; display: inline-block;margin-right: 10px;"
+            alt=""
+          />
+          <van-field
+            type="text"
+            v-model="form.invitationCode"
+            placeholder="Please Fill In The Invitation Code"
+            :rules="[{ required: true, message: 'Invitation Code不能为空' }]"
+          />
+        </div>
       </div>
 
       <div class="confirm" @click="Signup">Sign Up</div>
@@ -114,7 +147,8 @@ export default {
   }
   .van-field {
     padding: 14px 0;
-    border-bottom: 1px solid #eee;
+    // border-bottom: 1px solid #eee;
+    border-color: transparent;
   }
 
   .login {
@@ -153,6 +187,12 @@ export default {
           font-size: 14px;
         }
       }
+    }
+
+    .user,.otp,.pwd,.cpwd,.inviteCode {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee;
     }
     .confirm {
       font-size: 16px;
