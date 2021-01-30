@@ -1,0 +1,85 @@
+// vant 样式重置模块
+@import './ionicon.css';
+@import './init.scss';
+@import './animate.css';
+@import './iconfont.css';
+
+.van-tabs__nav{
+    
+    background: transparent;
+}
+.van-tab {
+    font-size: 14px;
+    color: #fff;
+}
+.van-tabs--line .van-tabs__wrap{
+    border-bottom: 1px solid #FFA979;
+}
+.van-tabs__line{
+    width: 30px!important;
+    background-color: rgb(255, 255, 255);
+    transform: translateX(187.5px) translateX(-50%);
+}
+.van-tab__pane{
+    font-size: 14px;
+}
+
+.van-nav-bar .van-icon {
+    color: #333;
+}
+.van-nav-bar__title {
+    font-weight: 700;
+}
+.van-nav-bar__text {
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+}
+.van-cell{
+    padding-left: 0;
+    padding-right: 0;
+    align-items: center;
+}
+.van-cell__title{
+    display: flex;
+    align-items: center;
+}
+.van-field__label{
+    width: 70px;
+}
+.van-dialog__header{
+    background-image: linear-gradient(180deg,#ff792c,#ff5201);
+    color: #fff;
+    padding: 10px 0;
+    font-size: 16px;
+}
+.van-dialog__confirm{
+    color: #ee0a24;
+}
+.van-dialog__message--has-title{
+    padding-top: 24px;
+}
+.van-cell-group{
+    padding: 0 20px;
+}
+.van-field__control{
+    font-size: 18px;
+}
+.van-icon-envelop-o,
+.van-icon-user-o,
+.van-icon-bag-o,
+.van-icon-coupon-o,
+.van-icon-lock{
+    color: #fff;
+    font-size: 22px!important;
+    margin-right: 10px;
+}
+.van-field__label>span{
+    font-size: 15px!important;
+}
+.van-popup {
+    // overflow-y: hidden;
+}
+.van-notice-bar{
+    background: transparent;
+}
