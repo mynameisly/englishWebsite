@@ -1,9 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
 import {
-    Toast
-} from 'vant'
-import {
     REQUEST_BASICS
 } from './request.config'
 import {
@@ -64,7 +61,7 @@ instance.interceptors.response.use(function (response) {
     const code = response.data.code;
     // code处理
     if (code === 401) {
-        Toast("挂机时间过长，请重新登录！")
+        alert("挂机时间过长，请重新登录！")
         // 清除本地 token  userinfo 数据
         removelocalStorageKey("AUTH_PARAM", "AUTH_INFO");
         router.replace('/login');
@@ -75,13 +72,13 @@ instance.interceptors.response.use(function (response) {
         if (response.config.url === '/login') {
             return response;
         } else {
-            Toast(response.data.msg);
+            alert(response.data.msg);
             throw `网络错误代码${code}！！`
         }
     }
 }, function (error) {
     // 对响应错误做点什么
-    // Toast("系统内部错误")
+    // alert("系统内部错误")
     return Promise.reject(error)
 });
 

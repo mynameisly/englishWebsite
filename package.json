@@ -11,14 +11,12 @@
   },
   "dependencies": {
     "@antv/f2": "^3.6.4-beta.6",
-    "amfe-flexible": "^2.2.1",
     "axios": "^0.19.2",
-    "clipboard": "^2.0.6",
+    "bootstrap3": "^3.3.5",
     "core-js": "^3.6.5",
+    "jquery": "^3.5.1",
     "moment": "^2.26.0",
-    "vant": "^2.12.6",
     "vue": "^2.6.11",
-    "vue-i18n": "^8.22.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },
@@ -31,7 +29,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "postcss-pxtorem": "^5.1.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"

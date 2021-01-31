@@ -4,82 +4,111 @@
 @import './animate.css';
 @import './iconfont.css';
 
-.van-tabs__nav{
-    
-    background: transparent;
-}
-.van-tab {
-    font-size: 14px;
-    color: #fff;
-}
-.van-tabs--line .van-tabs__wrap{
-    border-bottom: 1px solid #FFA979;
-}
-.van-tabs__line{
-    width: 30px!important;
-    background-color: rgb(255, 255, 255);
-    transform: translateX(187.5px) translateX(-50%);
-}
-.van-tab__pane{
-    font-size: 14px;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.van-nav-bar .van-icon {
-    color: #333;
+.form-group.has-success label {
+    color: #18bc9c;
 }
-.van-nav-bar__title {
-    font-weight: 700;
+
+.form-group.has-success .form-control, .form-group.has-success .input-group-addon {
+    border-color: #18bc9c;
+    box-shadow: none;
 }
-.van-nav-bar__text {
-    color: #333;
+
+.form-control {
+    border-radius: 0;
+    appearance: none;
+}
+
+.input-lg {
+    height: 42px;
+    padding: 10px 16px;
     font-size: 15px;
-    font-weight: 700;
+    line-height: 1.3333333;
 }
-.van-cell{
-    padding-left: 0;
-    padding-right: 0;
-    align-items: center;
-}
-.van-cell__title{
-    display: flex;
-    align-items: center;
-}
-.van-field__label{
-    width: 70px;
-}
-.van-dialog__header{
-    background-image: linear-gradient(180deg,#ff792c,#ff5201);
+
+.btn-primary {
     color: #fff;
-    padding: 10px 0;
-    font-size: 16px;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
 }
-.van-dialog__confirm{
-    color: #ee0a24;
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #1a242f;
+    border-color: #161f29;
 }
-.van-dialog__message--has-title{
-    padding-top: 24px;
+
+.btn-lg, .btn-group-lg > .btn {
+    padding: 10px 16px;
+    font-size: 15px;
+    line-height: 1.3333333;
+    border-radius: 5px;
 }
-.van-cell-group{
-    padding: 0 20px;
+
+.modal-content{
+    border-radius: 0;
 }
-.van-field__control{
+.btn {
+    border: 1px solid transparent;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.modal-dialog{
+    height: 100%;
+    top: 25%;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 16.5px 15px;
+    font-size: 15px;
+    line-height: 17px;
+    height: 50px;
+}
+.panel-default {
+    border-color: transparent;
+    padding: 0 15px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.panel-default h2.page-header {
+    margin-top: 0;
+    height: 50px;
+    line-height: 31px;
     font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
 }
-.van-icon-envelop-o,
-.van-icon-user-o,
-.van-icon-bag-o,
-.van-icon-coupon-o,
-.van-icon-lock{
+
+.col-md-2 {
+    width: 16.66666667%;
+}
+
+.btn-default {
+    background-color: #f4f4f4;
+    color: #444;
+    border-color: #ddd;
+}
+
+.btn-success {
     color: #fff;
-    font-size: 22px!important;
-    margin-right: 10px;
+    background-color: #18bc9c;
+    border-color: #18bc9c;
 }
-.van-field__label>span{
-    font-size: 15px!important;
-}
-.van-popup {
-    // overflow-y: hidden;
-}
-.van-notice-bar{
-    background: transparent;
-}
+
+// .fixed-table-body {
+//     overflow-x: auto;
+//     overflow-y: auto;
+//     height: 100%;
+// }

@@ -19,11 +19,11 @@ export default new Vuex.Store({
 			for(let key in value) {
 				state[key] = value[key];
 			}
-		}
+		},
 	},
 	// 动态方法	 请求数据
 	actions: {
-
+		
 	},
 	// 模块化
 	modules: {

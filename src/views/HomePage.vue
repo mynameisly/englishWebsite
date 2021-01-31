@@ -1,16 +1,19 @@
 <template>
     <div class="homepage">
-        <router-view ref="main" />
-        <FootNav />
+        <Header />
+            <router-view />
+        <Footer />
     </div>
 </template>
 
 <script>
-import FootNav from "@com/FootNav";
+import Header from "@com/Header";
+import Footer from "@com/Footer";
 export default {
     name: "HomePage",
     components: {
-        FootNav
+        Header,
+        Footer
     },
     methods: {},
     mounted() {
