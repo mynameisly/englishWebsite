@@ -1,6 +1,6 @@
 <template>
     <div id="example">
-        <div class="tab-pane fade">
+        <div class="tab-pane">
             <div class="widget-body no-padding">
                 <form
                     id="example-form"

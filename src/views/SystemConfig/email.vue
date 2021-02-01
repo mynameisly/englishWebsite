@@ -1,6 +1,6 @@
 <template>
     <div id="email">
-        <div class="tab-pane fade">
+        <div class="tab-pane">
             <div class="widget-body no-padding">
                 <form
                     id="email-form"
@@ -11,7 +11,7 @@
                     action="/HxcFsNbkRZ.php/general.config/edit"
                     novalidate="novalidate"
                 >
-                    <input type="hidden" name="__token__" value="36a6691ceec2f1cdce54c828a3c36d69" />
+                    <!-- <input type="hidden" name="__token__" value="36a6691ceec2f1cdce54c828a3c36d69" /> -->
                     <table class="table table-striped">
                         <thead>
                             <tr>

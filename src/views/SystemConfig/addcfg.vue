@@ -1,6 +1,6 @@
 <template>
     <div id="addcfg">
-        <div class="tab-pane fade">
+        <div class="tab-pane">
             <form
                 id="add-form"
                 class="form-horizontal nice-validator n-default n-bootstrap"

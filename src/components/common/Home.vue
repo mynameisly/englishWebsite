@@ -3,7 +3,7 @@
         <v-sidebar></v-sidebar>
         <div class="content-box" :class="{'content-collapse':collapse}" style="padding-bottom:0">
             <v-head></v-head>
-            <div class="content" style="background-color: #fff;margin-top:5px">
+            <div class="content" style="margin-top:5px">
                 <transition name="move" mode="out-in">
                     <keep-alive :include="tagsList">
                         <router-view></router-view>

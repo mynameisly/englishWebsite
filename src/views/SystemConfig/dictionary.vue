@@ -1,6 +1,6 @@
 <template>
     <div id="dictionary">
-        <div class="tab-pane fade">
+        <div class="tab-pane">
             <div class="widget-body no-padding">
                 <form
                     id="dictionary-form"
