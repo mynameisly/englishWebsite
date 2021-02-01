@@ -54,17 +54,24 @@ export default {
                 {
                     icon: 'el-icon-lx-cascades',
                     index: 'normalManage',
-                    menuName: '常规管理'
-                },
-                {
-                    icon: 'el-icon-lx-copy',
-                    index: 'attachManage',
-                    menuName: '附件管理'
-                },
-                {
-                    icon: 'el-icon-lx-copy',
-                    index: 'personalData',
-                    menuName: '个人资料'
+                    title: '常规管理',
+                    subs: [
+                        {
+                            icon: 'el-icon-lx-home',
+                            index: 'systemConfig',
+                            title: '系统配置'
+                        },
+                        {
+                            icon: 'el-icon-lx-copy',
+                            index: 'attachManage',
+                            title: '附件管理'
+                        },
+                        {
+                            icon: 'el-icon-lx-copy',
+                            index: 'personalData',
+                            title: '个人资料'
+                        },
+                    ]
                 },
                 {
                     icon: 'el-icon-lx-calendar',

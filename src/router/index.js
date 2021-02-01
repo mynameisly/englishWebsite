@@ -24,6 +24,12 @@ export default new Router({
                 component: () => import(/* webpackChunkName: "icon" */ '../views/NormalManage/index'),
                 meta: { title: '常规管理' }
               },
+              // 常规管理的子路由开始
+              {
+                path: '/systemConfig',
+                component: () => import(/* webpackChunkName: "icon" */ '../views/SystemConfig/index'),
+                meta: { title: '系统配置' }
+              },
               {
                 path: '/attachManage',
                 component: () => import(/* webpackChunkName: "table" */ '../views/AttachManage/index'),
@@ -34,6 +40,7 @@ export default new Router({
                 component: () => import(/* webpackChunkName: "tabs" */ '../views/PersonalData/index'),
                 meta: { title: '个人资料' }
               },
+              // 常规管理的子路由结束
               {
                 path: '/sortManage',
                 component: () => import(/* webpackChunkName: "form" */ '../views/SortManage/index'),

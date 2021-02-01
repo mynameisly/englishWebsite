@@ -34,11 +34,13 @@ a {
 }
 
 .content {
-    width: auto;
     height: 100%;
-    padding: 10px;
-    overflow-y: scroll;
-    box-sizing: border-box;
+    padding: 15px;
+    min-height: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .content-collapse {
@@ -175,3 +177,5 @@ a {
 .v-note-wrapper .v-note-panel {
     min-height: 500px;
 }
+
+/* reset bootstrap style */
