@@ -10,7 +10,10 @@ export default {
     return {};
   },
   created() {},
-  mounted() {},
+  mounted() {
+    // TODO
+    this.$router.push({path: '/Login'})
+  },
   methods: {},
 };
 </script>

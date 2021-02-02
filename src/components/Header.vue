@@ -35,16 +35,16 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href=""><i class="fa fa-user-circle fa-fw"></i>会员中心</a>
+                  <a @click="$router.push({path: '/BackgroundCenter'})"><i class="fa fa-user-circle fa-fw"></i>会员中心</a>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-user-o fa-fw"></i>个人资料</a>
+                  <a @click="$router.push({path: '/PersonalData'})"><i class="fa fa-user-o fa-fw"></i>个人资料</a>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-key fa-fw"></i>修改密码</a>
+                  <a @click="$router.push({path: '/ChangePwd'})"><i class="fa fa-key fa-fw"></i>修改密码</a>
                 </li>
                 <li>
-                  <a href=""><i class="fa fa-sign-out fa-fw"></i>退 出</a>
+                  <a @click="logout"><i class="fa fa-sign-out fa-fw"></i>退 出</a>
                 </li>
               </ul>
             </li>
@@ -66,6 +66,11 @@ export default {
     toggleIem(index) {
       this.current = index;
     },
+    logout() {
+
+      // TODO
+      this.$router.push({path: '/Login'})
+    }
   },
 };
 </script>

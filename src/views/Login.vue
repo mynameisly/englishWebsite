@@ -30,7 +30,7 @@
               ></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="/index/user/login.html"
+                  <a @click="login"
                     ><i class="fa fa-sign-in fa-fw"></i> 登 录</a
                   >
                 </li>
@@ -289,7 +289,7 @@ export default {
   methods: {
     login() {
       // 登录
-      alert(1);
+      
       this.$router.push({ path: "/index" });
     },
     sendCode() {
