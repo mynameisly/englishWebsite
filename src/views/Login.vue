@@ -29,7 +29,7 @@
               ></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a
+                  <a @click="login"
                     ><i class="fa fa-sign-in fa-fw"></i> 登 录</a
                   >
                 </li>
@@ -302,6 +302,7 @@ export default {
       axios.post("/api/login",params).then(res => {
         console.log('login res',res)
       })
+      this.$router.push({ path: "/index" });
     },
     sendCode() {
       // 发送验证码

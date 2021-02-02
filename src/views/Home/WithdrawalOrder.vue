@@ -348,7 +348,7 @@
                   <ul class="dropdown-menu" role="menu">
                     <li
                       role="menuitem"
-                      v-for="(item, index) in headerList"
+                      v-for="(item, index) in filterColumnList"
                       :key="index"
                     >
                       <label
@@ -357,7 +357,7 @@
                           :data-field="item.name"
                           value="0"
                           :checked="item.name"
-                          @click="filterColumn(item.name)"
+                          @click="filterColumn(item.name,index)"
                         />{{ item.label }}</label
                       >
                     </li>
@@ -648,6 +648,7 @@ export default {
     return {
       iscommonsearch: true,
       isToggle: true, //是否切换视图
+      filterColumnList: [],
       headerList: [
         // 标题数组
         {
@@ -715,26 +716,55 @@ export default {
           operate: "待审核",
           operate2: "设置为已支付",
         },
+        {
+          username: "110999961",
+          mobile: "1234567890",
+          tradeno: "-",
+          orderno: "1611923534467919505",
+          amount: "100.00",
+          recvname: "MUHAMMED",
+          bankno: "BASHEER",
+          ifsc: "UCBA0002972",
+          orderstatus: "未支付",
+          createtime: "2021-01-29 18:02:14		",
+          operate: "待审核",
+          operate2: "设置为已支付",
+        },
+        {
+          username: "110999961",
+          mobile: "1234567890",
+          tradeno: "-",
+          orderno: "1611923534467919505",
+          amount: "100.00",
+          recvname: "MUHAMMED",
+          bankno: "BASHEER",
+          ifsc: "UCBA0002972",
+          orderstatus: "未支付",
+          createtime: "2021-01-29 18:02:14",
+          operate: "待审核",
+          operate2: "设置为已支付",
+        },
       ],
       pageSize: "30", //每页条数
       total: "100", //总条数
+      name: 'username'
     };
   },
-  created() {},
-  mounted() {},
+  mounted() {
+    this.filterColumnList = this.headerList;
+  },
   methods: {
     toggle() {
       // 视图切换
       this.isToggle = !this.isToggle;
     },
-    filterColumn(name) {
-      console.log("name", name);
+    filterColumn(name,index) {
+      
       // 筛选列
-      this.headerList.filter((item) => {
-        return item.name.includes(name);
-      });
-      console.log("1", this.headerList);
-      // this.bodyList.firlter(item => item.indexOf(name) < 0)
+      this.headerList = this.headerList.filter(item => item.name != name)
+      this.bodyList = this.bodyList.filter(item => 
+        delete item[name.toString()]
+      )
     },
     commonSearch() {
       // 搜索
@@ -771,14 +801,6 @@ export default {
 }
 .fixed-table-toolbar .columns-right {
   margin-left: 5px;
-}
-.fixed-table-container {
-  .fixed-table-body {
-    // overflow-x: auto;
-    // overflow-y: auto;
-    // height: 100%;
-    width: 100%;
-  }
 }
 
 .card-view .title {
