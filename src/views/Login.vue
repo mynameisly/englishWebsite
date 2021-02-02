@@ -18,11 +18,10 @@
         </div>
         <div class="collapse navbar-collapse" id="header-navbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">首页</a></li>
+            <li><a>首页</a></li>
             <!-- li 加一个open类则自动展开列表 -->
             <li class="dropdown">
               <a
-                href="/index/user/index.html"
                 class="dropdown-toggle"
                 data-toggle="dropdown"
                 aria-expanded="true"
@@ -30,7 +29,7 @@
               ></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="/index/user/login.html"
+                  <a
                     ><i class="fa fa-sign-in fa-fw"></i> 登 录</a
                   >
                 </li>
@@ -222,7 +221,6 @@
                           style="padding: 0; border: none"
                         >
                           <a
-                            href="javascript:;"
                             class="btn btn-info btn-captcha"
                             data-url="/api/ems/send.html"
                             data-type="email"
@@ -273,6 +271,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 import { setlocalStorage, removelocalStorageKey } from "@uit/comtool";
 export default {
   name: "Login",
@@ -289,8 +288,20 @@ export default {
   methods: {
     login() {
       // 登录
-      alert(1);
-      this.$router.push({ path: "/index" });
+      let params = {
+        mod: this.form.account,
+        pass: this.form.password
+      }
+      // console.log('2',params)
+      // this.fetchpost("/login", params).then((res) => {
+      //   console.log('login res',res)
+      // this.$router.push({ path: "/index" });
+
+      // });
+
+      axios.post("/api/login",params).then(res => {
+        console.log('login res',res)
+      })
     },
     sendCode() {
       // 发送验证码
