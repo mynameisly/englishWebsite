@@ -370,7 +370,7 @@
                         v-for="(item, index) in headerList"
                         :key="index"
                       >
-                        <div class="th-inner">{{ item.label }}</div>
+                        <div class="th-inner" :class="{'sortable both': item.label == '购买时间' || item.label == '到期时间' || item.label == '赎回时间'}">{{ item.label }}</div>
                         <div class="fht-cell"></div>
                       </th>
                     </tr>
@@ -571,8 +571,9 @@ export default {
   data() {
     return {};
   },
-  created() {},
-  mounted() {},
+  mounted() {
+
+  },
   methods: {},
 };
 </script>
@@ -671,9 +672,20 @@ export default {
       total: "100", //总条数
     };
   },
-  created() {},
-  mounted() {},
+  mounted() {
+    this.init();
+  },
   methods: {
+    init() {
+      // let params = {};
+      // this.fetchget('/financialRecords',params).then((res) => {
+      //   if(res.status == '1') {
+      //     this.bodyList = res.data.list;
+      //   }else{
+
+      //   }
+      // })
+    },
     toggle() {
       // 视图切换
       this.isToggle = !this.isToggle;

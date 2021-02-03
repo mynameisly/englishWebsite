@@ -357,7 +357,7 @@
                           :data-field="item.name"
                           value="0"
                           :checked="item.name"
-                          @click="filterColumn(item.name,index)"
+                          @click="filterColumn(item.name, index)"
                         />{{ item.label }}</label
                       >
                     </li>
@@ -398,7 +398,12 @@
                         v-for="(item, index) in headerList"
                         :key="index"
                       >
-                        <div class="th-inner">{{ item.label }}</div>
+                        <div
+                          class="th-inner"
+                          :class="{ 'sortable desc': item.label == '创建日期' }"
+                        >
+                          {{ item.label }}
+                        </div>
                         <div class="fht-cell"></div>
                       </th>
                     </tr>
@@ -441,22 +446,20 @@
                         {{ item.createtime }}
                       </td>
                       <td style="text-align: center; vertical-align: middle">
-                        {{ item.operate }}
-                      </td>
-                      <td style="text-align: center; vertical-align: middle">
                         <a
-                          v-if="item.operate2 == '设置为已支付'"
                           href="javascript:;"
                           class="btn btn-info btn-view btn-xs"
-                          ><i class="fa fa-check"></i>{{ item.operate2 }}</a
+                          ><i class="fa fa-check"></i>{{ item.operate }}</a
                         >
-                        <a
-                          v-else
-                          href="javascript:;"
-                          class="btn btn-danger btn-chooseone btn-xs"
-                          ><i class="fa fa-minus-square"></i
-                          >{{ item.operate2 }}</a
-                        >
+                      </td>
+                      <td style="text-align: center; vertical-align: middle">
+                        <a 
+                        href="javascript:;"
+                        :class="{
+                          'btn btn-info btn-view btn-xs' : item.operate2 == '设置为已出款',
+                          'btn btn-danger btn-view btn-xs' : item.operate2 == '设置为未出款',
+                        }"
+                        ><i class="fa fa-check"></i>{{ item.operate2 }}</a>
                       </td>
                     </tr>
                   </tbody>
@@ -544,7 +547,14 @@
                               class="title"
                               style="text-align: center; vertical-align: middle"
                               >审核</span
-                            ><span class="value">{{ item.operate }}</span>
+                            ><span class="value">
+                              <a
+                                href="javascript:;"
+                                class="btn btn-info btn-view btn-xs"
+                                ><i class="fa fa-check"></i
+                                >{{ item.operate }}</a
+                              >
+                            </span>
                           </div>
                           <div class="card-view">
                             <span
@@ -552,20 +562,13 @@
                               style="text-align: center; vertical-align: middle"
                               >操作</span
                             ><span class="value">
-                              <a
-                                v-if="item.operate2 == '设置为已支付'"
-                                href="javascript:;"
-                                class="btn btn-info btn-view btn-xs"
-                                ><i class="fa fa-check"></i
-                                >{{ item.operate2 }}</a
-                              >
-                              <a
-                                v-else
-                                href="javascript:;"
-                                class="btn btn-danger btn-chooseone btn-xs"
-                                ><i class="fa fa-minus-square"></i
-                                >{{ item.operate2 }}</a
-                              >
+                              <a 
+                              href="javascript:;"
+                              :class="{
+                                'btn btn-info btn-view btn-xs' : item.operate2 == '设置为已出款',
+                                'btn btn-danger btn-view btn-xs' : item.operate2 == '设置为未出款',
+                              }"
+                              ><i class="fa fa-check"></i>{{ item.operate2 }}</a>
                             </span>
                           </div>
                         </div>
@@ -713,8 +716,8 @@ export default {
           ifsc: "UCBA0002972",
           orderstatus: "未支付",
           createtime: "2021-01-29 18:02:14		",
-          operate: "待审核",
-          operate2: "设置为已支付",
+          operate: "审核",
+          operate2: "设置为已出款",
         },
         {
           username: "110999961",
@@ -728,7 +731,7 @@ export default {
           orderstatus: "未支付",
           createtime: "2021-01-29 18:02:14		",
           operate: "待审核",
-          operate2: "设置为已支付",
+          operate2: "设置为已出款",
         },
         {
           username: "110999961",
@@ -741,30 +744,40 @@ export default {
           ifsc: "UCBA0002972",
           orderstatus: "未支付",
           createtime: "2021-01-29 18:02:14",
-          operate: "待审核",
-          operate2: "设置为已支付",
+          operate: "审核",
+          operate2: "设置为未出款",
         },
       ],
       pageSize: "30", //每页条数
       total: "100", //总条数
-      name: 'username'
+      name: "username",
     };
   },
   mounted() {
     this.filterColumnList = this.headerList;
+    this.init();
   },
   methods: {
+    init() {
+      // let params = {};
+      // this.fetchget('/withdrawalOrder',params).then((res) => {
+      //   if(res.status == '1') {
+      //     this.bodyList = res.data.list;
+      //   }else{
+
+      //   }
+      // })
+    },
     toggle() {
       // 视图切换
       this.isToggle = !this.isToggle;
     },
-    filterColumn(name,index) {
-      
+    filterColumn(name, index) {
       // 筛选列
-      this.headerList = this.headerList.filter(item => item.name != name)
-      this.bodyList = this.bodyList.filter(item => 
-        delete item[name.toString()]
-      )
+      this.headerList = this.headerList.filter((item) => item.name != name);
+      this.bodyList = this.bodyList.filter(
+        (item) => delete item[name.toString()]
+      );
     },
     commonSearch() {
       // 搜索

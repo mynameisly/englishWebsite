@@ -12,6 +12,7 @@ export default {
   created() {},
   mounted() {
     // TODO
+    
     this.$router.push({path: '/Login'})
   },
   methods: {},

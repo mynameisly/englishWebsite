@@ -20,7 +20,7 @@
                         ><i class="fa fa-users"></i
                       ></span>
                       <div class="sm-st-info">
-                        <span>2</span>
+                        <span>{{userTotal}}</span>
                         用户总数
                       </div>
                     </div>
@@ -31,7 +31,7 @@
                         ><i class="fa fa-book"></i
                       ></span>
                       <div class="sm-st-info">
-                        <span>0</span>
+                        <span>{{rechargeMoney}}</span>
                         充值总金额
                       </div>
                     </div>
@@ -42,7 +42,7 @@
                         ><i class="fa fa-cny"></i
                       ></span>
                       <div class="sm-st-info">
-                        <span>0</span>
+                        <span>{{memRechargeMoney}}</span>
                         会员充值总金额
                       </div>
                     </div>
@@ -53,7 +53,7 @@
                         ><i class="fa fa-shopping-bag"></i
                       ></span>
                       <div class="sm-st-info">
-                        <span>100</span>
+                        <span>{{withdrawalMoney}}</span>
                         提现总金额
                       </div>
                     </div>
@@ -67,7 +67,7 @@
                         ><i class="fa fa-money" aria-hidden="true"></i
                       ></span>
                       <div class="sm-st-info">
-                        <span>300</span>
+                        <span>{{manualRechargeMoney}}</span>
                         手动充值总金额
                       </div>
                     </div>
@@ -80,183 +80,22 @@
             <div class="card sameheight-item stats">
               <div class="card-block">
                 <div class="row row-sm stats-container">
-                  <div class="col-xs-6 stat-col">
+                  <div
+                    class="col-xs-6 stat-col"
+                    v-for="(item, index) in bgCenterList"
+                    :key="index"
+                  >
                     <div class="stat-icon">
                       <i class="fa fa-rocket"></i>
                     </div>
                     <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">今日新增用户</div>
+                      <div class="value">{{ item.value }}</div>
+                      <div class="name">{{ item.name }}</div>
                     </div>
                     <div class="progress">
                       <div
                         class="progress-bar progress-bar-success"
-                        style="width: 30%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">昨日新增用户</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">今日充值笔数(不含手动充值)</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">昨日充值笔数(不含手动充值)</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">今日充值(不含手动充值)</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">昨日充值(不含手动充值)</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">今日会员充值</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 30%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">昨日会员充值</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">今日提现笔数</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">昨日提现笔数</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">今日提现</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 stat-col">
-                    <div class="stat-icon">
-                      <i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="stat">
-                      <div class="value">0</div>
-                      <div class="name">昨日提现</div>
-                    </div>
-                    <div class="progress">
-                      <div
-                        class="progress-bar progress-bar-success"
-                        style="width: 25%"
+                        :style="{ width: item.width + '%' }"
                       ></div>
                     </div>
                   </div>
@@ -272,10 +111,10 @@
 
               <!-- Paragraph -->
               <p></p>
-              <h4><a href="#">手动充值额度：30000</a></h4>
+              <h4><a href="#">手动充值额度：{{ manualRechargeQuota }}</a></h4>
               <p></p>
               <p></p>
-              <h4><a href="#">已使用充值额度：22000</a></h4>
+              <h4><a href="#">已使用充值额度：{{ usedRechargeQuota }}</a></h4>
               <p></p>
               <!-- Success -->
             </div>
@@ -287,15 +126,15 @@
               <div class="basicinfo">
                 <div class="row">
                   <div class="col-xs-4 col-md-2">连续登录</div>
-                  <div class="col-xs-8 col-md-4">3 天</div>
+                  <div class="col-xs-8 col-md-4">{{ contLogin }} 天</div>
                   <div class="col-xs-4 col-md-2">最长连续登录</div>
-                  <div class="col-xs-8 col-md-4">6 天</div>
+                  <div class="col-xs-8 col-md-4">{{ longContLogin }} 天</div>
                 </div>
                 <div class="row">
                   <div class="col-xs-4 col-md-2">登录时间</div>
-                  <div class="col-xs-8 col-md-4">2021-01-30 13:40:30</div>
+                  <div class="col-xs-8 col-md-4">{{ loginTime }}</div>
                   <div class="col-xs-4 col-md-2">最后登录</div>
-                  <div class="col-xs-8 col-md-4">2021-01-30 11:26:28</div>
+                  <div class="col-xs-8 col-md-4">{{ lastLogin }}</div>
                 </div>
               </div>
             </div>
@@ -310,11 +149,92 @@
 export default {
   name: "BackgroundCenter",
   data() {
-    return {};
+    return {
+      bgCenterList: [
+        {
+          name: "今日新增用户",
+          value: "0",
+          width: "30",
+        },
+        {
+          name: "昨日新增用户",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "今日充值笔数(不含手动充值)",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "昨日充值笔数(不含手动充值)",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "今日充值(不含手动充值)",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "昨日充值(不含手动充值)",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "今日会员充值",
+          value: "0",
+          width: "30",
+        },
+        {
+          name: "昨日会员充值",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "今日提现笔数",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "昨日提现笔数",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "今日提现",
+          value: "0",
+          width: "25",
+        },
+        {
+          name: "昨日提现",
+          value: "0",
+          width: "25",
+        },
+      ],
+      userTotal: '0', //用户总数
+      rechargeMoney: '0',//充值总金额
+      memRechargeMoney: '0',//会员充值总金额
+      withdrawalMoney: '100',//提现总金额
+      manualRechargeMoney: '300',//手动充值总金额
+
+      manualRechargeQuota: '30000',//手动充值额度
+      usedRechargeQuota: '22000',//已使用充值额度
+
+      contLogin: '3', //连续登录
+      longContLogin: '6', //最长连续登录
+      loginTime: '2021-01-30 13:40:30', //登录时间
+      lastLogin: '2021-01-30 11:26:28', //最后登录
+    };
   },
-  created() {},
-  mounted() {},
-  methods: {},
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+
+    }
+  },
 };
 </script>
 
@@ -328,9 +248,7 @@ export default {
     margin-bottom: 0px;
     box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
   }
-  .st-red {
-    background-color: #f05050;
-  }
+
   .sm-st-icon {
     width: 60px;
     height: 60px;
@@ -343,6 +261,18 @@ export default {
     float: left;
     margin-right: 10px;
     color: #fff;
+  }
+  .st-red {
+    background-color: #f05050;
+  }
+  .st-violet {
+    background-color: #7266ba;
+  }
+  .st-green {
+    background-color: #27c24c;
+  }
+  .st-blue {
+    background-color: #23b7e5;
   }
   .sm-st-info {
     font-size: 12px;

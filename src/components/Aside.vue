@@ -1,6 +1,6 @@
 <template>
   <div class="Aside">
-    <div class="sidebar-toggle"><i class="fa fa-bars"></i></div>
+    <div class="sidebar-toggle" style="display:none"><i class="fa fa-bars"></i></div>
     <div class="sidenav" id="sidebar-nav">
       <ul class="list-group">
         <li class="list-group-heading">业务后台</li>
@@ -9,49 +9,6 @@
             ><i class="fa fa-fw" :class="item.icon"></i>{{item.name}}</router-link
           >
         </li>
-        <!-- <li class="list-group-item active">
-          <router-link to="/BackgroundCenter"
-            ><i class="fa fa-user-circle fa-fw"></i>后台中心</router-link
-          >
-        </li>
-        <li class="list-group-item">
-          <router-link to="/PaymentOrder"
-            ><i class="fa fa-user-circle fa-fw"></i>支付订单</router-link
-          >
-        </li>
-        <li class="list-group-item">
-          <router-link to="/WithdrawalOrder"
-            ><i class="fa fa-user-circle fa-fw"></i>提现订单</router-link
-          >
-        </li>
-
-        <li class="list-group-item">
-          <router-link to="/MemberManagement"
-            ><i class="fa fa-user-circle fa-fw"></i>会员管理</router-link
-          >
-        </li>
-
-        <li class="list-group-item">
-          <router-link to="/FinancialRecords"
-            ><i class="fa fa-user-circle fa-fw"></i>理财记录</router-link
-          >
-        </li>
-
-        <li class="list-group-item">
-          <router-link to="/PersonalData"
-            ><i class="fa fa-user-o fa-fw"></i>个人资料</router-link
-          >
-        </li>
-        <li class="list-group-item">
-          <router-link to="/ChangePwd"
-            ><i class="fa fa-key fa-fw"></i>修改密码</router-link
-          >
-        </li>
-        <li class="list-group-item">
-          <router-link to="/Logout"
-            ><i class="fa fa-sign-out fa-fw"></i>退 出</router-link
-          >
-        </li> -->
       </ul>
     </div>
   </div>

@@ -687,7 +687,7 @@
                         v-for="(item, index) in headerList"
                         :key="index"
                       >
-                        <div class="th-inner">{{ item.label }}</div>
+                        <div class="th-inner" :class="{'sortable desc' : item.label == '注册时间'}">{{ item.label }}</div>
                         <div class="fht-cell"></div>
                       </th>
                     </tr>

@@ -298,17 +298,16 @@ export default {
         mod: this.form.account,
         pass: this.form.password
       }
+      this.$router.push({ path: "/index" });
       // console.log('2',params)
       this.fetchpost("/login", params).then((res) => {
         console.log('login res',res)
-        this.$router.push({ path: "/index" });
-
+        if(res.status == '1') {
+          setlocalStorage("AUTH_PARAM", res.token);
+          
+        }
+        
       });
-
-      // axios.post("/api/login",params).then(res => {
-      //   console.log('login res',res)
-      // })
-      // this.$router.push({ path: "/index" });
     },
     sendCode() {
       // 发送验证码

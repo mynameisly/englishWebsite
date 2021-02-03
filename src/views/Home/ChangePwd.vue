@@ -6,10 +6,6 @@
         <form
           id="changepwd-form"
           class="form-horizontal nice-validator n-default n-bootstrap"
-          role="form"
-          data-toggle="validator"
-          action=""
-          novalidate="novalidate"
           :model="form"
         >
           <!-- <input
@@ -96,9 +92,20 @@ export default {
   methods: {
     submit() {
       // 提交
+      let params = this.form
+      this.fetchpost('/changePwd',params).then((res) => {
+        if(res.status == '1') {
+          console.log('修改密码成功')
+        }else{
+          console.log('修改密码失败')
+        }
+      })
     },
     reset() {
       // 重置
+      this.form.oldpassword = '';
+      this.form.newpassword = '';
+      this.form.renewpassword = '';
     }
   },
 };

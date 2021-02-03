@@ -153,6 +153,7 @@
 
 
 <script>
+import {getlocalStorage} from '@uit/comtool'
 export default {
   name: "PersonalData",
   data() {
@@ -166,13 +167,31 @@ export default {
       }
     };
   },
-  mounted() {},
+  mounted() {
+    this.init();
+  },
   methods: {
+    init() {
+      // this.form = getlocalStorage("AUTH_INFO")
+    },
     confirm() {
       // 提交
+      // let params = this.form
+      // this.fetchpost('/changePwd',params).then((res) => {
+      //   if(res.status == '1') {
+      //     console.log('修改密码成功')
+      //   }else{
+      //     console.log('修改密码失败')
+      //   }
+      // })
     },
     reset() {
       // 重置
+      this.form.username = '';
+      this.form.nickname = '';
+      this.form.bio = '';
+      this.form.email = '';
+      this.form.mobile = '';
     }
   },
 };

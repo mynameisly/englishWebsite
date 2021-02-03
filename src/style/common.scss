@@ -1,8 +1,9 @@
 // vant 样式重置模块
-@import './ionicon.css';
+// @import './ionicon.css';
 @import './init.scss';
-@import './animate.css';
-@import './iconfont.css';
+@import './css/font-awesome.min.css';
+// @import './animate.css';
+// @import './iconfont.css';
 
 .form-group {
     margin-bottom: 15px;
@@ -120,4 +121,28 @@ table th {
 
 table td {
     white-space: nowrap;
+}
+
+
+// table表头icon
+.fixed-table-container{
+    thead{
+        th{
+            .asc{
+                background: url('../assets/images/asc.png');
+            }
+            .both{
+                background: url('../assets/images/both.png');
+            }
+            .desc{
+                background: url('../assets/images/desc.png');
+            }
+            .sortable {
+                cursor: pointer;
+                background-position: right;
+                background-repeat: no-repeat;
+                padding-right: 30px;
+            }
+        }
+    }
 }
