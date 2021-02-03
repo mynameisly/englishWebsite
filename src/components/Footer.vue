@@ -1,5 +1,5 @@
 <template>
-  <div class="footer" style="clear: both;">
+  <div class="footer" style="clear: both">
     <p class="text">Copyright © 2017-2020 后台管理 All Rights Reserved</p>
   </div>
 </template>
@@ -14,8 +14,8 @@ export default {
   height: 50px;
   .text {
     line-height: 50px;
+    background: #222222;
     text-align: center;
-    background: #393939;
     margin: 0;
     color: #aaa;
   }

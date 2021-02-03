@@ -268,13 +268,19 @@
         </div>
       </div>
     </main>
+
+    <Footer />
   </div>
 </template>
 <script>
+import Footer from '@com/Footer';
 import axios from 'axios';
 import { setlocalStorage, removelocalStorageKey } from "@uit/comtool";
 export default {
   name: "Login",
+  components: {
+    Footer
+  },
   data() {
     return {
       form: {
@@ -293,16 +299,16 @@ export default {
         pass: this.form.password
       }
       // console.log('2',params)
-      // this.fetchpost("/login", params).then((res) => {
-      //   console.log('login res',res)
-      // this.$router.push({ path: "/index" });
-
-      // });
-
-      axios.post("/api/login",params).then(res => {
+      this.fetchpost("/login", params).then((res) => {
         console.log('login res',res)
-      })
-      this.$router.push({ path: "/index" });
+        this.$router.push({ path: "/index" });
+
+      });
+
+      // axios.post("/api/login",params).then(res => {
+      //   console.log('login res',res)
+      // })
+      // this.$router.push({ path: "/index" });
     },
     sendCode() {
       // 发送验证码
