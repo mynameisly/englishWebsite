@@ -131,8 +131,7 @@
               <form
                 id="resetpwd-form"
                 class="form-horizontal form-layer"
-                method="POST"
-                action="/api/user/resetpwd.html"
+                :model="modifyForm"
               >
                 <div class="form-body">
                   <input type="hidden" name="action" value="resetpwd" />
@@ -142,33 +141,30 @@
                     >
                     <div class="col-xs-12 col-sm-8">
                       <div class="radio">
-                        <label for="type-email"
+                        <label for="type-email" @click="typeChecked(1)"
                           ><input
                             id="type-email"
-                            checked="checked"
+                            :checked="type == 1 ? isEmail : false"
                             name="type"
-                            data-send-url="/api/ems/send.html"
-                            data-check-url="/api/validate/check_ems_correct.html"
                             type="radio"
-                            value="email"
+                            value="1"
                           />
-                          通过邮箱</label
-                        >
-                        <label for="type-mobile"
+                          通过邮箱
+                        </label>
+                        <label for="type-mobile" @click="typeChecked(2)"
                           ><input
                             id="type-mobile"
+                            :checked="type == 1 ? false : isEmail"
                             name="type"
                             type="radio"
-                            data-send-url="/api/sms/send.html"
-                            data-check-url="/api/validate/check_sms_correct.html"
-                            value="mobile"
+                            value="2"
                           />
-                          通过手机重置</label
-                        >
+                          通过手机重置
+                        </label>
                       </div>
                     </div>
                   </div>
-                  <div class="form-group" data-type="email">
+                  <div class="form-group" :class="{'hide': type==2}">
                     <label for="email" class="control-label col-xs-12 col-sm-3"
                       >邮箱:</label
                     >
@@ -178,14 +174,12 @@
                         class="form-control"
                         id="email"
                         name="email"
-                        value=""
-                        data-rule="required(#type-email:checked);email;remote(/api/validate/check_email_exist.html, event=resetpwd, id=0)"
-                        placeholder=""
+                        v-model="modifyForm.email"
                       />
                       <span class="msg-box"></span>
                     </div>
                   </div>
-                  <div class="form-group hide" data-type="mobile">
+                  <div class="form-group" :class="{'hide': type==1}">
                     <label for="mobile" class="control-label col-xs-12 col-sm-3"
                       >手机号:</label
                     >
@@ -195,9 +189,7 @@
                         class="form-control"
                         id="mobile"
                         name="mobile"
-                        value=""
-                        data-rule="required(#type-mobile:checked);mobile;remote(/api/validate/check_mobile_exist.html, event=resetpwd, id=0)"
-                        placeholder=""
+                        v-model="modifyForm.mobile"
                       />
                       <span class="msg-box"></span>
                     </div>
@@ -214,7 +206,7 @@
                           type="text"
                           name="captcha"
                           class="form-control"
-                          data-rule="required;length(4);integer[+];remote(/api/validate/check_ems_correct.html, event=resetpwd, email:#email)"
+                          v-model="modifyForm.captcha"
                         />
                         <span
                           class="input-group-btn"
@@ -222,9 +214,6 @@
                         >
                           <a
                             class="btn btn-info btn-captcha"
-                            data-url="/api/ems/send.html"
-                            data-type="email"
-                            data-event="resetpwd"
                             @click="sendCode"
                             >发送验证码</a
                           >
@@ -245,9 +234,7 @@
                         class="form-control"
                         id="newpassword"
                         name="newpassword"
-                        value=""
-                        data-rule="required;password"
-                        placeholder=""
+                        v-model="modifyForm.newpassword"
                       />
                       <span class="msg-box"></span>
                     </div>
@@ -274,7 +261,6 @@
 </template>
 <script>
 import Footer from '@com/Footer';
-import axios from 'axios';
 import { setlocalStorage, removelocalStorageKey } from "@uit/comtool";
 export default {
   name: "Login",
@@ -288,6 +274,14 @@ export default {
         password: "",
         keepalive: "1",
       },
+      modifyForm: {
+        email: "",
+        mobile: "",
+        captcha: "",
+        newpassword: ""
+      },
+      type: 1, // 1为email , 2为mobile
+      isEmail: true, //是否选择邮箱验证, true为选中，false为不选中
     };
   },
 
@@ -298,22 +292,42 @@ export default {
         mod: this.form.account,
         pass: this.form.password
       }
-      this.$router.push({ path: "/index" });
-      // console.log('2',params)
-      this.fetchpost("/login", params).then((res) => {
-        console.log('login res',res)
-        if(res.status == '1') {
-          setlocalStorage("AUTH_PARAM", res.token);
-          
-        }
+      
+      // this.fetchpost("/login", params).then((res) => {
+      //   console.log('login res',res)
+      //   if(res.status == '1') {
+      //     setlocalStorage("AUTH_PARAM", res.token);
+      //     this.$toast.show('登录成功！', 'green')
+      //     this.$router.push({ path: "/index" });
+      //   }
         
-      });
+      // });
+    },
+    typeChecked(val) {
+      // 切换邮箱或手机号码
+      if(val == 1) {
+        this.type = 1;
+      } else if(val == 2) {
+        this.type = 2;
+      }
     },
     sendCode() {
       // 发送验证码
+      // this.fetchget("/sendCode", {}).then((res) => {=
+      //   if(res.status == '1') {
+          
+      //   }
+      // });
     },
     confirm() {
+      console.log('22',this.modifyForm)
       // 确定修改密码
+      // let params = {}
+      // this.fetchpost("/modifyPwd", params).then((res) => {=
+      //   if(res.status == '1') {
+          
+      //   }
+      // });
     },
   },
   mounted() {
@@ -329,12 +343,13 @@ export default {
   overflow: auto;
   padding: 15px;
   padding-top: 20px;
-  min-height: calc(100vh - 125px);
+  min-height: calc(100vh - 75px);
   .container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 50px;
     .login-section {
       margin: 50px auto;
       width: 460px;

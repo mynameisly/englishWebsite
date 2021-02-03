@@ -34,12 +34,13 @@ export default {
   overflow: auto;
   padding: 15px;
   padding-top: 20px;
-  min-height: calc(100vh - 125px);
+  min-height: calc(100vh - 75px);
   .container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 50px;
   }
 }
 </style>

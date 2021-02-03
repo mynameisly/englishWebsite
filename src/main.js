@@ -9,6 +9,8 @@ import 'bootstrap3/dist/js/bootstrap.min.js'
 
 import '@style/common.scss'
 import moment from 'moment';
+import toast from '@com/Toast/index'; // 自定义Toast组件
+Vue.use(toast); // 全局使用
 import { getRequest, postRequest } from '@/api'
 import { formDataObject } from "@uit/comtool";
 
