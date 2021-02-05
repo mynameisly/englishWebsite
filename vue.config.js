@@ -32,18 +32,13 @@ module.exports = {
     },
 
     devServer: {
-        port: 3000,
+        port: 8080,
         disableHostCheck: true,
         proxy: {
-            '/api': {
-                target: "http://dev.ninepay.in",
-                // target: "http://localhost:8080",
+            '/': {
+                target: "http://dev.ninepay.in/api/",
                 changeOrigin: true,
-                pathRewrite: {
-                    '^/api': '/'
-                },
-                // ws: true,//代理websocket
-                secure: false
+                ws: true,
             }
         }
     }

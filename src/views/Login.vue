@@ -3,7 +3,8 @@
     <div class="login">
       <p class="login-img">
         <img src="../static/img/login.6154068.png" alt="" />
-      </p><br /><br /><br />
+      </p>
+      <br /><br /><br />
       <div class="loginbox">
         <van-field
           v-model="form.mobile"
@@ -23,15 +24,17 @@
       <div class="confirm" @click="login">Log In</div>
       <div class="bottom">
         <div class="regbox">
-          <div @click="$router.push({path: '/SignUp'})">Sign Up</div>
-          <div class="chui" @click="$router.push({path: '/ForgottenPwd'})">Forgotten Password</div>
+          <div @click="$router.push({ path: '/SignUp' })">Sign Up</div>
+          <div class="chui" @click="$router.push({ path: '/ForgottenPwd' })">
+            Forgotten Password
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 import { setlocalStorage, removelocalStorageKey } from "@uit/comtool";
 export default {
   name: "Login",
@@ -39,7 +42,7 @@ export default {
     return {
       form: {
         mobile: "",
-        password: ""
+        password: "",
       },
     };
   },
@@ -47,27 +50,20 @@ export default {
   methods: {
     // 登录事件
     login() {
-      // let formData = this.formDataObject(this.form);
-      let pamams = {
-        mob: (this.form.mobile).trim(),
-        pass: this.form.password
-      }
-      // axios.post('http://dev.ninepay.in/api/login',{data: pamams}).then(res => {
-      //   console.log('res',res)
-      // })
-      // console.log('login',pamams)
-      this.fetchpost("/api/login", pamams).then(res => {
-        console.log('res',res)
-          // this.$toast(res.msg);
-          // if (res.code === 500) {
-
-          // } else {
-          //     setlocalStorage("AUTH_PARAM", res.token);
-          //     setlocalStorage("AUTH_INFO", res.userinfo);
-          //     this.$router.push("/index");
-          // }
+      let params = {
+        mod: this.form.mobile,
+        pass: this.form.password,
+      };
+      this.fetchpost("/login", params).then((res) => {
+        console.log("res", res);
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+            setlocalStorage("AUTH_PARAM", res.data.token);
+            setlocalStorage("AUTH_INFO", res.data.name);
+            this.$router.push("/index");
+        }
       });
-      // this.$router.push("/index/Home");
     },
   },
   mounted() {
@@ -79,13 +75,13 @@ export default {
 
 <style lang="scss" scoped>
 .Login {
-    .van-cell{
-        background: transparent;
-    }
-    .van-field{
-        border-bottom: 1px solid #eee;
-    }
-    
+  .van-cell {
+    background: transparent;
+  }
+  .van-field {
+    border-bottom: 1px solid #eee;
+  }
+
   .login {
     width: 100vw;
     height: 100vh;
@@ -131,8 +127,8 @@ export default {
         color: #fff;
         font-size: 15px;
         padding: 0 0.5rem;
-        div{
-            font-size: 15px;
+        div {
+          font-size: 15px;
         }
       }
     }

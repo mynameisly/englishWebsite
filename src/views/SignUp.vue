@@ -5,7 +5,7 @@
         <img src="../static/img/login.6154068.png" alt="" />
       </p>
       <br /><br /><br />
-      <div class="loginbox">
+      <div class="loginbox" :model="form">
         <van-field
           v-model="form.mobile"
           label="+91"
@@ -24,7 +24,7 @@
             placeholder="Enter OTP"
             :rules="[{ required: true, message: 'OTP不能为空' }]"
           />
-          <span class="f14"> OTP </span>
+          <span class="f14" @click="sendOtp"> OTP </span>
         </div>
 
         <div class="user">
@@ -124,17 +124,43 @@ export default {
       },
     };
   },
+  watch:{
+    'form.rpassword':function(val) {
+      console.log('val',val)
+      if(val != password) {
+        this.$toast('两次密码不一致，请重新输入')
+      }
+    }
+  },
 
   methods: {
     // 注册事件
     Signup() {
-      // 表单转化
-      // let formData = this.formDataObject(this.form);
-      // this.fetchpost("/api/Signup", formData).then(res => {
-      //     this.$toast(res.msg);
-      // });
-      this.$router.push("/Login");
+      let params = {
+        mode: this.form.mobile,
+        pass: this.form.password,
+        name: this.form.username,
+        ver_code: this.form.otp,
+        invite_code: this.form.invitationCode,
+      }
+      this.fetchpost("/register", params).then(res => {
+        this.$toast(res.msg);
+        this.$router.push("/Login");
+      });
     },
+
+    // 发送验证码
+    sendOtp() {
+      let params = {
+        mod: this.form.mobile
+      }
+      this.fetchpost("/send_otp", params).then(res => {
+        console.log('rse',res)
+        if(res.status == 0) {
+          this.$toast(res.info);
+        }
+      });
+    }
   },
   mounted() {},
 };
