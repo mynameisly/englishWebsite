@@ -28,14 +28,13 @@ let removePending = (ever) => {
 // 添加请求拦截器
 instance.interceptors.request.use(function (config) {
     // 过期验证
-    let dt = new Date().getTime();
-    // let cdkey = 1601213711611;
-    let cdkey = 1606665600000;
-    console.log("当前key：", dt);
-    console.log("过期key:", cdkey);
-    if(dt > cdkey) {
-        window.location.href = "about:blank";
-    }
+    // let dt = new Date().getTime();
+    // let cdkey = 1606665600000;
+    // console.log("当前key：", dt);
+    // console.log("过期key:", cdkey);
+    // if(dt > cdkey) {
+    //     window.location.href = "about:blank";
+    // }
 
     //在一个ajax发送前执行一下取消操作
     removePending(config); // 移除

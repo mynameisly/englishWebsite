@@ -4,22 +4,22 @@ const resolve = (dir) => path.join(__dirname, dir)
 module.exports = {
     publicPath: './',
     lintOnSave: false, // 是否启用eslint
-    css: {
-        loaderOptions: {
-            postcss: {
-                plugins: [
-                    require('autoprefixer')({
-                        overrideBrowserslist: ['Android >= 4.0', 'iOS >= 7']
-                    }),
-                    require('postcss-pxtorem')({
-                        rootValue: 37.5, // 换算的基数
-                        selectorBlackList: ['vant'], // 忽略转换正则匹配项
-                        propList: ['*'],
-                    }),
-                ]
-            }
-        },
-    },
+    // css: {
+    //     loaderOptions: {
+    //         postcss: {
+    //             plugins: [
+    //                 require('autoprefixer')({
+    //                     overrideBrowserslist: ['Android >= 4.0', 'iOS >= 7']
+    //                 }),
+    //                 require('postcss-pxtorem')({
+    //                     rootValue: 37.5, // 换算的基数
+    //                     selectorBlackList: ['vant'], // 忽略转换正则匹配项
+    //                     propList: ['*'],
+    //                 }),
+    //             ]
+    //         }
+    //     },
+    // },
 
     chainWebpack: (config) => {
         config.resolve.alias
@@ -32,14 +32,18 @@ module.exports = {
     },
 
     devServer: {
-        port: 8080,
+        port: 3000,
         disableHostCheck: true,
         proxy: {
-            '/': {
-                // target: "http://47.101.150.42:8081/",
-                target: "http://localhost:8080",
+            '/api': {
+                target: "http://dev.ninepay.in",
+                // target: "http://localhost:8080",
                 changeOrigin: true,
-                ws: true,
+                pathRewrite: {
+                    '^/api': '/api'
+                },
+                // ws: true,//代理websocket
+                secure: false
             }
         }
     }

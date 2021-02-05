@@ -31,6 +31,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 import { setlocalStorage, removelocalStorageKey } from "@uit/comtool";
 export default {
   name: "Login",
@@ -46,18 +47,27 @@ export default {
   methods: {
     // 登录事件
     login() {
-      // 表单转化
       // let formData = this.formDataObject(this.form);
-      // this.fetchpost("/api/login", formData).then(res => {
-      //     this.$toast(res.msg);
-      //     if (res.code === 500) {
-      //     } else {
-      //         setlocalStorage("AUTH_PARAM", res.token);
-      //         setlocalStorage("AUTH_INFO", res.userinfo);
-      //         this.$router.push("/index");
-      //     }
-      // });
-      this.$router.push("/index/Home");
+      let pamams = {
+        mob: (this.form.mobile).trim(),
+        pass: this.form.password
+      }
+      // axios.post('http://dev.ninepay.in/api/login',{data: pamams}).then(res => {
+      //   console.log('res',res)
+      // })
+      // console.log('login',pamams)
+      this.fetchpost("/api/login", pamams).then(res => {
+        console.log('res',res)
+          // this.$toast(res.msg);
+          // if (res.code === 500) {
+
+          // } else {
+          //     setlocalStorage("AUTH_PARAM", res.token);
+          //     setlocalStorage("AUTH_INFO", res.userinfo);
+          //     this.$router.push("/index");
+          // }
+      });
+      // this.$router.push("/index/Home");
     },
   },
   mounted() {
