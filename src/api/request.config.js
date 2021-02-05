@@ -1,5 +1,5 @@
 export const REQUEST_BASICS = {
-    baseURL: process.env.NODE_ENV === 'development' ? "http://dev.ninepay.in" : "http://dev.ninepay.in",
+    baseURL: process.env.NODE_ENV === 'development' ? "/" : "/",
     maxContentLength: 2000,
     timeout: 6000,
     withCredentials: false, //表示跨域时是否需要凭证

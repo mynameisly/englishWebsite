@@ -40,7 +40,7 @@ module.exports = {
                 // target: "http://localhost:8080",
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/api': '/api'
+                    '^/api': '/'
                 },
                 // ws: true,//代理websocket
                 secure: false
