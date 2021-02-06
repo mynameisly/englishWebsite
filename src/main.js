@@ -12,12 +12,14 @@ import moment from 'moment';
 import { getRequest, postRequest } from '@/api'
 import { formDataObject } from "@uit/comtool";
 import { i18n } from '@/i18n/index' //国际化
+import axios from 'axios'; // 请求时，header中需要传token时使用
 
 Vue.prototype.moment = moment;
 Vue.prototype.fetchget = getRequest;
 Vue.prototype.fetchpost = postRequest;
 Vue.prototype.formDataObject = formDataObject;
-// Vue.prototype.$i18n = i18n; //写上就报错
+Vue.prototype.axios = axios;
+// Vue.prototype.$i18n = i18n; //TODO：写上就报错
 
 Vue.use(Vant);
 Vue.config.productionTip = false

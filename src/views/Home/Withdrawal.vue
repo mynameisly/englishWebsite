@@ -1,19 +1,19 @@
 <template>
   <div class="Withdrawal">
-    <van-nav-bar :title="$t(Withdrawal.title)" left-arrow @click-left="onClickLeft" />
-    <div class="commonbox pd10">
+    <van-nav-bar :title="$t('Withdrawal.title')" left-arrow @click-left="onClickLeft" />
+     <div class="commonbox pd10">
       <p class="f12 chui">
-        <span class="orange f14">{{ $t(Withdrawal.tip) }}</span>
-        {{ $t(Withdrawal.tipVal) }}
+        <span class="orange f14">{{ $t('Withdrawal.tip') }}</span>
+        {{ $t('Withdrawal.tipVal') }}
       </p>
     </div>
 
     <div class="commonbox rechargeinput">
-      <p>{{ $t(Withdrawal.amountTile) }}</p>
+      <p>{{ $t('Withdrawal.amountTile') }}</p>
       <div class="flex aic f26 mt-20">
         <b>₹</b>
         <input
-          :placeholder="$t(Withdrawal.amountPlace)"
+          :placeholder="$t('Withdrawal.amountPlace')"
           maxlength="9"
           type="number"
           :value="amountVal"
@@ -23,22 +23,22 @@
       </div>
       <div class="flex jc-sb">
         <p class="f12 mt-10 chui">
-          {{ $t(Withdrawal.balance) }}
+          {{ $t('Withdrawal.balance') }}
           <span>₹0</span>
         </p>
         <p class="f12 mt-10 chui">
-          {{ $t(Withdrawal.min) }}
+          {{ $t('Withdrawal.min') }}
           <span>₹255.00</span>
         </p>
       </div>
     </div>
 
     <div class="commonbox pd10 f16 flex jc-sb">
-      <p>{{ $t(Withdrawal.cardTitle) }}</p>
+      <p>{{ $t('Withdrawal.cardTitle') }}</p>
       <i class="van-icon van-icon-arrow"></i>
     </div>
 
-    <div class="confirm" @click="Withdraw">{{ $t(Withdrawal.btn) }}</div>
+    <div class="confirm" @click="Withdraw">{{ $t('Withdrawal.btn') }}</div>
   </div>
 </template>
 
@@ -83,11 +83,17 @@ export default {
     },
     Withdraw() {
       // 发送请求
-      // let params = {};
-      // this.fetchpost("/api/Withdraw", params).then((res) => {
-      //   if (res.code == 200) {
-      //   }
-      // });
+      let params = {
+        amount: amountVal,
+        bank_id: '', //当前页面有个子组件  还没有写(参考网站上打不开子组件)  bank_id从子组件传过来
+      };
+      this.fetchpost("/payout/create", params).then((res) => {
+        if (res.status == 1) {
+          this.$toast(res.info)
+        }else{
+          this.$toast(res.info)
+        }
+      });
     },
   },
 };

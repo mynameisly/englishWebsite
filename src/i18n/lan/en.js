@@ -49,7 +49,7 @@ module.exports = {
     btn2: 'My Invitation Code'
   },
   Link: {
-    title: 'Link',
+    title: 'Link a Bank Account',
     tip: 'Tip:',
     tipVal: 'Please enter the correct personal information',
     mobilePlace: 'Enter Mobile Number.',

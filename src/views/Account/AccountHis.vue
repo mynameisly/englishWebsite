@@ -15,7 +15,23 @@
     </ul>
 
     <div v-show="current == 0" ref="wallet" class="Wallet">
-      <div class="nomare">-No more -</div>
+      <div role="feed" class="van-list">
+        <div>
+          <div
+            class="flex jc-sb aic walletLogbox"
+            v-for="(item, index) in walletList"
+            :key="index"
+          >
+            <div>
+              <p class="p1">{{ item.name }}</p>
+              <span>{{ item.time }}</span>
+            </div>
+            <b class=""> {{ item.money }} </b>
+          </div>
+        </div>
+
+        <div class="nomare">-No more -</div>
+      </div>
     </div>
 
     <div v-show="current == 1" ref="recharge" class="Recharge">
@@ -39,15 +55,63 @@
     </div>
 
     <div v-show="current == 2" ref="withdrawal" class="Withdrawal">
-      <div class="nomare">-No more -</div>
+      <div role="feed" class="van-list">
+        <div>
+          <div
+            class="flex jc-sb aic walletLogbox"
+            v-for="(item, index) in withdrawalList"
+            :key="index"
+          >
+            <div>
+              <p class="p1">{{ item.name }}</p>
+              <span>{{ item.time }}</span>
+            </div>
+            <b class=""> {{ item.money }} </b>
+          </div>
+        </div>
+
+        <div class="nomare">-No more -</div>
+      </div>
     </div>
 
     <div v-show="current == 3" ref="shopping" class="Shopping">
-      <div class="nomare">-No more -</div>
+      <div role="feed" class="van-list">
+        <div>
+          <div
+            class="flex jc-sb aic walletLogbox"
+            v-for="(item, index) in shoppingList"
+            :key="index"
+          >
+            <div>
+              <p class="p1">{{ item.name }}</p>
+              <span>{{ item.time }}</span>
+            </div>
+            <b class=""> {{ item.money }} </b>
+          </div>
+        </div>
+
+        <div class="nomare">-No more -</div>
+      </div>
     </div>
 
     <div v-show="current == 4" ref="order" class="Order">
-      <div class="nomare">-No more -</div>
+      <div role="feed" class="van-list">
+        <div>
+          <div
+            class="flex jc-sb aic walletLogbox"
+            v-for="(item, index) in orderList"
+            :key="index"
+          >
+            <div>
+              <p class="p1">{{ item.name }}</p>
+              <span>{{ item.time }}</span>
+            </div>
+            <b class=""> {{ item.money }} </b>
+          </div>
+        </div>
+
+        <div class="nomare">-No more -</div>
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +128,9 @@ export default {
         { name: "Withdrawal" },
         { name: "Shopping Assistant Details" },
         { name: "Order Receiving" },
+      ],
+      walletList: [
+
       ],
       rechargeList: [
         {
@@ -92,6 +159,15 @@ export default {
           money: "5,000.00",
         },
       ],
+      withdrawalList: [
+
+      ],
+      shoppingList: [
+
+      ],
+      orderList: [
+
+      ]
     };
   },
   created() {},
@@ -101,7 +177,80 @@ export default {
     },
     toggleItem(index, item) {
       this.current = index;
+      switch(item.name) {
+        case 'Wallet Details': this.getWalletList(); break;
+        case 'Recharge Details': this.getRechargeList(); break;
+        case 'Withdrawal': this.getWithdrawalList(); break;
+        case 'Shopping Assistant Details': this.getShoppingList(); break;
+        case 'Order Receiving': this.getOrderList(); break;
+      }
     },
+    getWalletList() {
+      // let params = {
+        
+      // }
+      // this.fetchpost('/api', params).then(res => {
+      //   if(res.status == 1) {
+      //     this.$toast(res.info)
+      //     this.walletList = res.data;
+      //   }else{
+      //     this.$toast(res.info);
+      //   }
+      // })     
+    },
+    getRechargeList() {
+      // let params = {
+
+      // }
+      // this.fetchpost('/api', params).then(res => {
+      //   if(res.status == 1) {
+      //     this.$toast(res.info)
+      //     this.rechargeList = res.data;
+      //   }else{
+      //     this.$toast(res.info);
+      //   }
+      // })
+    },
+    getWithdrawalList() {
+      // let params = {
+      //   amount: '',
+      //   bank_id: ''
+      // }
+      // this.fetchpost('/payout/list', params).then(res => {
+      //   if(res.status == 1) {
+      //     this.$toast(res.info)
+      //     this.withdrawalList = res.data;
+      //   }else{
+      //     this.$toast(res.info);
+      //   }
+      // })
+    },
+    getShoppingList() {
+      // let params = {
+
+      // }
+      // this.fetchpost('/api', params).then(res => {
+      //   if(res.status == 1) {
+      //     this.$toast(res.info)
+      //     this.shoppingList = res.data;
+      //   }else{
+      //     this.$toast(res.info);
+      //   }
+      // })
+    },
+    getOrderList() {
+      // let params = {
+      //   amount: ''
+      // }
+      // this.fetchpost('/payin/list', params).then(res => {
+      //   if(res.status == 1) {
+      //     this.$toast(res.info)
+      //     this.orderList = res.data;
+      //   }else{
+      //     this.$toast(res.info);
+      //   }
+      // })
+    }
   },
 };
 </script>

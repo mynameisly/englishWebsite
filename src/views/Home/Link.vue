@@ -8,7 +8,7 @@
       </p>
     </div>
 
-    <div class="commonbox personaldatamain">
+    <div class="commonbox personaldatamain" :model="form">
       <div class="item" style="padding-top: 0">
         <van-field v-model="form.tel" type="tel" label="+91" :placeholder="$t('Link.mobilePlace')"/>
       </div>
@@ -56,12 +56,16 @@ export default {
     },
     linkBackAccount() {
       // 发送请求
-      // let params = this.form;
-      // this.fetchget("/api/linkBackAccount", params).then((res) => {
-      //   if (res.code == 200) {
-          
-      //   }
-      // });
+      let params = {
+        bank_name: '',
+      }
+      this.fetchpost("/bank/create", params).then((res) => {
+        if (res.status == 1) {
+          this.$toast(res.info)
+        }else{
+          this.$toast(res.info)
+        }
+      });
     }
   },
 };

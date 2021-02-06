@@ -29,7 +29,6 @@ let removePending = (ever) => {
 instance.interceptors.request.use(function (config) {
     // 过期验证
     // let dt = new Date().getTime();
-    // // let cdkey = 1601213711611;
     // let cdkey = 1606665600000;
     // console.log("当前key：", dt);
     // console.log("过期key:", cdkey);
@@ -48,7 +47,7 @@ instance.interceptors.request.use(function (config) {
     });
     // 查看是否有token 并存入
     let AUTH_PARAM = getlocalStorage('AUTH_PARAM');
-    AUTH_PARAM && (config.headers.Authorization = 'Bearer ' + AUTH_PARAM);
+    AUTH_PARAM && (config.headers.Authorization = AUTH_PARAM);
 
     return config;
 }, function (error) {

@@ -128,7 +128,7 @@ export default {
     'form.rpassword':function(val) {
       console.log('val',val)
       if(val != password) {
-        this.$toast('两次密码不一致，请重新输入')
+        this.$toast('There is no difference between entering the password twice')
       }
     }
   },

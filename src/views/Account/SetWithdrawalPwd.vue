@@ -7,7 +7,7 @@
       @click-left="onClickLeft"
     />
 
-    <div class="commonbox personaldatamain">
+    <div class="commonbox personaldatamain" :model="form">
       <div class="item" style="padding-top: 0">
         <van-field
           v-model="form.mobile"
@@ -60,19 +60,32 @@ export default {
       }
     };
   },
-  created() {},
+  mounted() {},
+  watch: {
+    'form.confirmPwd': function(val) {
+      console.log('val',val)
+      if(val != this.form.newPwd) {
+        this.$toast('There is no difference between entering the password twice')
+      }
+    }
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
     },
     setWithdrawalPwd() {
       // 发送请求
-      // let params = this.form;
-      // this.fetchget("/api/setWithdrawalPwd", params).then((res) => {
-      //   if (res.code == 200) {
-          
-      //   }
-      // });
+      let params = {
+        old_pass: this.form.oldPwd,
+        new_pass: this.form.newPwd
+      };
+      this.fetchpost("/user/change_safe_pass", params).then((res) => {
+        if (res.status == 1) {
+          this.$toast(res.info)
+        }else{
+          this.$toast(res.info)
+        }
+      });
     }
   },
 };

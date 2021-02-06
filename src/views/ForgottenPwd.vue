@@ -5,7 +5,7 @@
       left-arrow
       @click-left="onClickLeft"
     />
-    <div class="loginbox">
+    <div class="loginbox" :model="form">
       <van-field
         v-model="form.mobile"
         label="+91"
@@ -34,7 +34,7 @@
           >
             Only 6-20 letters, numbers and underscores can be entered
           </div>
-          <span class="f14">OTP</span>
+          <span class="f14" @click="sendTop">OTP</span>
         </div>
       </div>
       <van-field
@@ -85,15 +85,33 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
-    // 忘记密码事件
+    sendTop() {
+      // 发送验证码
+      if(this.form.mobile == '') {
+        this.$toast('Enter Mobile Number')
+      }
+      let params = {
+        mod: this.form.mobile
+      }
+      this.fetchpost("/send_otp", params).then(res => {
+        if(res.status == 0) {
+          this.$toast(res.info);
+        }else{
+          this.form.otp = res.data;
+        }
+      });
+    },
     forgottenPwd() {
-      // 表单转化
-      // let formData = this.formDataObject(this.form);
-      // this.fetchpost("/api/forgottenPwd", formData).then(res => {
-      //     this.$toast(res.msg);
-
-      // });
-      this.$router.push("/index/Home");
+      // 忘记密码事件
+      let params = {
+        old_pass: this.form.password,
+        new_pass: this.form.rPassword,
+      }
+      this.fetchpost("/api/user/change_login_pass", params).then(res => {
+        if(res.status == 1) {
+          this.$toast(res.info);
+        }
+      });
     },
   },
   mounted() {},

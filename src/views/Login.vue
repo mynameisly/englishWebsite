@@ -34,7 +34,6 @@
   </div>
 </template>
 <script>
-import axios from "axios";
 import { setlocalStorage, removelocalStorageKey } from "@uit/comtool";
 export default {
   name: "Login",
