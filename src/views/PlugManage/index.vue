@@ -351,6 +351,7 @@ export default {
             { label: '最新上架', value: '' },
             { label: '未归类', value: '' },
           ],
+          allPlugList: [],
           plugList: [ //全部下 table数据
 
           ]

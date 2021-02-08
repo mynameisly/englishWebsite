@@ -120,7 +120,7 @@
                                             >
                                         </div>
                                         <div class="pull-right">
-                                            <a href="/HxcFsNbkRZ.php/index/logout" class="btn btn-danger"
+                                            <a class="btn btn-danger" @click="logout"
                                                 ><i class="fa fa-sign-out"></i> 退出</a
                                             >
                                         </div>
@@ -243,6 +243,10 @@ export default {
                 }
             }
             this.fullscreen = !this.fullscreen;
+        },
+        logout() {
+            // 退出
+            this.$router.push({ path:'/Login'} );
         }
         // ...mapActions("user/", ["setUserdata"])
     }

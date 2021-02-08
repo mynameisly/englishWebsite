@@ -1,157 +1,147 @@
 <template>
-    <div class="login-wrap">
-        <div class="ms-login">
-            <div class="ms-title">allBackend</div>
-            <el-form :model="loginForm" :rules="rules" ref="login" label-width="0px" class="ms-content">
-                <el-form-item prop="number">
-                    <el-input v-model="loginForm.number" placeholder="number">
-                        <el-button slot="prepend" icon="el-icon-lx-people"></el-button>
-                    </el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input
-                        type="password"
-                        placeholder="password"
-                        v-model="loginForm.password"
-                        @keyup.enter.native="submitForm()"
-                    >
-                        <el-button slot="prepend" icon="el-icon-lx-lock"></el-button>
-                    </el-input>
-                </el-form-item>
-                <div class="login-btn">
-                    <el-button type="primary" @click="submitForm()">登录</el-button>
+    <div>
+        <div class="container">
+            <div class="login-wrapper">
+                <div class="login-screen">
+                    <div class="well">
+                        <div class="login-head">
+                            <img src="../../assets/img/login-head.png" style="width: 100%" />
+                        </div>
+                        <div class="login-form">
+                            <img id="profile-img" class="profile-img-card" src="../../assets/img/avatar.png" />
+                            <p id="profile-name" class="profile-name-card"></p>
+
+                            <form :model="form" id="login-form">
+                                <div id="errtips" class="hide msg-container"></div>
+                                <input type="hidden" name="__token__" value="9ee03419e4ae1ecd39661283a603c063" data-target="#errtips" />
+                                <div class="input-group">
+                                    <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="pd-form-username"
+                                        placeholder="用户名"
+                                        name="username"
+                                        v-model="form.username"
+                                    />
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="pd-form-password"
+                                        placeholder="密码"
+                                        name="password"
+                                        v-model="form.password"
+                                    />
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+                                    </div>
+                                    <input type="text" name="captcha" class="form-control" placeholder="验证码" v-model="form.captcha" />
+                                    <span class="input-group-addon" style="padding: 0; border: none; cursor: pointer">
+                                        <img src="/index.php?s=/captcha" width="100" height="30" @click="getCaptcha" />
+                                    </span>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <label class="inline" for="keeplogin">
+                                        <input type="checkbox" name="keeplogin" id="keeplogin" value="1" data-target="#errtips" />
+                                        保持会话
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success btn-lg btn-block" style="background: #708eea;font-size:15px" @click="login">
+                                        登 录
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </el-form>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import { login } from '@/api/login'
-import { mapGetters, mapActions } from "vuex";
 export default {
-    data: function() {
-      const validateNumber = (rule, value, callback) => {
-      var reg = /^[0-9a-zA-Z]{6,16}$/; // 账号长度必须在6-16之间，且不能包含非法字符*&#@
-      if (value === '' || value === undefined) {
-        callback(new Error('请输入用户名'))
-      } else if (value.length < 6 || value.length > 18) {
-        callback(new Error('用户名长度必须在6-16之间'))
-      } else if (value.indexOf('*') > 0 || value.indexOf('#') > 0 || value.indexOf('@') > 0 || value.indexOf('&') > 0) {
-        callback(new Error('用户名不能含有非法字符*#@&'))
-      } else {
-        if (reg.test(value)) {
-          callback()
-        }
-      }
-    }
-    const validatePass = (rule, value, callback) => {
-      var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9a-zA-Z]{6,}$/ // 密码长度必须在6-16之间，且必须包含数字和字母
-      if (value === '' || value === undefined) {
-        callback(new Error('请输入密码'))
-      } else if (value.length < 6 || value.length > 18) {
-        callback(new Error('密码长度必须在6-16之间'))
-      } else if (/^[a-z]+$/.test(value) || /^[0-9]+$/.test(value)) {
-        callback(new Error('密码必须同时包含数字和字母'))
-      } else {
-        if (reg.test(value)) {
-          callback()
-        }
-      }
-    }
-    return {
-      loginForm: {
-        number: '',
-        password: '',
-      },
-      rules: {
-        number: [{ required: true, validator: validateNumber, trigger: 'blur' }],
-        password: [{ required: true, validator: validatePass, trigger: 'blur' }]
-      },
-    };
-    },
-    computed: {
-      ...mapGetters([ "number", "headImg"])
+    data() {
+        return {
+            form: {
+                username: '',
+                password: '',
+                captcha: ''
+            }
+        };
     },
     methods: {
-        submitForm(loginForm) {
-          this.saveUserData()
-          // this.$refs.login.validate(valid => {
-          //   if (valid) {
-          //     const para = {
-          //       number: this.loginForm.number,
-          //       password: this.loginForm.password
-          //     };
-          //     console.log('用户名和密码',para)
-          //     login(para).then(res => {
-          //       console.log('登录成功之后返回的res是：',res)
-          //       if (res.data.code === 0) {
-          //         this.$message({
-          //           message: '登录成功',
-          //           type: 'success'
-          //         });
-          //         this.saveUserData(res)
-          //       } else if (res.data.code === 22) {
-          //         this.$message({
-          //           type: 'info',
-          //           message: res.data.msg
-          //         });
-          //       }
-          //     })
-          //   } else {
-          //     this.$message.error('请输入账号和密码');
-          //     console.log('error submit!!');
-          //     return false;
-          //   }
-          // });
+        getCaptcha() {
+            // 获取验证码
         },
-        saveUserData (res) {
-          // console.log('进入到saveUserData里面，返回数据是',res)
-          // const employeeId = res.data.employeeId;
-          // const number = res.data.number;
-          // const headImg = res.data.headImg;
-          // this.setUserdata({ employeeId, number, headImg });
-          this.$router.push({ path:'/dashboard'} );
-        },
-        ...mapActions("user/", ["setUserdata"])
-    },
+        login() {
+            // 登录
+            this.$router.push({ path:'/dashboard'} );
+        }
+    }
 };
 </script>
 
-<style scoped>
-.login-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-image: url(../../assets/img/login.jpg);
-    background-size: 100% 100%;
-}
-.ms-title {
-    width: 100%;
-    line-height: 50px;
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-.ms-login {
-    width: 500px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-}
-.ms-content {
-  padding: 50px 40px;
-  background: transparent;
-}
-.login-btn {
-    text-align: center;
-}
-.login-btn button {
-    width: 100%;
-    height: 36px;
-    margin-bottom: 10px;
+
+<style lang="less" scoped>
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    .login-screen {
+        max-width: 430px;
+        padding: 0;
+        margin: 100px auto 0 auto;
+        .well {
+            border-radius: 3px;
+            margin-bottom: 20px;
+            min-height: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 1);
+            border: none;
+            overflow: hidden;
+            padding: 0;
+            .login-head {
+                background: #899fe1;
+            }
+            .login-form {
+                padding: 40px 30px;
+                position: relative;
+                z-index: 99;
+                .profile-img-card {
+                    width: 100px;
+                    height: 100px;
+                    display: block;
+                    border-radius: 50%;
+                    margin: -93px auto 30px;
+                    border: 5px solid #fff;
+                }
+                #login-form {
+                    margin-top: 20px;
+                    .input-group {
+                        margin-bottom: 15px;
+                        .input-group-addon {
+                            border-radius: 0;
+                            border-color: #d2d6de;
+                            background-color: #fff;
+                        }
+                        .form-control {
+                            border-radius: 0;
+                            box-shadow: none;
+                            border-color: #d2d6de;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 </style>
