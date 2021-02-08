@@ -16,8 +16,11 @@ body {
     font-size: 13px;
     background: #F1F4FD;
 }
-
+a{
+    color: #95a5a6;
+}
 a:hover{
+    color: #95a5a6;
     text-decoration: none;
 }
 
@@ -177,3 +180,10 @@ a:hover{
 }
 
 /* reset bootstrap style */
+
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de;
+    appearance: none;
+}
