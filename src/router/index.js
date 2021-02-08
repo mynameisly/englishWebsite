@@ -104,8 +104,40 @@ export default new Router({
               {
                 path: 'member',
                 component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/Member'),
-                meta: { title: '会员管理' }
+                meta: { title: '会员管理' },
               },
+              // 一级~五级会员开始
+              {
+                path: 'firstMember',
+                component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/Member/FirstMember.vue'),
+                meta: { title: '一级会员' }
+              },
+              {
+                path: 'secondMember',
+                component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/Member/SecondMember.vue'),
+                meta: { title: '二级会员' }
+              },
+              {
+                path: 'threeMember',
+                component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/Member/ThreeMember.vue'),
+                meta: { title: '三级会员' }
+              },
+              {
+                path: 'fourMember',
+                component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/Member/FourMember.vue'),
+                meta: { title: '四级会员' }
+              },
+              {
+                path: 'fiveMember',
+                component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/Member/FiveMember.vue'),
+                meta: { title: '五级会员' }
+              },
+              {
+                path: 'totalMember',
+                component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/Member/TotalMember.vue'),
+                meta: { title: '全部' }
+              },
+              // 一级~五级会员结束
               {
                 path: 'rechargeRecord',
                 component: () => import(/* webpackChunkName: "i18n" */ '../views/MemberManage/RechargeRecord'),

@@ -10,6 +10,7 @@
             unique-opened
             router
         >
+            <!-- 一级菜单 -->
             <template v-for="item in items">
                 <template v-if="item.subs">
                     <el-submenu :index="item.index" :key="item.index">
@@ -17,20 +18,36 @@
                             <i :class="item.icon"></i>
                             <span slot="title">{{ item.title }}</span>
                         </template>
-                            <el-menu-item
-                                v-for="subItem in item.subs"
-                                :index="subItem.index"
-                                :key="subItem.index"
-                            >
-                                <i :class="subItem.icon"></i>
-                                <span >{{ subItem.title }}</span>
-                            </el-menu-item>
+
+                        <!-- 二级菜单 -->
+                        <template v-for="subItem in item.subs">
+                            <template v-if="subItem.desc">
+                                <el-submenu :index="item.index" :key="subItem.index">
+                                    <template slot="title">
+                                        <i :class="subItem.icon"></i>
+                                        <span slot="title">{{ subItem.title }}</span>
+                                    </template>
+
+                                    <!-- 三级菜单 -->
+                                    <el-menu-item v-for="descItem in subItem.desc" :index="descItem.index" :key="descItem.index">
+                                        <i :class="descItem.icon"></i>
+                                        <span >{{ descItem.title }}</span>
+                                    </el-menu-item>
+                                </el-submenu>
+                            </template>
+                            <template v-else>
+                                <el-menu-item :index="subItem.index" :key="subItem.index">
+                                    <i :class="subItem.icon"></i>
+                                    <span slot="title">{{ subItem.title }}</span>
+                                </el-menu-item>
+                            </template>
+                        </template>
                     </el-submenu>
                 </template>
                 <template v-else>
                     <el-menu-item :index="item.index" :key="item.index">
                         <i :class="item.icon"></i>
-                        <span slot="title">{{ item.menuName }}</span>
+                        <span slot="title">{{ item.title }}</span>
                     </el-menu-item>
                 </template>
             </template>
@@ -49,7 +66,7 @@ export default {
                 {
                     icon: 'el-icon-lx-home',
                     index: 'dashboard',
-                    menuName: '控制台'
+                    title: '控制台'
                 },
                 {
                     icon: 'el-icon-lx-cascades',
@@ -115,7 +132,7 @@ export default {
                 {
                     icon: 'el-icon-s-shop',
                     index: 'plugManage',
-                    menuName: '插件管理'
+                    title: '插件管理'
                 },
                 {
                     icon: 'el-icon-lx-redpacket_fill',
@@ -135,7 +152,39 @@ export default {
                         {
                             icon: 'el-icon-lx-home',
                             index: 'member',
-                            title: '会员管理'
+                            title: '会员管理',
+                            desc: [
+                                {
+                                    icon: 'el-icon-lx-home',
+                                    index: 'firstMember',
+                                    title: '一级会员'
+                                },
+                                {
+                                    icon: 'el-icon-lx-home',
+                                    index: 'secondMember',
+                                    title: '二级会员'
+                                },
+                                {
+                                    icon: 'el-icon-lx-home',
+                                    index: 'threeMember',
+                                    title: '三级会员'
+                                },
+                                {
+                                    icon: 'el-icon-lx-home',
+                                    index: 'fourMember',
+                                    title: '四级会员'
+                                },
+                                {
+                                    icon: 'el-icon-lx-home',
+                                    index: 'fiveMember',
+                                    title: '五级会员'
+                                },
+                                {
+                                    icon: 'el-icon-lx-home',
+                                    index: 'totalMember',
+                                    title: '全部'
+                                },
+                            ]
                         },
                         {
                             icon: 'el-icon-lx-home',
@@ -179,28 +228,28 @@ export default {
                     // console.log('当前登录的菜单是',res.data.data.menus)
                     let menus = res.data.data.menus
                     for (let i = 0; i < menus.length; i++){
-                        if(menus[i].menuName == '系统首页') {
+                        if(menus[i].title == '系统首页') {
                             menus[i].index = 'dashboard'
                             menus[i].icon = 'el-icon-lx-home'
-                        } else if(menus[i].menuName == '员工管理') {
+                        } else if(menus[i].title == '员工管理') {
                             menus[i].index = 'employee'
                             menus[i].icon = 'el-icon-lx-cascades'
-                        } else if(menus[i].menuName == '客房管理') {
+                        } else if(menus[i].title == '客房管理') {
                             menus[i].index = 'room'
                             menus[i].icon = 'el-icon-lx-copy'
-                        } else if(menus[i].menuName == '客房查询') {
+                        } else if(menus[i].title == '客房查询') {
                             menus[i].index = 'searchroom'
                             menus[i].icon = 'el-icon-s-shop'
-                        }else if(menus[i].menuName == '入住管理') {
+                        }else if(menus[i].title == '入住管理') {
                             menus[i].index = 'checkin'
                             menus[i].icon = 'el-icon-lx-global'
-                        } else if(menus[i].menuName == '退房记录') {
+                        } else if(menus[i].title == '退房记录') {
                             menus[i].index = 'checkout'
                             menus[i].icon = 'el-icon-lx-emoji'
-                        } else if(menus[i].menuName == '客户服务') {
+                        } else if(menus[i].title == '客户服务') {
                             menus[i].index = 'roomservice'
                             menus[i].icon = 'el-icon-lx-calendar'
-                        } else if(menus[i].menuName == '财务管理') {
+                        } else if(menus[i].title == '财务管理') {
                             menus[i].index = 'finance'
                             menus[i].icon = 'el-icon-lx-redpacket_fill'
                         }
