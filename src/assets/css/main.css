@@ -17,19 +17,17 @@ body {
     background: #F1F4FD;
 }
 
-a {
-    text-decoration: none
+a:hover{
+    text-decoration: none;
 }
-
 
 .content-box {
     position: absolute;
-    left: 250px;
+    left: 230px;
     right: 0;
     top: 0px;
     bottom: 0;
     padding-bottom: 30px;
-    -webkit-transition: left .3s ease-in-out;
     transition: left .3s ease-in-out;
 }
 
