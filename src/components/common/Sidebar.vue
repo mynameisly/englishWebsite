@@ -30,7 +30,7 @@
             :collapse="collapse"
             background-color="#222d32"
             text-color="#bfcbd9"
-            active-text-color="#20a0ff"
+            active-text-color="#fff"
             unique-opened
             router
         >
@@ -289,11 +289,10 @@ export default {
 
 <style lang="less" scoped>
 .sidebar {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0px;
     bottom: 0;
-    overflow-y: scroll;
     min-height: 100%;
     width: 230px;
     background-color: #222d32;

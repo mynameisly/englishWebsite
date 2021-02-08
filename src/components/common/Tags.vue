@@ -111,7 +111,7 @@ export default {
 </script>
 
 
-<style>
+<style lang="less">
 .tags {
     position: relative;
     height: 50px;
@@ -140,8 +140,6 @@ export default {
     padding: 0 5px 0 12px;
     vertical-align: middle;
     color: #666;
-    -webkit-transition: all 0.3s ease-in;
-    -moz-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
 }
 
@@ -150,7 +148,11 @@ export default {
 }
 
 .tags-li.active {
-    color: #fff;
+    background: rgba(0,0,0,0.02);
+    color: #333;
+    a{
+        padding: 0 15px;
+    }
 }
 
 .tags-li-title {
@@ -162,11 +164,6 @@ export default {
     margin-right: 5px;
     color: #666;
 }
-
-.tags-li.active .tags-li-title {
-    color: #fff;
-}
-
 .tags-close-box {
     position: absolute;
     right: 0;
