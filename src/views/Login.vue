@@ -50,17 +50,18 @@ export default {
     // 登录事件
     login() {
       let params = {
-        mod: this.form.mobile,
+        mob: this.form.mobile,
         pass: this.form.password,
       };
+      params = this.formDataObject(params)
       this.fetchpost("/login", params).then((res) => {
         console.log("res", res);
         if (res.status === 0) {
           this.$toast(res.info);
         } else {
-            setlocalStorage("AUTH_PARAM", res.data.token);
-            setlocalStorage("AUTH_INFO", res.data.name);
-            this.$router.push("/index");
+          setlocalStorage("AUTH_PARAM", res.data.token);
+          setlocalStorage("AUTH_INFO", res.data.name);
+          this.$router.push("/index");
         }
       });
     },

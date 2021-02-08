@@ -47,7 +47,7 @@ instance.interceptors.request.use(function (config) {
     });
     // 查看是否有token 并存入
     let AUTH_PARAM = getlocalStorage('AUTH_PARAM');
-    AUTH_PARAM && (config.headers.Authorization = AUTH_PARAM);
+    AUTH_PARAM && (config.headers.token = AUTH_PARAM);
 
     return config;
 }, function (error) {
@@ -60,27 +60,28 @@ instance.interceptors.response.use(function (response) {
     // 移除
     removePending(response.config);
     // 相应状态处理
-    const code = response.data.code;
-    // code处理
-    if (code === 401) {
-        // Toast("挂机时间过长，请重新登录！")
+    const status = response.data.status;
+    // status
+    if (status === 0) {
+        Toast(response.info)
         // 清除本地 token  userinfo 数据
         removelocalStorageKey("AUTH_PARAM", "AUTH_INFO");
         router.replace('/login');
         return false
-    } else if (code === 200) {
+    } else if (status === 1) {
         return response;
-    } else {
-        if (response.config.url === '/login') {
-            return response;
-        } else {
-            // Toast(response.data.msg);
-            throw `网络错误代码${code}！！`
-        }
-    }
+    } 
+    // else {
+    //     if (response.config.url === '/login') {
+    //         return response;
+    //     } else {
+    //         Toast(response.data.msg);
+    //         throw `网络错误代码${code}！！`
+    //     }
+    // }
 }, function (error) {
     // 对响应错误做点什么
-    // Toast("系统内部错误")
+    Toast("系统内部错误")
     return Promise.reject(error)
 });
 

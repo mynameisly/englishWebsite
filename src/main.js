@@ -19,7 +19,7 @@ Vue.prototype.fetchget = getRequest;
 Vue.prototype.fetchpost = postRequest;
 Vue.prototype.formDataObject = formDataObject;
 Vue.prototype.axios = axios;
-// Vue.prototype.$i18n = i18n; //TODO：写上就报错
+Vue.prototype.i18n = i18n; //TODO
 
 Vue.use(Vant);
 Vue.config.productionTip = false

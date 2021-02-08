@@ -14,7 +14,7 @@
       </li>
     </ul>
 
-    <div v-show="current == 0" ref="wallet" class="Wallet">
+    <div v-show="current == 0" ref="wallet" class="Recharge">
       <div role="feed" class="van-list">
         <div>
           <div
@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <div v-show="current == 2" ref="withdrawal" class="Withdrawal">
+    <div v-show="current == 2" ref="withdrawal" class="Recharge">
       <div role="feed" class="van-list">
         <div>
           <div
@@ -63,10 +63,10 @@
             :key="index"
           >
             <div>
-              <p class="p1">{{ item.name }}</p>
-              <span>{{ item.time }}</span>
+              <p class="p1">{{ item.amount }}</p>
+              <span>{{ item.created_at }}</span>
             </div>
-            <b class=""> {{ item.money }} </b>
+            <b class=""> {{ item.order_no }} </b>
           </div>
         </div>
 
@@ -74,7 +74,7 @@
       </div>
     </div>
 
-    <div v-show="current == 3" ref="shopping" class="Shopping">
+    <div v-show="current == 3" ref="shopping" class="Recharge">
       <div role="feed" class="van-list">
         <div>
           <div
@@ -94,7 +94,7 @@
       </div>
     </div>
 
-    <div v-show="current == 4" ref="order" class="Order">
+    <div v-show="current == 4" ref="order" class="Recharge">
       <div role="feed" class="van-list">
         <div>
           <div
@@ -212,18 +212,14 @@ export default {
       // })
     },
     getWithdrawalList() {
-      // let params = {
-      //   amount: '',
-      //   bank_id: ''
-      // }
-      // this.fetchpost('/payout/list', params).then(res => {
-      //   if(res.status == 1) {
-      //     this.$toast(res.info)
-      //     this.withdrawalList = res.data;
-      //   }else{
-      //     this.$toast(res.info);
-      //   }
-      // })
+      this.fetchget('/payout/list').then(res => {
+        if(res.status == 1) {
+          this.withdrawalList = res.data;
+          console.log('Withdrawal res',this.withdrawalList)
+        }else{
+          this.$toast(res.info);
+        }
+      })
     },
     getShoppingList() {
       // let params = {
@@ -238,18 +234,14 @@ export default {
       //   }
       // })
     },
-    getOrderList() {
-      // let params = {
-      //   amount: ''
-      // }
-      // this.fetchpost('/payin/list', params).then(res => {
-      //   if(res.status == 1) {
-      //     this.$toast(res.info)
-      //     this.orderList = res.data;
-      //   }else{
-      //     this.$toast(res.info);
-      //   }
-      // })
+    getOrderList() { //TODO
+      this.fetchget('/payin/list').then(res => {
+        if(res.status == 1) {
+          this.orderList = res.data;
+        }else{
+          this.$toast(res.info);
+        }
+      })
     }
   },
 };

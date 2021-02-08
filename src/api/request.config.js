@@ -4,6 +4,6 @@ export const REQUEST_BASICS = {
     timeout: 6000,
     // 发送请求时头部信息
     headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
     },
 }

@@ -75,12 +75,19 @@ export default {
       form: {
         mobile: "",
         otp: "",
-        password: "",
+        newPassword: "",
         rPassword: "",
       },
+      oldPassword: "",
     };
   },
-
+  watch:{
+    'form.rPassword':function(val) {
+      if(val != this.form.newPassword) {
+        this.$toast('There is no difference between entering the password twice')
+      }
+    }
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
@@ -91,23 +98,28 @@ export default {
         this.$toast('Enter Mobile Number')
       }
       let params = {
-        mod: this.form.mobile
+        mob: this.form.mobile
       }
+      params = this.formDataObject(params)
       this.fetchpost("/send_otp", params).then(res => {
+        console.log('res',res)
         if(res.status == 0) {
           this.$toast(res.info);
         }else{
           this.form.otp = res.data;
+          this.$toast(res.data)
         }
       });
     },
     forgottenPwd() {
       // 忘记密码事件
       let params = {
-        old_pass: this.form.password,
-        new_pass: this.form.rPassword,
+        old_pass: this.oldPassword,
+        new_pass: this.form.newPassword,
       }
-      this.fetchpost("/api/user/change_login_pass", params).then(res => {
+      params = this.formDataObject(params);
+      this.fetchpost("/user/change_login_pass", params).then(res => {
+        console.log('change_login_pass res',res)
         if(res.status == 1) {
           this.$toast(res.info);
         }

@@ -191,7 +191,7 @@ export default {
   },
   methods: {
     init() {
-      // this.username = getlocalStorage('AUTH_INFO').username; //从本地缓存获取用户名
+      this.username = getlocalStorage('AUTH_INFO'); //从本地缓存获取用户名
       this.getImagesArr();
       this.getTaskList();
     },

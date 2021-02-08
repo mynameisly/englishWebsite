@@ -126,8 +126,7 @@ export default {
   },
   watch:{
     'form.rpassword':function(val) {
-      console.log('val',val)
-      if(val != password) {
+      if(val != this.form.password) {
         this.$toast('There is no difference between entering the password twice')
       }
     }
@@ -137,27 +136,31 @@ export default {
     // 注册事件
     Signup() {
       let params = {
-        mode: this.form.mobile,
+        mob: this.form.mobile,
         pass: this.form.password,
         name: this.form.username,
         ver_code: this.form.otp,
         invite_code: this.form.invitationCode,
       }
+      params = this.formDataObject(params)
       this.fetchpost("/register", params).then(res => {
         this.$toast(res.msg);
-        this.$router.push("/Login");
       });
     },
 
     // 发送验证码
     sendOtp() {
       let params = {
-        mod: this.form.mobile
+        mob: this.form.mobile
       }
+      params = this.formDataObject(params)
       this.fetchpost("/send_otp", params).then(res => {
-        console.log('rse',res)
+        console.log('res',res)
         if(res.status == 0) {
           this.$toast(res.info);
+        }else{
+          this.form.otp = res.data;
+          this.$toast(res.data)
         }
       });
     }

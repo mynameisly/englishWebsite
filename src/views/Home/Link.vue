@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { getlocalStorage } from "@uit/comtool";
 export default {
   name: "Link",
   data() {
@@ -47,9 +48,15 @@ export default {
         backName: "",
         ifscCode: "",
       },
+      account_holder: '',
+      token: ''
     };
   },
-  created() {},
+  mounted() {
+    this.account_holder = getlocalStorage('AUTH_INFO'); //从本地缓存获取用户名
+    this.token = getlocalStorage('AUTH_PARAM'); //从本地缓存获取token
+    this.lang = this.i18n.locale;
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
@@ -57,13 +64,28 @@ export default {
     linkBackAccount() {
       // 发送请求
       let params = {
-        bank_name: '',
+        bank_name: this.form.backName,
+        bank_addr: this.form.accountName,
+        ifsc: this.form.ifscCode,
+        account_holder: this.account_holder,
+        bank_account: this.form.accountNumber
       }
-      this.fetchpost("/bank/create", params).then((res) => {
-        if (res.status == 1) {
-          this.$toast(res.info)
+      params = this.formDataObject(params);
+      this.axios.post(
+        '/bank/create',
+        params,
+        {
+          headers: {
+            'token': this.token,
+            'lang': this.lang
+          }
+        }
+        ).then((res) => {
+          console.log('res',res)
+        if (res.data.status == 1) {
+          this.$toast(res.data.info)
         }else{
-          this.$toast(res.info)
+          this.$toast(res.data.info)//TODO
         }
       });
     }
