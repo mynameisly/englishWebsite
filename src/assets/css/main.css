@@ -14,7 +14,8 @@ body,
 body {
     font-family: 'PingFang SC', "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
     font-size: 13px;
-    background: #F1F4FD;
+    /* background: #F1F4FD; */
+    background: #f1f4f6;
 }
 a{
     color: #95a5a6;

@@ -14,8 +14,7 @@
             <ul>
                 <li>
                     <a href="/" target="_blank">
-                    <i class="el-icon-delete"></i>
-                    <!-- <i class="fa fa-home" style="font-size: 14px"></i> -->
+                    <i class="fa fa-home" style="font-size: 14px"></i>
                     </a>
                 </li>
 
@@ -23,42 +22,36 @@
                     <!-- 清除缓存 -->
                     <el-dropdown>
                         <a href="/" target="_blank">
-                        <i class="el-icon-delete"></i>
-                        <!-- <i class="fa fa-home" style="font-size: 14px"></i> -->
+                        <i class="fa fa-home" style="font-size: 14px"></i>
                         </a>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item>
                                 <template>
-                                    <i class="el-icon-delete"></i>
-                                    <!-- <i class="fa fa-trash"></i> -->
+                                    <i class="fa fa-trash"></i>
                                     <span>清空缓存</span>
                                 </template>
                             </el-dropdown-item>
                             <el-dropdown-item divided>
                                 <template>
-                                    <i class="el-icon-delete"></i>
-                                    <!-- <i class="fa fa-trash"></i> -->
+                                    <i class="fa fa-trash"></i>
                                     <span>一键清除缓存</span>
                                 </template>
                             </el-dropdown-item>
                             <el-dropdown-item>
                                 <template>
-                                    <i class="el-icon-delete"></i>
-                                    <!-- <i class="fa fa-file-text"></i> -->
+                                    <i class="fa fa-file-text"></i>
                                     <span>清空内容缓存</span>
                                 </template>
                             </el-dropdown-item>
                             <el-dropdown-item>
                                 <template>
-                                    <i class="el-icon-delete"></i>
-                                    <!-- <i class="fa fa-file-image-o"></i> -->
+                                    <i class="fa fa-file-image-o"></i>
                                     <span>清除模板缓存</span>
                                 </template>
                             </el-dropdown-item>
                             <el-dropdown-item>
                                 <template>
-                                    <i class="el-icon-delete"></i>
-                                    <!-- <i class="fa fa-rocket"></i> -->
+                                    <i class="fa fa-rocket"></i>
                                     <span>清除插件缓存</span>
                                 </template>
                             </el-dropdown-item>
@@ -75,15 +68,13 @@
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item>
                                 <template>
-                                    <i class="el-icon-delete"></i>
-                                    <!-- <i class="fa fa-trash"></i> -->
+                                    <i class="fa fa-trash"></i>
                                     <span>简体中文</span>
                                 </template>
                             </el-dropdown-item>
                             <el-dropdown-item>
                                 <template>
-                                    <i class="el-icon-delete"></i>
-                                    <!-- <i class="fa fa-file-text"></i> -->
+                                    <i class="fa fa-file-text"></i>
                                     <span>English</span>
                                 </template>
                             </el-dropdown-item>
@@ -93,8 +84,7 @@
                 <li>
                     <!-- 全屏按钮 -->
                     <a href="#" data-toggle="fullscreen" @click="handleFullScreen">
-                        <i class="el-icon-delete"></i>
-                        <!-- <i class="fa fa-arrows-alt"></i> -->
+                        <i class="fa fa-arrows-alt"></i>
                         </a>
                 </li>
                 <li>
@@ -132,8 +122,7 @@
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="control-sidebar">
-                        <i class="el-icon-delete"></i>
-                        <!-- <i class="fa fa-gears"></i> -->
+                        <i class="fa fa-gears"></i>
                         </a>
                 </li>
             </ul>
@@ -262,7 +251,7 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    box-shadow: 0 5px 10px #ddd;
+    box-shadow: 0 1px 4px rgba(0,21,41,0.08);
     .collapse-btn {
         width: 3%;
         text-align: center;
@@ -280,7 +269,6 @@ export default {
         ul{
             display: flex;
             justify-content: flex-start;
-            border: 1px solid red;
             li{
                 width: 20%;
                 list-style: none;

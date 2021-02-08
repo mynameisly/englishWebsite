@@ -7,6 +7,12 @@
     @import "./assets/css/main.css";
     @import "./assets/css/color-dark.css";     /*深色主题*/
     /*@import "./assets/css/theme-green/color-green.css";   浅绿色主题*/
+.panel {
+    background-color: #fff;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
 .panel-intro {
     .panel-heading {
         padding: 15px;
