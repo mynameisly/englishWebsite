@@ -38,7 +38,7 @@ export default {
     addAddress() {
       // 发送请求
       // let params = this.form;
-      // this.fetchget("/api/addAddress", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/addAddress", params).then((res) => {
       //   if (res.code == 200) {
           
       //   }

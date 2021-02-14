@@ -79,7 +79,7 @@ export default {
         old_pass: this.form.oldPwd,
         new_pass: this.form.newPwd
       };
-      this.fetchpost("/user/change_safe_pass", params).then((res) => {
+      this.fetchpost(this.baseUrl+"/user/change_safe_pass", params).then((res) => {
         if (res.status == 1) {
           this.$toast(res.info)
         }else{

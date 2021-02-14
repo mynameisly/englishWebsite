@@ -23,7 +23,8 @@ Vue.prototype.i18n = i18n; //TODO
 
 Vue.use(Vant);
 Vue.config.productionTip = false
-console.log('env：', process.env.NODE_ENV);
+Vue.prototype.baseUrl = 'http://dev.ninepay.in/api';
+console.log('env：', process.env.NODE_ENV,Vue.prototype.baseUrl);
 
 
 new Vue({

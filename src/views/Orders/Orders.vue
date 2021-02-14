@@ -105,7 +105,7 @@ export default {
     },
     getData() {
       // let params = {}
-      // this.fetchget('/api/getData', params).then((res) => {
+      // this.fetchget(this.baseUrl+'/getData', params).then((res) => {
       //   if(res.code == 200) {
       //     this.Commission = '0';
       //     this.Received = '0';
@@ -116,7 +116,7 @@ export default {
     },
     getReceiveList() {
       // let params = {}
-      // this.fetchget('/api/getReceiveList', params).then((res) => {
+      // this.fetchget(this.baseUrl+'/getReceiveList', params).then((res) => {
       //   if(res.code == 200) {
       //     this.receiveList = res.data.getReceiveList;
       //   }
@@ -126,7 +126,7 @@ export default {
       // 开始
       this.isStart = true;
       // let params = {};
-      // this.fetchget("/api/start", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/start", params).then((res) => {
       //   if (res.code == 200) {
       //      this.isStart = false;
       //   }
@@ -135,7 +135,7 @@ export default {
     stop() {
       // 停止
       // let params = {};
-      // this.fetchget("/api/start", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/start", params).then((res) => {
       //   if (res.code == 200) {
       //   }
       // });

@@ -44,7 +44,7 @@ export default {
     checkin() {
       // 发送请求
       // let params = {};
-      // this.fetchget("/api/checkin", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/checkin", params).then((res) => {
       //   if (res.code == 200) {
       //   }
       // });

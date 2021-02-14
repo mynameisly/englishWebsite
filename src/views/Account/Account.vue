@@ -185,7 +185,7 @@ export default {
     getAccountData() {
       // 发送请求获取邀请码
       // let params = {};
-      // this.fetchget("/api/getAccountData", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/getAccountData", params).then((res) => {
       //   if (res.code == 200) {
       //   }
       // });

@@ -143,7 +143,7 @@ export default {
         invite_code: this.form.invitationCode,
       }
       params = this.formDataObject(params)
-      this.fetchpost("/register", params).then(res => {
+      this.fetchpost(this.baseUrl+"/register", params).then(res => {
         this.$toast(res.msg);
       });
     },
@@ -154,7 +154,7 @@ export default {
         mob: this.form.mobile
       }
       params = this.formDataObject(params)
-      this.fetchpost("/send_otp", params).then(res => {
+      this.fetchpost(this.baseUrl+"/send_otp", params).then(res => {
         console.log('res',res)
         if(res.status == 0) {
           this.$toast(res.info);

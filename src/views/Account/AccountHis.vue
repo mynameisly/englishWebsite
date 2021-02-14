@@ -189,7 +189,7 @@ export default {
       // let params = {
         
       // }
-      // this.fetchpost('/api', params).then(res => {
+      // this.fetchpost(this.baseUrl+'/', params).then(res => {
       //   if(res.status == 1) {
       //     this.$toast(res.info)
       //     this.walletList = res.data;
@@ -202,7 +202,7 @@ export default {
       // let params = {
 
       // }
-      // this.fetchpost('/api', params).then(res => {
+      // this.fetchpost(this.baseUrl+'/', params).then(res => {
       //   if(res.status == 1) {
       //     this.$toast(res.info)
       //     this.rechargeList = res.data;
@@ -212,7 +212,7 @@ export default {
       // })
     },
     getWithdrawalList() {
-      this.fetchget('/payout/list').then(res => {
+      this.fetchget(this.baseUrl+'/payout/list').then(res => {
         if(res.status == 1) {
           this.withdrawalList = res.data;
           console.log('Withdrawal res',this.withdrawalList)
@@ -225,7 +225,7 @@ export default {
       // let params = {
 
       // }
-      // this.fetchpost('/api', params).then(res => {
+      // this.fetchpost(this.baseUrl+'/', params).then(res => {
       //   if(res.status == 1) {
       //     this.$toast(res.info)
       //     this.shoppingList = res.data;
@@ -235,7 +235,7 @@ export default {
       // })
     },
     getOrderList() { //TODO
-      this.fetchget('/payin/list').then(res => {
+      this.fetchget(this.baseUrl+'/payin/list').then(res => {
         if(res.status == 1) {
           this.orderList = res.data;
         }else{

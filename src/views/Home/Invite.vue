@@ -32,7 +32,7 @@ export default {
     getQcode() {
       // 获取二维码图片
       // let params = {};
-      // this.fetchget("/api/getQcode", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/getQcode", params).then((res) => {
       //   if(res.code == 200) {
       //     this.qCodeUrl = res.qCodeUrl;
       //   }

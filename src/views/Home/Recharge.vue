@@ -76,7 +76,7 @@ export default {
     next() {
       // 下一步发送请求
       // let params = {}
-      // this.fetchpost("/api/next",params).then(() => {
+      // this.fetchpost(this.baseUrl+"/next",params).then(() => {
       //   if(res.code == 200) {
 
       //   }

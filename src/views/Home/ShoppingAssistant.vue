@@ -76,7 +76,7 @@ export default {
     getShoppingData() {
       // 发送请求
       // let params = this.form;
-      // this.fetchget("/api/linkBackAccount", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/linkBackAccount", params).then((res) => {
       //   if (res.code == 200) {
           
       //   }

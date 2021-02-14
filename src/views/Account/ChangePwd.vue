@@ -77,7 +77,7 @@ export default {
     changePwd() {
       // 发送请求
       // let params = this.form;
-      // this.fetchget("/api/changePwd", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/changePwd", params).then((res) => {
       //   if (res.code == 200) {
           
       //   }

@@ -198,7 +198,7 @@ export default {
     getImagesArr() {
       // 获取轮播图列表
       // let params = {};
-      // this.fetchget("/api/getImagesArr", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/getImagesArr", params).then((res) => {
       //   if (res.code == 200) {
       //     this.imagesArr = res.data.imagesArr;
       //   }
@@ -207,7 +207,7 @@ export default {
     getTaskList() {
       // 获取task列表
       // let params = {};
-      // this.fetchget("/api/getTaskList", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/getTaskList", params).then((res) => {
       //   if (res.code == 200) {
       //     this.taskList = res.data.taskList;
       //   }

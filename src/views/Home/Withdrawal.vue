@@ -87,7 +87,7 @@ export default {
         amount: amountVal,
         bank_id: '', //当前页面有个子组件  还没有写(参考网站上打不开子组件)  bank_id从子组件传过来
       };
-      this.fetchpost("/payout/create", params).then((res) => {
+      this.fetchpost(this.baseUrl+"/payout/create", params).then((res) => {
         if (res.status == 1) {
           this.$toast(res.info)
         }else{

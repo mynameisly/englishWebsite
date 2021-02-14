@@ -49,12 +49,13 @@ export default {
   methods: {
     // 登录事件
     login() {
+      console.log('1111',this.baseUrl)
       let params = {
         mob: this.form.mobile,
         pass: this.form.password,
       };
       params = this.formDataObject(params)
-      this.fetchpost("/login", params).then((res) => {
+      this.fetchpost(this.baseUrl+"/login", params).then((res) => {
         console.log("res", res);
         if (res.status === 0) {
           this.$toast(res.info);

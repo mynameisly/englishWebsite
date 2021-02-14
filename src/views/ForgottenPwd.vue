@@ -101,7 +101,7 @@ export default {
         mob: this.form.mobile
       }
       params = this.formDataObject(params)
-      this.fetchpost("/send_otp", params).then(res => {
+      this.fetchpost(this.baseUrl+"/send_otp", params).then(res => {
         console.log('res',res)
         if(res.status == 0) {
           this.$toast(res.info);
@@ -118,7 +118,7 @@ export default {
         new_pass: this.form.newPassword,
       }
       params = this.formDataObject(params);
-      this.fetchpost("/user/change_login_pass", params).then(res => {
+      this.fetchpost(this.baseUrl+"/user/change_login_pass", params).then(res => {
         console.log('change_login_pass res',res)
         if(res.status == 1) {
           this.$toast(res.info);

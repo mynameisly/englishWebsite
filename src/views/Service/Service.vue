@@ -75,7 +75,7 @@ export default {
     getServiceData() {
       // 发送请求
       // let params = {};
-      // this.fetchget("/api/getServiceData", params).then((res) => {
+      // this.fetchget(this.baseUrl+"/getServiceData", params).then((res) => {
       //   if (res.code == 200) {
           
       //   }
