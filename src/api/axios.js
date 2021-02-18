@@ -1,8 +1,8 @@
 import axios from 'axios'
 import router from '@/router'
-// import {
-//     Toast
-// } from 'vant'
+import {
+    Toast
+} from 'vant'
 import {
     REQUEST_BASICS
 } from './request.config'
@@ -57,6 +57,7 @@ instance.interceptors.request.use(function (config) {
 
 // 添加响应拦截器
 instance.interceptors.response.use(function (response) {
+    console.log('0',response)
     // 移除
     removePending(response.config);
     // 相应状态处理
@@ -80,6 +81,7 @@ instance.interceptors.response.use(function (response) {
     //     }
     // }
 }, function (error) {
+    console.log('01',error)
     // 对响应错误做点什么
     Toast("系统内部错误")
     return Promise.reject(error)

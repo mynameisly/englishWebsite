@@ -97,14 +97,14 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="/Activity">
+        <!-- <van-cell is-link to="/Activity">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Activity.png" />
               <span class="item-text">{{$t('Account.activity')}}</span>
             </div>
           </template>
-        </van-cell>
+        </van-cell> -->
         <van-cell is-link to="/System">
           <template slot="title">
             <div class="item">
@@ -132,14 +132,14 @@
             </div>
           </template>
         </van-cell>
-        <van-cell is-link to="/Address">
+        <!-- <van-cell is-link to="/Address">
           <template slot="title">
             <div class="item">
               <img src="../../static/img/Account/Address.png" />
               <span class="item-text">{{$t('Account.address')}}</span>
             </div>
           </template>
-        </van-cell>
+        </van-cell> -->
         <van-cell is-link to="/index/Service">
           <template slot="title">
             <div class="item">

@@ -73,15 +73,17 @@ export default {
       this.getServiceData();
     },
     getServiceData() {
+      console.log('1')
       // 发送请求
-      // let params = {};
-      // this.fetchget(this.baseUrl+"/getServiceData", params).then((res) => {
-      //   if (res.code == 200) {
-          
-      //   }
-      // });
-      this.recharge = 'WhatsApp：+91 735 470 9554';
-      this.activity = 'WhatsApp：+91 896 604 8523';
+      let params = {};
+      this.fetchget(this.baseUrl+"/service/info", params).then((res) => {
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.recharge = res.data[0].value;
+          this.activity = res.data[1].value;
+        }
+      });
     },
     copyRecharge() {
        // 复制邀请码
