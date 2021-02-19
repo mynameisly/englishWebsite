@@ -22,7 +22,7 @@
         <div class="f14 chui">{{$t('Personal.nickname')}}</div>
 
         <div class="flex aic chui">
-          <div class="chuiName">234****5678</div>
+          <div class="chuiName">{{nickname}}</div>
           <i class="van-icon van-icon-arrow"></i>
         </div>
       </div>
@@ -30,7 +30,7 @@
         <div class="f14 chui">{{$t('Personal.mobile')}}</div>
 
         <div class="flex aic chui">
-          <div class="chuiName">234****5678</div>
+          <div class="chuiName">{{mobile}}</div>
           <i class="van-icon van-icon-arrow"></i>
         </div>
       </div>
@@ -42,13 +42,28 @@
 export default {
   name: "Personal",
   data() {
-    return {};
+    return {
+      nickname: 'zhangsan',
+      mobile: '234****5678'
+    };
   },
-  created() {},
+  mounted() {
+    this.getUserInfo();
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
     },
+    getUserInfo() {
+      this.fetchget(this.baseUrl+"/user/info", {}).then((res) => {
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.nickname = res.data.name;
+          this.mobile = res.data.mob;
+        }
+      });
+    }
   },
 };
 </script>

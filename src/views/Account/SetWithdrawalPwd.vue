@@ -12,7 +12,7 @@
         <van-field
           v-model="form.mobile"
           type="tel"
-          :label="$t('SetWithdrawalPwd.oldPwdLabel')"
+          :label="$t('SetWithdrawalPwd.mobile')"
           readonly
           placeholder="Enter Mobile Number."
         />

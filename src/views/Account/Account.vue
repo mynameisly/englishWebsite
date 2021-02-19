@@ -13,7 +13,7 @@
               <div class="f18 hl20 namebox">
                 <h3 class="fw7">2345678</h3>
                 &nbsp;
-                <p class="grade">LV.1</p>
+                <p class="grade">LV.{{ level }}</p>
               </div>
               <p class="f14 hl20 fw7">ID:239622</p>
             </div>
@@ -168,11 +168,12 @@ export default {
   name: "Account",
   data() {
     return {
-      inviteCode: "", //邀请码
-      balance: "",
-      history: "",
-      shopping: "",
-      inReview: "",
+      inviteCode: "00639Q", //邀请码
+      balance: "0",
+      history: "-- --",
+      shopping: "0",
+      inReview: "0",
+      level: "1",
     };
   },
   mounted() {
@@ -184,16 +185,20 @@ export default {
     },
     getAccountData() {
       // 发送请求获取邀请码
-      // let params = {};
-      // this.fetchget(this.baseUrl+"/getAccountData", params).then((res) => {
-      //   if (res.code == 200) {
-      //   }
-      // });
-      this.inviteCode = "00639Q";
-      this.balance = "0";
-      this.history = "-- --";
-      this.shopping =  "0";
-      this.inReview =  "0";
+      let params = { //参数从哪里来的？
+        amout: '1000',
+        amount: '100'
+      };
+      this.fetchget(this.baseUrl+"/user/info", params).then((res) => {
+        console.log("res", res);
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.inviteCode = res.data.code;
+          this.balance = res.data.balace;
+          this.level = res.data.level;
+        }
+      });
     },
     copyInviteCode() {
       // 复制邀请码

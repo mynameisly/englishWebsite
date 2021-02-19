@@ -10,22 +10,22 @@
     <div class="container">
       <div class="accountDetails">
         <div class="Available">
-          <p>{{ $t('ShoppersAs.balance') }}</p>
-          <p>{{balance}}</p>
+          <p>{{ $t("ShoppersAs.balance") }}</p>
+          <p>{{ balance }}</p>
         </div>
         <div class="Shopping">
-          <p>{{ $t('ShoppersAs.shoping') }}</p>
-          <p>{{shoping}}</p>
+          <p>{{ $t("ShoppersAs.shoping") }}</p>
+          <p>{{ shoping }}</p>
         </div>
         <div class="Available">
-          <p>{{ $t('ShoppersAs.total') }}</p>
-          <p>{{total}}</p>
+          <p>{{ $t("ShoppersAs.total") }}</p>
+          <p>{{ total }}</p>
         </div>
       </div>
 
       <div class="balanceInto public-bg">
         <p class="balanceInto-title">
-          {{ $t('ShoppersAs.balanceTitle') }}
+          {{ $t("ShoppersAs.balanceTitle") }}
         </p>
         <van-cell-group>
           <van-cell title="单元格">
@@ -36,24 +36,39 @@
                   type="text"
                   :placeholder="$t('ShoppersAs.balancePlace')"
                   class="van-field__control"
+                  :value="form.amount"
                 />
               </div>
             </template>
           </van-cell>
         </van-cell-group>
-        <p class="standard">{{ $t('ShoppersAs.incomeTitle') }}</p>
-        <ul class="profit"></ul>
+        <p class="standard">{{ $t("ShoppersAs.incomeTitle") }}</p>
+        <ul class="profit">
+          <li
+            v-for="(item, index) in incomeList"
+            :key="index"
+            @click="clickItem(index)"
+            :style="{
+              backgroundColor: index == current ? '#fd6c26' : '#fff',
+              color: index == current ? '#fff' : '#000',
+            }"
+          >
+            {{ item.count_day }} &nbsp; Days/ &nbsp; <span style="color: #fd6c26" :style="{
+              color: index == current ? '#fff' : '#fd6c26',
+            }">+{{ item.in_come }}0%</span> 
+          </li>
+        </ul>
         <div class="choice">
-          <button>{{ $t('ShoppersAs.outBtn') }}</button>
-          <button>{{ $t('ShoppersAs.inBtn') }}</button>
+          <button>{{ $t("ShoppersAs.outBtn") }}</button>
+          <button @click="transferIn">{{ $t("ShoppersAs.inBtn") }}</button>
         </div>
       </div>
 
       <div class="explain public-bg">
         <p class="explain-title">
-          <span>{{ $t('ShoppersAs.explainTitle') }}</span>
+          <span>{{ $t("ShoppersAs.explainTitle") }}</span>
         </p>
-        <p class="explain-center">{{ $t('ShoppersAs.explainVal') }}</p>
+        <p class="explain-center">{{ $t("ShoppersAs.explainVal") }}</p>
       </div>
     </div>
   </div>
@@ -66,30 +81,99 @@ export default {
     return {
       balance: "",
       shoping: "",
-      total: ""
+      total: "",
+      form: {
+        amount: "", //投资金额
+      },
+      current: "0",
+      incomeList: [
+        {
+          count_day: 3,
+          in_come: 1.4,
+        },
+        {
+          count_day: 7,
+          in_come: 1.9,
+        },
+        {
+          count_day: 15,
+          in_come: 2.1,
+        },
+        {
+          count_day: 30,
+          in_come: 2.5,
+        },
+      ],
     };
   },
   mounted() {
-    this.getShoppingData()
+    // this.getIncomeList();
+    this.getShoppingData();
   },
   methods: {
+    getIncomeList() {
+      // 获取投资列表
+      let params = {};
+      params = this.formDataObject(params);
+      this.fetchget(this.baseUrl + "/income/list", params).then((res) => {
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.incomeList = res.data;
+        }
+      });
+    },
     getShoppingData() {
       // 发送请求
       // let params = this.form;
       // this.fetchget(this.baseUrl+"/linkBackAccount", params).then((res) => {
       //   if (res.code == 200) {
-          
+
       //   }
       // });
       this.balance = 0;
       this.shoping = 0;
-      this.total = 0
+      this.total = 0;
+    },
+    transferIn() {
+      // 投资
+      Dialog.confirm({
+        title: "Tip",
+        message: "Determine the deposit?",
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel",
+      })
+        .then(() => {
+          // on confirm
+          let params = this.form;
+          params = this.formDataObject(params);
+          this.fetchpost(this.baseUrl + "/income/create", params).then(
+            (res) => {
+              if (res.status === 0) {
+                this.$toast(res.info);
+              } else {
+                if (this.form.amount < 500) {
+                  this.$toast("The minimum deposit amount is ₹500.00");
+                }
+
+                // TODO
+              }
+            }
+          );
+        })
+        .catch(() => {
+          // on cancel
+          this.$router.go(-1);
+        });
     },
     onClickLeft() {
       this.$router.go(-1);
     },
+    clickItem(index) {
+      this.current = index;
+    },
     onClickRight() {
-      this.$router.push({path: '/ShopRecords'});
+      this.$router.push({ path: "/ShopRecords" });
     },
   },
 };
@@ -157,6 +241,24 @@ export default {
         font-size: 13px;
         font-weight: 700;
         margin: 20px 0 11px;
+      }
+      .profit {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          width: 101px;
+          height: 40px;
+          line-height: 40px;
+          border-radius: 5px;
+          font-size: 12px;
+          color: #000;
+          border: 1px solid #fd6c26;
+          text-align: center;
+          margin-bottom: 5px;
+        }
+        li:nth-child(2) {
+          margin: 0 4px;
+        }
       }
       .choice {
         display: flex;

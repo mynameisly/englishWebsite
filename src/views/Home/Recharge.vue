@@ -22,7 +22,7 @@
         <input
           maxlength="9"
           type="number"
-          :value="amountVal"
+          :value="form.amountVal"
           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')};"
           :placeholder="$t('Recharge.amoutPlace')"
           class="commoninput"
@@ -61,7 +61,9 @@ export default {
     return {
       active: 1,
       radio: "",
-      amountVal: "",
+      form: {
+        amountVal: "",
+      },
       amountList: ['5,000.00','10,000.00','50,000.00','100,000.00','500,000.00','3,000,000.00']
     };
   },
@@ -75,12 +77,15 @@ export default {
     },
     next() {
       // 下一步发送请求
-      // let params = {}
-      // this.fetchpost(this.baseUrl+"/next",params).then(() => {
-      //   if(res.code == 200) {
-
-      //   }
-      // })
+      let params = this.form;
+      params = this.formDataObject(params)
+      this.fetchpost(this.baseUrl+"/payin/create",params).then(() => {
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          window.location.href=res.data;
+        }
+      })
     }
   },
 };

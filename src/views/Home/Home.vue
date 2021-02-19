@@ -50,10 +50,10 @@
           <p>{{ $t('Home.menu.Platform') }}</p>
         </van-grid-item>
 
-        <van-grid-item class="menu-wrapper" @click="goVideo">
+        <!-- <van-grid-item class="menu-wrapper" @click="goVideo">
           <img src="../../static/img/Video.png" alt />
           <p>{{ $t('Home.menu.Video') }}</p>
-        </van-grid-item>
+        </van-grid-item> -->
       </van-grid>
     </div>
 
@@ -95,7 +95,7 @@
           </div>
           <p>
             <span>{{ item.order_count }} {{ $t('Home.viptit.Orders') }}</span>
-            <span>{{ $t('Home.viptit.Reward') }} {{ item.in_come + '%'}}</span>
+            <span>{{ item.in_come + '%'}} {{ $t('Home.viptit.Reward') }}</span>
           </p>
           <div class="level">{{ 'LV.'+item.level }}</div>
         </li>
@@ -107,7 +107,8 @@
       <div class="h5-bj">
         <div class="h5-popup">
           <div class="ld"></div>
-          <p v-html="$t('Home.popup.content')"></p>
+          <!-- <p v-html="$t('Home.popup.content')"></p> -->
+          <p>{{ content }}</p>
         </div>
         <van-button round class="popBtn" @click="confirmTip">{{ $t('Home.popup.btn') }}</van-button> 
       </div>
@@ -129,61 +130,62 @@ export default {
         },
       ],
       taskList: [ // task列表
-        {
-          title: 'Myntra',
-          money: '250.00',
-          icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABuElEQVQ4T63UPWgUQRjG8f87eyaIqIWFGA/ubmOhEBTRQhQFLWxsreJHeWZ3FWKVzkupgih6udPOwo/KzsoiqIilnSCYW08LsbBQUoUk+8iuTZKL3hzJMOW+v3ln5tkxBhyqhzsJFqdwQ+OgCsv6jAWP2V2+bdOvl2wQT/WR/QxtmyXL9oCKicsJA2WfWPh5whtU/cgWSr+7oBHQe0SDYLlDpjHM3YLgAOitPxhVxrHSU1j6aK2vYyt3puvlrSyUfkCwwx9MaveRu4YWL1n725O1R6WoehcLJv3BOHwIXMFx3prpi14wnMK4OQBYewB2FccFa6bPesC42gA37Q9OVBs4dwO5M9aee9MDJmETkZii8kFs+DKohIogrBlZHo0M2SngENgr0BzSPMO6Y/e6v/ICRfuOQXbclNSEvBtdsVheI6yVrio2xeE6XfnH3R/828Bz0C6ws/9awh9UFlm7m0cFxaMvQefWQ/1BOGmt9F0BJrVHyOobA82+20xnryYqh3HBh41vOX9DWqkpHj0Nmt0UELiIOIoxuVlg3/wMcil9sfyHsHbnv8Ge768UX2wvXmnLsJkvq8A/NW60lN7vFxsAAAAASUVORK5CYII=",
-          imgUrl: 'https://api.theshoppers.app/files/admin/15e9d9707154ceff0c765aa1.jpg',
-          order_count: '60',
-          in_come: '2.5%',
-          level: 'LV.1'
-        },
-        {
-          title: 'Snapdeal',
-          money: '250.00',
-          icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
-          imgUrl: 'https://api.theshoppers.app/files/admin/3812fb22646b87efc451cf70.png',
-          order_count: '60',
-          in_come: '3%',
-          level: 'LV.2'
-        },
-        {
-          title: 'Paytm Mall',
-          money: '50,000.00',
-          icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
-          imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
-          order_count: '60',
-          in_come: '3.5%',
-          level: 'LV.3'
-        },
-        {
-          title: 'Paytm Mall',
-          money: '50,000.00',
-          icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
-          imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
-          order_count: '60',
-          in_come: '3.5%',
-          level: 'LV.3'
-        },
-        {
-          title: 'Paytm Mall',
-          money: '50,000.00',
-          icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
-          imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
-          order_count: '60',
-          in_come: '3.5%',
-          level: 'LV.3'
-        },
-        {
-          title: 'Paytm Mall',
-          money: '50,000.00',
-          icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
-          imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
-          order_count: '60',
-          in_come: '3.5%',
-          level: 'LV.3'
-        },
-      ]
+        // {
+        //   title: 'Myntra',
+        //   money: '250.00',
+        //   icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABuElEQVQ4T63UPWgUQRjG8f87eyaIqIWFGA/ubmOhEBTRQhQFLWxsreJHeWZ3FWKVzkupgih6udPOwo/KzsoiqIilnSCYW08LsbBQUoUk+8iuTZKL3hzJMOW+v3ln5tkxBhyqhzsJFqdwQ+OgCsv6jAWP2V2+bdOvl2wQT/WR/QxtmyXL9oCKicsJA2WfWPh5whtU/cgWSr+7oBHQe0SDYLlDpjHM3YLgAOitPxhVxrHSU1j6aK2vYyt3puvlrSyUfkCwwx9MaveRu4YWL1n725O1R6WoehcLJv3BOHwIXMFx3prpi14wnMK4OQBYewB2FccFa6bPesC42gA37Q9OVBs4dwO5M9aee9MDJmETkZii8kFs+DKohIogrBlZHo0M2SngENgr0BzSPMO6Y/e6v/ICRfuOQXbclNSEvBtdsVheI6yVrio2xeE6XfnH3R/828Bz0C6ws/9awh9UFlm7m0cFxaMvQefWQ/1BOGmt9F0BJrVHyOobA82+20xnryYqh3HBh41vOX9DWqkpHj0Nmt0UELiIOIoxuVlg3/wMcil9sfyHsHbnv8Ge768UX2wvXmnLsJkvq8A/NW60lN7vFxsAAAAASUVORK5CYII=",
+        //   imgUrl: 'https://api.theshoppers.app/files/admin/15e9d9707154ceff0c765aa1.jpg',
+        //   order_count: '60',
+        //   in_come: '2.5%',
+        //   level: 'LV.1'
+        // },
+        // {
+        //   title: 'Snapdeal',
+        //   money: '250.00',
+        //   icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
+        //   imgUrl: 'https://api.theshoppers.app/files/admin/3812fb22646b87efc451cf70.png',
+        //   order_count: '60',
+        //   in_come: '3%',
+        //   level: 'LV.2'
+        // },
+        // {
+        //   title: 'Paytm Mall',
+        //   money: '50,000.00',
+        //   icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
+        //   imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
+        //   order_count: '60',
+        //   in_come: '3.5%',
+        //   level: 'LV.3'
+        // },
+        // {
+        //   title: 'Paytm Mall',
+        //   money: '50,000.00',
+        //   icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
+        //   imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
+        //   order_count: '60',
+        //   in_come: '3.5%',
+        //   level: 'LV.3'
+        // },
+        // {
+        //   title: 'Paytm Mall',
+        //   money: '50,000.00',
+        //   icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
+        //   imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
+        //   order_count: '60',
+        //   in_come: '3.5%',
+        //   level: 'LV.3'
+        // },
+        // {
+        //   title: 'Paytm Mall',
+        //   money: '50,000.00',
+        //   icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAACaklEQVQ4T42UzUuUURSHn3NnNBtFKrXJlBo1JKQWLQopghZBUBhYtLAIEkJ0NGobEbipqEURkeYspJVEWPQBhbjxH4iWBmWS3x8FzaijM/N6T7yTNc6ME53VeznnPvzOOb/7ChmhLbWleBMnUc4j1IMI6EdU+5ClN9I1P7P+iqw/6KXAFnxcBXMZdCuwCKJAUfLbhWj0rjyZnftz7y9Az9XlUxptQjy3UVuAyHNw3qF5DsYeR81FQFC9RUG8Rx5MLLuQFOBKRSWr+f2o1CH2PnnRbh7OzQNK+95taKwZuAEyjpNolND4SDqgLVCPePpRjWLjp6Rn4nNae607AojvFaLliDTz+Ot7dzhJBeoqCdacAPsUZAIn0iCh79NpgORwnV7QwyjXGB59JkM4qRZa9xxDbB+GSRKrpyX0bSNACOQoaoP4R19IJzaloGX3Abye18AM8VgjlZNTDGGSKspQSvwlmMJu0COoacY/MpAEaGsggLH7wXMQ6AD5CXoH7A/EeJMAtQ5WijGmHahFbS+GIax8Em2rGkRkH+ADLQKxvyHWgllr0SpqDGgxol5UlkCXERkTDVYvrBkl05T/cdYV0WDVLMj2DapjwDjoKrALZHNWjbIgGqyZBN2ZkXRABlFu4tE4luvAGWBTRl1YtK16CqE8PaFhVDrxmm4efYkTrDoLpgu0LAMQyQHAAd5iEh1oYQyN3wO9AJKpICfAtecYaAO6HMH4BpLry45Irhm4gGmwTWAXwfsScQeZFWF3CzMg/uycrqDyATSBcAjEl2ML//SBui8NST37DEjMNdIwSoX7q/gP56wvMSDhX9M5BwDnwOdIAAAAAElFTkSuQmCC',
+        //   imgUrl: 'https://api.theshoppers.app/files/admin/f8c2a76d1995e53309fa6074.webp',
+        //   order_count: '60',
+        //   in_come: '3.5%',
+        //   level: 'LV.3'
+        // },
+      ],
+      content: '', //公告内容
     };
   },
   mounted() {
@@ -194,6 +196,7 @@ export default {
       this.username = getlocalStorage('AUTH_INFO'); //从本地缓存获取用户名
       this.getImagesArr();
       this.getTaskList();
+      this.getNoticeLast();
     },
     getImagesArr() {
       // 获取轮播图列表
@@ -212,6 +215,16 @@ export default {
           this.$toast(res.info);
         } else {
           this.taskList = res.data;
+        }
+      });
+    },
+    getNoticeLast() {
+      // 获取最新公告
+      this.fetchpost(this.baseUrl+"/notice/last", params).then((res) => {
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.content = res.data.Content;
         }
       });
     },
@@ -246,9 +259,9 @@ export default {
     goPlatform() {
       this.$router.push({ path: "/Platform" });
     },
-    goVideo() {
-      this.$router.push({ path: "/Video" });
-    },
+    // goVideo() {
+    //   this.$router.push({ path: "/Video" });
+    // },
   },
 };
 </script>
