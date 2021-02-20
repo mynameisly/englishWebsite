@@ -15,6 +15,7 @@ const ShoppingAssistant = () => import( /* webpackChunkname:"vipProfitAndLoss" *
 const Recharge = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Recharge');
 const Link = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Link');
 const Withdrawal = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Withdrawal');
+const BankCardList = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/BankCardList');
 const Invite = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Invite');
 const Rules = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Rules');
 const Cooperative = () => import( /* webpackChunkname:"vipProfitAndLoss" */ '@vie/Home/Cooperative');
@@ -138,6 +139,12 @@ const routes = [{
 	name: 'Withdrawal',
 	explain: 'Withdrawal',
 	component: Withdrawal
+},
+{
+	path: '/BankCardList',
+	name: 'BankCardList',
+	explain: 'BankCardList',
+	component: BankCardList
 },
 {
 	path: '/Link',

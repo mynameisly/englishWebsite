@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="commonbox pd10 f16 flex jc-sb">
+    <div class="commonbox pd10 f16 flex jc-sb" @click="$router.push({path: '/BankCardList'})">
       <p>{{ $t('Withdrawal.cardTitle') }}</p>
       <i class="van-icon van-icon-arrow"></i>
     </div>
