@@ -11,11 +11,11 @@
             <img src="../../static/img/txpic.00e8c08.png" alt="" />
             <div>
               <div class="f18 hl20 namebox">
-                <h3 class="fw7">2345678</h3>
+                <h3 class="fw7">{{ mob || '2345678' }}</h3>
                 &nbsp;
                 <p class="grade">LV.{{ level }}</p>
               </div>
-              <p class="f14 hl20 fw7">ID:239622</p>
+              <p class="f14 hl20 fw7">{{ name || 'ID:239622' }}</p>
             </div>
           </div>
           <div class="signin">
@@ -174,6 +174,8 @@ export default {
       shopping: "0",
       inReview: "0",
       level: "1",
+      mob: "",
+      name: ""
     };
   },
   mounted() {
@@ -185,18 +187,20 @@ export default {
     },
     getAccountData() {
       // 发送请求获取邀请码
-      let params = { //参数从哪里来的？
-        amout: '1000',
+      let params = { //参数从哪里来的?
         amount: '100'
       };
+      params = this.formDataObject(params);
       this.fetchget(this.baseUrl+"/user/info", params).then((res) => {
-        console.log("res", res);
+        console.log("用户信息res", res);
         if (res.status === 0) {
           this.$toast(res.info);
         } else {
           this.inviteCode = res.data.code;
           this.balance = res.data.balace;
           this.level = res.data.level;
+          this.mob = res.data.mob;
+          this.name = res.data.name;
         }
       });
     },
