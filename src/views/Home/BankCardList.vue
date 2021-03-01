@@ -10,6 +10,8 @@
             class="flex jc-sb aic walletLogbox"
             v-for="(item, index) in bankCardList"
             :key="index"
+            @click="selectBankCard(index,item)"
+            :style="{border: index == current ? '3px solid #000' : ''}"
           >
             <div>
               <p class="p1">{{ item.bank_name }}</p>
@@ -33,6 +35,7 @@ export default {
   bank_name: "bankcardList",
   data() {
     return {
+      current: -1, // 当前选中银行卡
       bankCardList: [
         {
           bank_name: "HDFC bank",
@@ -77,6 +80,7 @@ export default {
         amount: 900,
       };
       this.fetchget(this.baseUrl + "/bank/list", params).then((res) => {
+        console.log('id',res)
         if (res.status === 0) {
           this.$toast(res.info);
         } else {
@@ -87,6 +91,11 @@ export default {
     onClickLeft() {
       this.$router.go(-1);
     },
+    selectBankCard(index,item) {
+      // 选择银行卡
+      this.current = index;
+      sessionStorage.setItem('currentId',item.id)
+    }
   },
 };
 </script>

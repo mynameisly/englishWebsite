@@ -1,97 +1,115 @@
 <template>
   <div class="Withdrawal">
-    <van-nav-bar :title="$t('Withdrawal.title')" left-arrow @click-left="onClickLeft" />
-     <div class="commonbox pd10">
+    <van-nav-bar
+      :title="$t('Withdrawal.title')"
+      left-arrow
+      @click-left="onClickLeft"
+    />
+    <div class="commonbox pd10">
       <p class="f12 chui">
-        <span class="orange f14">{{ $t('Withdrawal.tip') }}</span>
-        {{ $t('Withdrawal.tipVal') }}
+        <span class="orange f14">{{ $t("Withdrawal.tip") }}</span>
+        {{ $t("Withdrawal.tipVal") }}
       </p>
     </div>
 
     <div class="commonbox rechargeinput">
-      <p>{{ $t('Withdrawal.amountTile') }}</p>
+      <p>{{ $t("Withdrawal.amountTile") }}</p>
       <div class="flex aic f26 mt-20">
         <b>₹</b>
         <input
           :placeholder="$t('Withdrawal.amountPlace')"
           maxlength="9"
           type="number"
-          :value="amountVal"
+          v-model="amountVal"
           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')};"
           class="commoninput"
         />
       </div>
       <div class="flex jc-sb">
         <p class="f12 mt-10 chui">
-          {{ $t('Withdrawal.balance') }}
+          {{ $t("Withdrawal.balance") }}
           <span>₹0</span>
         </p>
         <p class="f12 mt-10 chui">
-          {{ $t('Withdrawal.min') }}
+          {{ $t("Withdrawal.min") }}
           <span>₹255.00</span>
         </p>
       </div>
     </div>
 
-    <div class="commonbox pd10 f16 flex jc-sb" @click="$router.push({path: '/BankCardList'})">
-      <p>{{ $t('Withdrawal.cardTitle') }}</p>
+    <div
+      class="commonbox pd10 f16 flex jc-sb"
+      @click="$router.push({ path: '/BankCardList' })"
+    >
+      <p>{{ $t("Withdrawal.cardTitle") }}</p>
       <i class="van-icon van-icon-arrow"></i>
     </div>
 
-    <div class="confirm" @click="Withdraw">{{ $t('Withdrawal.btn') }}</div>
+    <div class="confirm" @click="Withdraw">{{ $t("Withdrawal.btn") }}</div>
   </div>
 </template>
 
 <script>
-import {Dialog} from 'vant';
+import { Dialog } from "vant";
 export default {
   name: "Withdrawal",
   data() {
     return {
       isBackCard: false, //是否绑定了银行卡
-      amountVal: ''
+      amountVal: "",
+      bank_id: "", //当前选择的银行卡的ID
     };
   },
   mounted() {
     this.init();
+    this.bank_id = sessionStorage.getItem('currentId');
   },
   methods: {
     init() {
-      this.hasBackCard();
+      // this.hasBackCard();
     },
     hasBackCard() {
       // 检测是否绑定了银行卡
-      if(!this.isBackCard) {
+      if (!this.isBackCard) {
         Dialog.confirm({
-        title: this.$t('Withdrawal.dialogTip'),
-        message: this.$t('Withdrawal.dialogContent'),
-        confirmButtonText: this.$t('Withdrawal.dialogConfirmBtn'),
-        cancelButtonText: this.$t('Withdrawal.dialogCancelBtn'),
-      })
-        .then(() => {
-          // on confirm
-          this.$router.push({path: '/Link'})
+          title: this.$t("Withdrawal.dialogTip"),
+          message: this.$t("Withdrawal.dialogContent"),
+          confirmButtonText: this.$t("Withdrawal.dialogConfirmBtn"),
+          cancelButtonText: this.$t("Withdrawal.dialogCancelBtn"),
         })
-        .catch(() => {
-          // on cancel
-          this.$router.go(-1)
-        });
+          .then(() => {
+            // on confirm
+            this.$router.push({ path: "/Link" });
+          })
+          .catch(() => {
+            // on cancel
+            this.$router.go(-1);
+          });
       }
     },
     onClickLeft() {
       this.$router.go(-1);
     },
     Withdraw() {
+      if (
+        this.bank_id == "" ||
+        this.bank_id == undefined ||
+        this.bank_id == null
+      ) {
+        this.$toast("Please Select a Bank Card!");
+        return;
+      }
       // 发送请求
       let params = {
-        amount: amountVal,
-        bank_id: '', //当前页面有个子组件  还没有写(参考网站上打不开子组件)  bank_id从子组件传过来
+        amount: this.amountVal,
+        bank_id: this.bank_id, //当前页面有个子组件  还没有写(参考网站上打不开子组件)  bank_id从子组件传过来
       };
-      this.fetchpost(this.baseUrl+"/payout/create", params).then((res) => {
+      params = this.formDataObject(params)
+      this.fetchpost(this.baseUrl + "/payout/create", params).then((res) => {
         if (res.status == 1) {
-          this.$toast(res.info)
-        }else{
-          this.$toast(res.info)
+          this.$toast(res.info);
+        } else {
+          this.$toast(res.info);
         }
       });
     },

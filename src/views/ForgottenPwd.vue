@@ -119,7 +119,6 @@ export default {
       }
       params = this.formDataObject(params);
       this.fetchpost(this.baseUrl+"/user/change_login_pass", params).then(res => {
-        console.log('change_login_pass res',res)
         if(res.status == 1) {
           this.$toast(res.info);
         }
