@@ -220,7 +220,15 @@ export default {
     },
     getNoticeLast() {
       // 获取最新公告
-      this.fetchpost(this.baseUrl+"/notice/last", params).then((res) => {
+      let token = getlocalStorage("AUTH_PARAM");
+      console.log('home token',token);
+      let params = {
+        token: token
+      }
+      params = this.formDataObject(params);
+      console.log('公告参数',params)
+      this.fetchget(this.baseUrl+"/notice/last", params).then((res) => {
+        console.log('公告',res);
         if (res.status === 0) {
           this.$toast(res.info);
         } else {

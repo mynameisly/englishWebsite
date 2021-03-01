@@ -8,7 +8,7 @@
     />
 
     <div class="commonbox personaldatamain">
-      <div class="item" style="padding-top: 0;">
+      <div class="item" style="padding-top: 0">
         <van-field
           v-model="form.mobile"
           type="tel"
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="confirm" @click="changePwd">{{ $t('ChangePwd.btn') }}</div>
+    <div class="confirm" @click="changePwd">{{ $t("ChangePwd.btn") }}</div>
   </div>
 </template>
 
@@ -60,13 +60,13 @@ export default {
   name: "ChangePwd",
   data() {
     return {
-      form:{
+      form: {
         mobile: "+91234****5678",
         oldPwd: "",
         withdrawalPwd: "",
         newPwd: "",
-        confirmPwd: ""
-      }
+        confirmPwd: "",
+      },
     };
   },
   created() {},
@@ -76,13 +76,19 @@ export default {
     },
     changePwd() {
       // 发送请求
-      // let params = this.form;
-      // this.fetchget(this.baseUrl+"/changePwd", params).then((res) => {
-      //   if (res.code == 200) {
-          
-      //   }
-      // });
-    }
+      let params = {
+        old_pass: this.from.oldPwd,
+        new_pass: this.from.newPwd,
+      };
+      params = this.formDataObject(params);
+      this.fetchget(this.baseUrl + "/changePwd", params).then((res) => {
+        if (res.status == 0) {
+          this.$toast(res.info);
+        } else {
+          this.$toast(res.info);
+        }
+      });
+    },
   },
 };
 </script>

@@ -55,7 +55,6 @@ export default {
       };
       params = this.formDataObject(params)
       this.fetchpost(this.baseUrl+"/login", params).then((res) => {
-      // this.fetchpost(this.baseUrl+"/login", params).then((res) => {
         console.log("res", res);
         if (res.status === 0) {
           this.$toast(res.info);
