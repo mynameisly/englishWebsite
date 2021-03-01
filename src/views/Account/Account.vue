@@ -192,7 +192,6 @@ export default {
       };
       params = this.formDataObject(params);
       this.fetchget(this.baseUrl+"/user/info", params).then((res) => {
-        console.log("用户信息res", res);
         if (res.status === 0) {
           this.$toast(res.info);
         } else {

@@ -77,11 +77,13 @@ export default {
     changePwd() {
       // 发送请求
       let params = {
-        old_pass: this.from.oldPwd,
-        new_pass: this.from.newPwd,
+        old_pass: this.form.oldPwd,
+        new_pass: this.form .newPwd,
       };
+      console.log('params',params)
       params = this.formDataObject(params);
-      this.fetchget(this.baseUrl + "/changePwd", params).then((res) => {
+      this.fetchpost(this.baseUrl + "/user/change_login_pass", params).then((res) => {
+        console.log('rse1111',res)
         if (res.status == 0) {
           this.$toast(res.info);
         } else {
