@@ -6,13 +6,16 @@
       @click-left="onClickLeft"
     />
     <div class="wrapper">
-      <p>{{ $t('Platform.content.p1') }}</p>
+      <p>
+        {{ content }}
+      </p>
+      <!-- <p>{{ $t('Platform.content.p1') }}</p>
       <p v-html="$t('Platform.content.p2')"></p>
       <p>{{ $t('Platform.content.p3') }}</p>
       <p>{{ $t('Platform.content.p4') }}</p>
       <p>{{ $t('Platform.content.p5') }}</p>
       <p v-html="$t('Platform.content.p6')"></p>
-      <p v-html="$t('Platform.content.p7')"></p>
+      <p v-html="$t('Platform.content.p7')"></p> -->
     </div>
   </div>
 </template>
@@ -21,13 +24,32 @@
 export default {
   name: "Platform",
   data() {
-    return {};
+    return {
+      content: ""
+    };
   },
-  created() {},
+  mounted() {
+    this.init();
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
     },
+    init() {
+      console.log('enter')
+      let params = {
+        id: 3
+      };
+      params = this.formDataObject(params)
+      this.fetchget(this.baseUrl+"/single/info", params).then((res) => {
+        console.log("Platform res", res);
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.content = res.data.Contents;
+        }
+      });
+    }
   },
 };
 </script>

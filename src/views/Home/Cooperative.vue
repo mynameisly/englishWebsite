@@ -6,11 +6,14 @@
       @click-left="onClickLeft"
     />
     <div class="wrapper">
-      <p v-html="$t('Cooperative.content.p1')"></p>
+      <p>
+        {{ content }}
+      </p>
+      <!-- <p v-html="$t('Cooperative.content.p1')"></p>
       <p v-html="$t('Cooperative.content.p2')"></p>
       <p>{{ $t('Cooperative.content.p3') }}</p>
       <p>{{ $t('Cooperative.content.p4') }}</p>
-      <p>{{ $t('Cooperative.content.p5') }}</p>
+      <p>{{ $t('Cooperative.content.p5') }}</p> -->
     </div>
   </div>
 </template>
@@ -19,13 +22,31 @@
 export default {
   name: "Cooperative",
   data() {
-    return {};
+    return {
+      content: ""
+    };
   },
-  created() {},
+  mounted() {
+    this.init();
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
     },
+    init() {
+      let params = {
+        id: 2
+      };
+      params = this.formDataObject(params)
+      this.fetchget(this.baseUrl+"/single/info", params).then((res) => {
+        console.log("Cooperatice res", res);
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.content = res.data.Contents;
+        }
+      });
+    }
   },
 };
 </script>

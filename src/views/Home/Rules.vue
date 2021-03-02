@@ -2,9 +2,12 @@
   <div class="Rules">
     <van-nav-bar :title="$t('Rules.title')" left-arrow @click-left="onClickLeft" />
     <div class="wrapper">
-      <p>{{ $t('Rules.content.p1') }}</p>
+      <p>
+        {{ content }}
+      </p>
+      <!-- <p>{{ $t('Rules.content.p1') }}</p>
       <p>{{ $t('Rules.content.p2') }}</p>
-      <p>{{ $t('Rules.content.p3') }}</p>
+      <p>{{ $t('Rules.content.p3') }}</p> -->
     </div>
   </div>
 </template>
@@ -13,13 +16,30 @@
 export default {
   name: "Rules",
   data() {
-    return {};
+    return {
+      content: ""
+    };
   },
-  created() {},
+  mounted() {
+    this.init();
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1);
     },
+    init() {
+      let params = {
+        id: 1
+      };
+      params = this.formDataObject(params)
+      this.fetchget(this.baseUrl+"/single/info", params).then((res) => {
+        if (res.status === 0) {
+          this.$toast(res.info);
+        } else {
+          this.content = res.data.Contents;
+        }
+      });
+    }
   },
 };
 </script>
