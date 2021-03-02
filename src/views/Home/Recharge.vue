@@ -22,7 +22,7 @@
         <input
           maxlength="9"
           type="number"
-          :value="form.amountVal"
+          v-model="form.amountVal"
           oninput="if(this.value=='00'){this.value='0';}else{this.value=this.value.replace(/[^0-9]/g,'')};"
           :placeholder="$t('Recharge.amoutPlace')"
           class="commoninput"
@@ -77,9 +77,11 @@ export default {
     },
     next() {
       // 下一步发送请求
-      let params = this.form;
+      let params = {
+        amount: this.form.amountVal
+      }
       params = this.formDataObject(params)
-      this.fetchpost(this.baseUrl+"/payin/create",params).then(() => {
+      this.fetchpost(this.baseUrl+"/payin/create",params).then(res => {
         if (res.status === 0) {
           this.$toast(res.info);
         } else {

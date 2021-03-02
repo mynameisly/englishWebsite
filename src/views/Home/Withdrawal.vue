@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     init() {
-      // this.hasBackCard();
+      this.hasBackCard();
     },
     hasBackCard() {
       // 检测是否绑定了银行卡

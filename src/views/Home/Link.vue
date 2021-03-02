@@ -9,9 +9,9 @@
     </div>
 
     <div class="commonbox personaldatamain" :model="form">
-      <div class="item" style="padding-top: 0">
+      <!-- <div class="item" style="padding-top: 0">
         <van-field v-model="form.tel" type="tel" label="+91" :placeholder="$t('Link.mobilePlace')"/>
-      </div>
+      </div> -->
       <div class="item">
         <van-field v-model="form.accountName" :label="$t('Link.accountNameLabel')" :placeholder="$t('Link.accountNamePlace')" />
       </div>
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       form: {
-        tel: "",
+        // tel: "",
         accountName: "",
         accountNumber: "",
         backName: "",
